@@ -1,0 +1,2098 @@
+# TODO: classify test data as transitive when relevant
+# TODO: instead of true/false, make external point to what it is
+# TODO: instead of true/false, make transitive point to what the between is
+cacti:
+  kafka:
+    - kind: compatibility
+      places: [code]
+      description: Just a lang string to show proper title on graphs
+  net-snmp:
+    - kind: requirement
+      places: [code, docs]
+      required: true
+      description: Cacti requires a SNMP implementation (php-snpm, net-snpm)
+    
+cadvisor:
+  elasticsearch:
+    - kind: integration
+      places: [code, docs]
+      description: Supported storage driver
+  grafana:
+    - kind: mention
+      transitive: true
+      places: [docs]
+      description: Mentioned in docs for prometheus instrumentation
+  influxdb:
+    - kind: integration
+      places: [code, docs]
+      description: Supported storage driver
+  jaeger:
+    - kind: library
+      transitive: true
+      places: [lockfile]
+      description: Client appears as transitive dependency for influxdb integration
+  kafka:
+    - kind: integration
+      places: [code, docs]
+      description: Supported storage driver
+  opentelemetry:
+    - kind: library
+      transitive: true
+      places: [lockfile]
+      description: SDK, exporter, protocol, and other libraries appear as transitive dependency for docker integration
+  prometheus:
+    - kind: instrumentation
+      places: [code, docs]
+      description: Exported metrics format
+    - kind: library
+      places: [code, lockfile]
+      description: SDK is used to export metrics
+    - kind: integration
+      places: [code, docs]
+      description: Supported storage driver
+    
+calico:
+  cacti:
+    - kind: false-positive
+      places: [wordlist]
+      description: Appears in a wordlist
+  cadvisor:
+    - kind: library
+      transitive: true
+      places: [lockfile, tests]
+      description: Appears as transitive dependency of end-to-end kubernetes tests
+  elasticsearch:
+    - kind: upstream-tooling
+      transitive: true
+      places: [tooling, config]
+      description: Configuration for semaphore
+    - kind: mention
+      places: [docs]
+      description: Appears in example for templating and endpoint
+    - kind: integration
+      places: [code]
+      transitive: true
+      description: Collects some kubectl diagnostics
+  fluentd:
+    - kind: mention
+      places: [code-comment]
+      description: Minor workaround for compatibility in log format
+    - kind: data
+      places: [tests]
+      transitive: true
+      description: Appears in test data due to kubernetes integration
+    - kind: integration
+      places: [code]
+      transitive: true
+      description: Collects some kubectl diagnostics
+  grafana:
+    - kind: upstream-tooling
+      transitive: true
+      places: [tooling]
+      description: Used by upstream to run together with prometheus
+  kibana:
+    - kind: upstream-tooling
+      transitive: true
+      places: [tooling]
+      description: Configuration for semaphore
+    - kind: integration
+      places: [code]
+      transitive: true
+      description: Collects some kubectl diagnostics
+  opentelemetry:
+    - kind: library
+      transitive: true
+      places: [lockfile]
+      description: Libraries appear in lockfile as transitive dependency for kubernetes integration
+  prometheus:
+    - kind: instrumentation
+      places: [code, docs]
+      description: Exported metrics format
+    - kind: library
+      places: [code, lockfile]
+      description: SDK is used to export metrics
+  snort:
+    - kind: false-positive
+      places: [wordlist]
+      description: Appears in a wordlist
+  zipkin:
+    - kind: example
+      transitive: true
+      places: [packaging]
+      description: Appears in kubernetes manifest
+    
+ceilometer:
+  kafka:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as notifier backend
+  monasca:
+    - kind: integration
+      historical: true
+      places: [docs]
+      description: In the past, could be used as publisher target. Removed in 2023 (d2e247cf3)
+  opentelemetry:
+    - kind: integration
+      places: [code]
+      description: Can be used as publisher target
+  prometheus:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as publisher target (pushgateway)
+    - kind: library
+      places: [lockfile, code]
+      description: Prometheus_client used as library
+    
+chronograf:
+  elasticsearch:
+    - kind: integration
+      places: [docs, data]
+      transitive: true
+      description: Integrates with telegraf
+  influxdb:
+    - kind: integration
+      places: [docs, code]
+      description: Part of the TICK stack (storage source)
+    - kind: integration
+      places: [lockfile, code]
+      description: Used as library for influxql module
+  jaeger:
+    - kind: library
+      transitive: true
+      places: [lockfile]
+      description: Libraries appear in lockfile as transitive dependency for kapacitor and influxdb integration
+  kafka:
+    - kind: integration
+      places: [code]
+      description: Can be used as alert target
+    - kind: library
+      places: [lockfile, code]
+      description: Is used as client library
+  kapacitor:
+    - kind: integration
+      places: [docs, code]
+      description: Part of the TICK stack (alert manager)
+    - kind: library
+      places: [lockfile, code]
+      description: Is used as library
+  prometheus:
+    - kind: library
+      transitive: true
+      places: [lockfile]
+      description: Appears as dependency for kapacitor
+    - kind: integration
+      places: [code]
+      description: UI code supports prometheus InfluxDB functions
+  telegraf:
+    - kind: integration
+      places: [code, docs]
+      description: Part of the TICK stack (collector)
+  zenoss:
+    - kind: integration
+      places: [code, docs]
+      description: Integrates with zenoss alerts
+  zipkin:
+    - kind: library
+      places: [lockfile]
+      description: Client/bindings appear as transitive dependency
+      transitive: true
+    
+collectd:
+  ganglia:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as data source
+  grafana:
+    - kind: mention
+      places: [docs]
+      description: Mentioned in example
+  influxdb:
+    - kind: integration
+      places: [code]
+      description: Can be used as storage target
+  kafka:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as storage target
+  logstash:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as format target
+  nagios:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as notification target
+    - kind: compatibility
+      places: [code, docs]
+      description: Nagios plugins can be used
+  net-snmp:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as data source
+  opentelemetry:
+    - kind: unknown
+      places: [code]
+      description: Appears as opentelemetry-proto as part of github actions (reason unknown)
+  opentsdb:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as storage target
+  prometheus:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as storage target
+  snort:
+    - kind: mention
+      places: [comments, docs]
+      description: Mentioned in example for csv integration
+  syslog-ng:
+    - kind: integration
+      places: [docs]
+      description: Can be used as storage target
+    
+collectl:
+  ganglia:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as storage/format target
+    
+elasticsearch:
+  cacti:
+    - kind: false-positive
+      places: [wordlist]
+      description: Appears in a wordlist
+  calico:
+    - kind: false-positive
+      places: [wordlist]
+      description: Appears in a wordlist
+  ganglia:
+    - kind: false-positive
+      places: [wordlist]
+      description: Appears in a wordlist
+  jaeger:
+    - kind: mention
+      places: [data]
+      description: Appears in example in template-resources
+  kafka:
+    - kind: data
+      places: [tests]
+      description: Appears as test data
+    - kind: mention
+      places: [docs]
+      external: true
+      description: Can be used as source
+  kepler:
+    - kind: false-positive
+      places: [wordlist]
+      description: Appears in a wordlist
+  kibana:
+    - kind: integration
+      places: [code, docs]
+      description: Part of the ELK stack (visualization)
+  logstash:
+    - kind: integration
+      places: [code, docs]
+      description: Part of the ELK stack (ingestion, processing)
+  nagios:
+    - kind: integration
+      places: [code]
+      description: Can be used as source format
+  opentelemetry:
+    - kind: instrumentation
+      places: [code, docs]
+      description: Exported metrics format
+    - kind: library
+      places: [code]
+      description: Used as library for instrumentation
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as data source
+  prometheus:
+    - kind: mention
+      places: [docs]
+      description: Mentioned in docs as source for practices
+    - kind: data
+      places: [tests]
+      description: Appears in test data
+  skydive:
+    - kind: false-positive
+      places: [wordlist]
+      description: Appears in a wordlist
+  snort:
+    - kind: false-positive
+      places: [wordlist]
+      description: Appears in a wordlist
+  zabbix:
+    - kind: mention
+      external: true
+      places: [docs]
+      description: Integration/template from zabbix's side is mentioned
+  
+elastic_beats:
+  cadvisor:
+    - kind: mention
+      places: [comment]
+      description: Appears in comment for design choice
+    - kind: data
+      places: [docs]
+      transitive: true
+      description: Appears in sample data in docs for prometheus integration
+  calico:
+    - kind: integration
+      # minor: true
+      places: [code]
+      description: Process is filtered out of auditbeat
+  elasticsearch:
+    - kind: integration
+      places: [code, docs]
+      description: Part of the ELK stack (search engine)
+  fluentd:
+    - kind: data
+      places: [tests]
+      description: Appears in test data
+  grafana:
+    - kind: data
+      places: [tests]
+      description: Appears in test data
+      transitive: true
+    - kind: library
+      places: [lockfile]
+      transitive: true
+      description: Namespace (regexp) appears in transitive dependencies (prometheus)
+  influxdb:
+    - kind: data
+      places: [tests]
+      description: Appears in test data
+      transitive: true
+    - kind: mention
+      places: [docs]
+      transitive: true
+      description: Telegraf integration is mentioned
+  jaeger:
+    - kind: data
+      places: [tests]
+      description: Appears in test data
+    - kind: integration
+      # minor: true
+      places: [code]
+      description: Field mapping
+  kafka:
+    - kind: data
+      places: [tests]
+      description: Appears in test data
+    - kind: integration
+      places: [docs, code]
+      description: Can be used as data source
+    - kind: integration
+      places: [docs, code]
+      description: Can be used as output target
+  kibana:
+    - kind: integration
+      places: [docs, code]
+      description: Part of the ELK stack
+  logstash:
+    - kind: integration
+      places: [docs, code]
+      description: Part of the ELK stack
+  nagios:
+    - kind: mention
+      places: [docs]
+      description: A nagios check community beat is available
+    - kind: data
+      places: [tests]
+      description: Appears in test data
+  net-snmp:
+    - kind: data
+      places: [tests]
+      description: Appears in test result log
+  opentelemetry:
+    - kind: library
+      places: [lockfile, code]
+      description: Used as library
+  prometheus:
+    - kind: data
+      places: [tests]
+      description: Appears in test data
+    - kind: compatibility
+      places: [code, docs]
+      description: Metricbeat can scrap from prometheus-compatible exporters
+  snort:
+    - kind: integration
+      historical: true
+      places: [docs]
+      description: Could be used as data source (filebeat)
+  telegraf:
+    - kind: data
+      places: [tests]
+      description: Appears in test data
+      transitive: true
+    - kind: mention
+      places: [docs]
+      description: Mentioned in docs for influxdb integration
+      transitive: true
+  zabbix:
+    - kind: data
+      places: [tests]
+      description: Appears in test data
+      transitive: true
+  zipkin:
+    - kind: data
+      places: [tests]
+      description: Appears in test data
+      transitive: true
+  
+fluentd:
+  prometheus:
+    - kind: instrumentation
+      places: [code, comments]
+      description: Exports prometheus metrics
+  
+ganglia:
+  nagios:
+    - kind: integration
+      places: [code, docs]
+      description: Project contains a nagios bridge
+  
+# TODO: should I include official plugins?
+# List of official ones: https://grafana.com/docs/plugins/
+grafana:
+  chronograf:
+    - kind: compatibility
+      places: [docs]
+      description: Chronograf queries can usually be used, part of influxdb integration
+  collectd:
+    - kind: upstream-tooling
+      transitive: true
+      places: [tooling]
+      description: Appears as part of devenv config, for graphite integration
+    - kind: mention
+      places: [docs]
+      description: Appears as an example of collector
+      transitive: true
+    - kind: data
+      places: [tests]
+      description: Appears in test data
+      transitive: true
+  elasticsearch:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as data source
+  fluentd:
+    - kind: upstream-tooling
+      transitive: true
+      places: [tooling]
+      description: Appears as part of devenv config
+  influxdb:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as data source
+  jaeger:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as data source
+  kafka:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as alert target
+  kapacitor:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as data source
+  kibana:
+    - kind: upstream-tooling
+      transitive: true
+      places: [tooling]
+      description: Appears as part of devenv config, for elasticsearch integration
+    - kind: mention
+      places: [code, docs]
+      description: Mentioned in code for elasticsearch integration
+      transitive: true
+  logstash:
+    - kind: mention
+      places: [code, docs]
+      description: Mentioned in code and examples for elasticsearch integration
+      transitive: true
+  monasca:
+    - kind: mention
+      external: true
+      places: [docs]
+      description: External plugin mentioned
+  net-snmp:
+    - kind: upstream-tooling
+      transitive: true # To what?
+      places: [tooling]
+      description: Appears as part of devenv config
+  ntopng:
+    - kind: mention
+      external: true
+      places: [docs]
+      description: External plugin mentioned
+  opentelemetry:
+    - kind: library
+      places: [lockfile, code]
+      description: Used as library
+    - kind: instrumentation
+      places: [code, docs]
+      description: Exported metrics format
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as data source
+  opentsdb:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as data source
+  prometheus:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as data source
+  skydive:
+    - kind: mention
+      external: true
+      places: [docs]
+      description: External plugin mentioned
+  telegraf:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as data source
+    - kind: library
+      transitive: true
+      places: [lockfile]
+      description: Appears as dependency for loki
+  zabbix:
+    - kind: mention
+      places: [code, docs]
+      external: true
+      description: External plugin mentioned
+    - kind: data
+      places: [tests]
+      description: Appears in test data
+  zipkin:
+    - kind: integration
+      places: [code, docs]
+      description: Can be used as data source
+  
+influxdb:
+  jaeger:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Supports jaeger trace format
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Exports prometheus metrics
+  
+jaeger:
+  elasticsearch:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as storage backend
+  grafana:
+    - kind: TODO
+      places: []
+      # type: mentioned-doc
+      description: Mentioned in example
+  kafka:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as storage backend
+  kibana:
+    - kind: TODO
+      places: []
+      # type: transitive-integration
+      description: As part of elasticsearch integration
+  opentelemetry:
+    - kind: TODO
+      places: []
+      # type: library
+      description: Uses OT collector as a library (https://medium.com/jaegertracing/towards-jaeger-v2-moar-opentelemetry-2f8239bee48e)
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as data source
+  zipkin:
+    - kind: TODO
+      places: []
+      # type: compatibility
+      description: Compatible API
+  
+joularjx:
+  powerjoular:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as data source, part of a stack
+  
+kafka:
+  opentelemetry:
+    - kind: TODO
+      places: []
+      # type: library
+      description: Uses as telemetry library
+  
+kapacitor:
+  chronograf:
+    - kind: TODO
+      places: []
+      # type: transitive-integration
+      description: Part of the TICK stack
+  collectd:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as data source
+  grafana:
+    - kind: TODO
+      places: []
+      # type: transitive-integration
+      description: Small mention in pagerduty (proprietary) integration
+  influxdb:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Part of the TICK stack
+  jaeger:
+    - kind: TODO
+      places: []
+      # type: mentioned-test
+      description: Jaeger client used in test case
+  kafka:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as data target and/or source
+  nagios:
+    - kind: TODO
+      places: []
+      # type: mentioned-design
+      description: Similar design choice mention
+  opentelemetry:
+    - kind: TODO
+      places: []
+      # type: lockfile,false-positive
+      description: Appears in lockfile. Probably a dev dependency of an actual dependency.
+  opentsdb:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as data source
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as data source
+  telegraf:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Part of the TICK stack
+  zenoss:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as event target
+  zipkin:
+    - kind: TODO
+      places: []
+      # type: lockfile,false-positive
+      description: Appears in lockfile. Probably a dev dependency of an actual dependency.
+  
+kepler:
+  cadvisor:
+    - kind: TODO
+      places: []
+      # type: mentioned-design
+      description: Code line from other project
+  elasticsearch:
+    - kind: TODO
+      places: []
+      # type: false-positive
+      description: Appears in vendored k8s.io code
+  fluentd:
+    - kind: TODO
+      places: []
+      # type: false-positive
+      description: Appears in vendored k8s.io code
+  grafana:
+    - kind: TODO
+      places: []
+      # type: mentioned-doc
+      description: Appears in example manifests
+  influxdb:
+    - kind: TODO
+      places: []
+      # type: false-positive
+      description: Appears in vendored k8s.io code
+  kafka:
+    - kind: TODO
+      places: []
+      # type: false-positive
+      description: Mentioned in vendored logger code
+  logstash:
+    - kind: TODO
+      places: []
+      # type: false-positive
+      description: Mentioned in vendored logrus doc
+  opentelemetry:
+    - kind: TODO
+      places: []
+      # type: false-positive
+      description: Mentioned in vendored prometheus client code
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Exports prometheus metrics
+  scaphandre:
+    - kind: TODO
+      places: []
+      # type: alternative,false-positive
+      description: Appears in example manifests as a baseline for comparison
+  systemtap:
+    - kind: TODO
+      places: []
+      # type: false-positive
+      description: Mentioned in vendored prometheus client code
+  telegraf:
+    - kind: TODO
+      places: []
+      # type: false-positive
+      description: Mentioned in vendored gopsutil code
+  
+kibana:
+  elasticsearch:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Part of the ELK stack
+  fluentd:
+    - kind: TODO
+      places: []
+      # type: minor-integration
+      description: Pattern string present for classifying
+  jaeger:
+    - kind: TODO
+      places: []
+      # type: minor-integration
+      description: Minor workaround for better compatibility
+  kafka:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as data source
+  kepler:
+    - kind: TODO
+      places: []
+      # type: false-positive
+      description: Appears in a wordlist
+  logstash:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Part of the ELK stack
+  nagios:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as format
+  opentelemetry:
+    - kind: TODO
+      places: []
+      # type: library
+      description: Uses as telemetry library
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: code,integration
+      description: Used for instrumentation
+    - kind: TODO
+      places: []
+      # type: test,data
+      description: Used in test data
+  snort:
+    - kind: TODO
+      places: []
+      # type: code,integration,minor
+      description: Pattern present
+    - kind: TODO
+      places: []
+      # type: vendor,false-positive
+      description: Mentioned in vendor/generated ecs code
+  sysdig:
+    - kind: TODO
+      places: []
+      # type: docs,false-positive
+      description: Website appears as source for a doc
+  syslog-ng:
+    - kind: TODO
+      places: []
+      # type: sample,data
+      description: Used in sample data
+  telegraf:
+    - kind: TODO
+      places: []
+      # type: code,integration,minor
+      description: Pattern present
+  wazuh:
+    - kind: TODO
+      places: []
+      # type: code,integration,minor
+      description: Pattern present
+  zipkin:
+    - kind: TODO
+      places: []
+      # type: false-positive,lockfile
+      description: Appears as transitive dependency for otlp sdk, probably unused
+  
+logstash:
+  cacti:
+    - kind: TODO
+      places: []
+      # type: example-docs
+      description: Part of a rule example documentation
+  collectd:
+    - kind: TODO
+      places: []
+      # type: example-docs
+      description: Part of a rule example documentation
+  elasticsearch:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Part of the ELK stack
+  elastic beats:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Part of the ELK stack
+  fluentd:
+    - kind: TODO
+      places: []
+      # type: example-docs,false-positive
+      description: Part of a rule example documentation
+  ganglia:
+    - kind: TODO
+      places: []
+      # type: integration,external
+      description: Can be used as input
+  kafka:
+    - kind: TODO
+      places: []
+      # type: integration,external
+      description: Can be used as input and output
+  kibana:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Part of the ELK stack
+  nagios:
+    - kind: TODO
+      places: []
+      # type: integration,external
+      description: Can be used as output
+  snort:
+    - kind: TODO
+      places: []
+      # type: mentioned-test
+      description: Appears in a testcase
+  syslog-ng:
+    - kind: TODO
+      places: []
+      # type: mentioned-docs
+      description: Appears in docs
+  
+monasca:
+  collectd:
+    - kind: TODO
+      places: []
+      # type: upstream-tooling,transitive
+      description: Appears in influxdb config for devstack
+  elasticsearch:
+    - kind: TODO
+      places: []
+      # type: upstream-tooling
+      description: Part of devstack
+  grafana:
+    - kind: TODO
+      places: []
+      # type: integration,external
+      description: Can be used as target
+    - kind: TODO
+      places: []
+      # type: upstream-tooling
+      description: Part of devstack
+  influxdb:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as database
+  kafka:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as target
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as source
+    - kind: TODO
+      places: []
+      # type: required-integration
+      description: Is used to coordinate microservices
+  kibana:
+    - kind: TODO
+      places: []
+      # type: integration,external
+      description: Can be integrated into openstack (keystone auth)
+    - kind: TODO
+      places: []
+      # type: upstream-tooling
+      description: Part of devstack
+  logstash:
+    - kind: TODO
+      places: []
+      # type: upstream-tooling
+      description: Part of devstack
+  opentsdb:
+    - kind: TODO
+      places: []
+      # type: upstream-tooling,transitive
+      description: Appears in influxdb config for devstack
+  
+nagios:
+  kafka:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as target (ncpa)
+  systemtap:
+    - kind: TODO
+      places: []
+      # type: false-positive,upstream-tooling
+      description: Appears in apt command for dev env, probably transitive dependency
+  
+netdata:
+  cacti:
+    - kind: TODO
+      places: []
+      # type: false-positive
+      description: Appears in vendored list of enterprises (snmpsd)
+  cadvisor:
+    - kind: TODO
+      places: []
+      # type: minor-integration
+      description: Is one of the mentioned services that can be monitored through the prometheus integration
+  collectd:
+    - kind: TODO
+      places: []
+      # type: minor-integration
+      description: Is one of the mentioned services that can be monitored through the prometheus integration
+  elasticsearch: 
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be monitored
+    - kind: TODO
+      places: []
+      # type: minor-integration
+      description: Is one of the mentioned services that can be monitored through the prometheus integration
+  fluentd:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be monitored with dedicated collector
+  grafana:
+    - kind: TODO
+      places: []
+      # type: minor-integration
+      description: Is one of the mentioned services that can be monitored through the prometheus integration
+    - kind: TODO
+      places: []
+      # type: mentioned-docs,transitive
+      description: Appears in docs for prometheus integration
+  influxdb:
+    - kind: TODO
+      places: []
+      # type: minor-integration
+      description: Is one of the mentioned services that can be monitored through the prometheus integration
+    - kind: TODO
+      places: []
+      # type: minor-integration,transitive
+      description: Can be used as exporter target via graphite or prometheus connectors
+  jaeger:
+    - kind: TODO
+      places: []
+      # type: false-positive
+      description: Appears in vendored list of enterprises (snmpsd)
+  kafka:
+    - kind: TODO
+      places: []
+      # type: minor-integration
+      description: Is one of the mentioned services that can be monitored through the prometheus integration
+    - kind: TODO
+      places: []
+      # type: minor-integration,transitive
+      description: Can be used as exporter target via prometheus connectors
+  kepler:
+    - kind: TODO
+      places: []
+      # type: false-positive
+      description: Appears in vendored list of enterprises (snmpsd)
+  logstash:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be monitored with dedicated collector
+  nagios:
+    - kind: TODO
+      places: []
+      # type: minor-integration
+      description: Is one of the mentioned services that can be monitored through the prometheus integration
+  net-snmp:
+    - kind: TODO
+      places: []
+      # type: docs-mention
+      description: Appears in documentation for metric names
+  opentelemetry:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Supports/includes otel collector
+  opentsdb:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be exported to with dedicated exporter
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: integration,exporter
+      description: Can be exported to with dedicated push metrics exporter
+    - kind: TODO
+      places: []
+      # type: integration,exporter
+      description: Can export prometheus metrics
+    - kind: TODO
+      places: []
+      # type: integration,collector
+      description: Any prometheus compatible endpoint can be monitored with dedicated collector
+  snort:
+    - kind: TODO
+      places: []
+      # type: false-positive
+      description: Appears in vendored list of enterprises (snmpsd)
+  telegraf:
+    - kind: TODO
+      places: []
+      # type: docs-mention,false-positive
+      description: Code example used
+  zabbix:
+    - kind: TODO
+      places: []
+      # type: docs-mention
+      description: Comparision/example
+  
+net-snmp:
+  cacti:
+    - kind: TODO
+      places: []
+      # type: docs-mention
+      description: Mentioned as alternative
+  jaeger:
+    - kind: TODO
+      places: []
+      # type: false-positive,changelog
+      description: Contributor name
+  nagios:
+    - kind: TODO
+      places: []
+      # type: docs-mention
+      description: Mentioned as alternative
+  zabbix:
+    - kind: TODO
+      places: []
+      # type: false-positive,changelog
+      description: Contributor email
+  
+ntopng:
+  cacti:
+    - kind: TODO
+      places: []
+      # type: vendored,changelog,false-positive
+      description: Contributor name (rrdtool)
+  chronograf:
+    - kind: TODO
+      places: []
+      # type: docs-mention,transitive
+      description: Mentioned as part of influxdb solution
+  collectd:
+    - kind: TODO
+      places: []
+      # type: vendored,changelog,false-positive
+      description: Contribution context (rrdtool)
+  elasticsearch:
+    - kind: TODO
+      places: []
+      # type: integration,exporter
+      description: Can be used as target
+  ganglia:
+    - kind: TODO
+      places: []
+      # type: vendored,changelog,false-positive
+      description: Contribution context (rrdtool)
+  grafana:
+    - kind: TODO
+      places: []
+      # type: transitive-integration
+      description: Can export to influxdb format, which is compatible with grafana
+  influxdb:
+    - kind: TODO
+      places: []
+      # type: integration,exporter
+      description: Can be used as target
+  jaeger:
+    - kind: TODO
+      places: []
+      # type: data,false-positive
+      description: Mac Address database
+  kafka:
+    - kind: TODO
+      places: []
+      # type: integration,broker
+      description: Can be used as a databroker
+  kepler:
+    - kind: TODO
+      places: []
+      # type: data,false-positive
+      description: Mac Address database
+    - kind: TODO
+      places: []
+      # type: vendored,false-positive
+      description: Copyright notice for vendored code
+  kibana:
+    - kind: TODO
+      places: []
+      # type: docs,transitive-integration
+      description: Can be used together with elastic search exporting
+  logstash:
+    - kind: TODO
+      places: []
+      # type: code,minor-integration
+      description: Makes its output compatible with it
+    - kind: TODO
+      places: []
+      # type: docs,transitive-integration
+      description: Can be used together with elastic search exporting
+  nagios:
+    - kind: TODO
+      places: []
+      # type: historic,integration,exporter
+      description: Can be used as target (former)
+  net-snmp:
+    - kind: TODO
+      places: []
+      # type: code,integration
+      description: Exposes SNMP data
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: code,integration,exporter
+      description: Can be used as target (pull)
+  snort:
+    - kind: TODO
+      places: []
+      # type: data
+      description: Used as a source of malicious IPs
+  telegraf:
+    - kind: TODO
+      places: []
+      # type: docs,example
+      description: Appears as an example panel for grafana
+  
+opentelemetry:
+  cadvisor:
+    - kind: TODO
+      places: []
+      # type: packaging
+      description: Appears in helm chart
+    - kind: TODO
+      places: []
+      # type: code,integration,transitive,collector
+      description: Used in AWS containerinsight receiver
+  collectd:
+    - kind: TODO
+      places: []
+      # type: code,integration,collector
+      description: Used as receiver
+  elasticsearch:
+    - kind: TODO
+      places: []
+      # type: code,integration,collector
+      description: Used as receiver
+    - kind: TODO
+      places: []
+      # type: code,integration,exporter
+      description: Used as exporter
+  elastic beats:
+    - kind: TODO
+      places: []
+      # type: docs,mention,transitive
+      description: Appears in blog as part of elasticsearch integration
+  fluentd:
+    - kind: TODO
+      places: []
+      # type: code,integration,exporter
+      description: Used as exporter
+  grafana:
+    - kind: TODO
+      places: []
+      # type: code,integration
+      description: Used as connector
+    - kind: TODO
+      places: []
+      # type: packaging,transitive
+      description: Appears in helm chart and templates
+    - kind: TODO
+      places: []
+      # type: docs
+      description: Usage together is shown in docs
+  influxdb:
+    - kind: TODO
+      places: []
+      # type: code,integration,exporter
+      description: Used as exporter
+  jaeger:
+    - kind: TODO
+      places: []
+      # type: code,integration
+      description: Supports format
+    - kind: TODO
+      places: []
+      # type: docs
+      description: Usage together is shown in docs
+  kafka:
+    - kind: TODO
+      places: []
+      # type: code,integration
+      description: Supports format
+  kibana:
+    - kind: TODO
+      places: []
+      # type: docs,integration,transitive
+      description: Appears as part of elasticsearch docs
+  logstash:
+    - kind: TODO
+      places: []
+      # type: code,integration,transitive
+      description: Supports format
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: code,integration,collector
+      description: Used as receiver
+    - kind: TODO
+      places: []
+      # type: code,integration,exporter
+      description: Used as exporter
+  sysdig:
+    - kind: TODO
+      places: []
+      # type: docs
+      description: Sysdig's website is a source
+  telegraf:
+    - kind: TODO
+      places: []
+      # type: docs,alternative
+      description: Appears in blog as alternative
+  zipkin:
+    - kind: TODO
+      places: []
+      # type: code,integration,exporter
+      description: Used as exporter
+  
+opentsdb:
+  collectd:
+    - kind: TODO
+      places: []
+      # type: docs-mention
+      description: Appears as an example of in serializer code comments
+  elasticsearch:
+    - kind: TODO
+      places: []
+      # type: docs-mention
+      description: Appears as an example of plugin name
+  nagios:
+    - kind: TODO
+      places: []
+      # type: docs-mention
+      description: Appears as an example of output compatibility in a script
+  zenoss:
+    - kind: TODO
+      places: []
+      # type: false-positive,authors
+      description: Contributor email
+  
+powerjoular:
+  joularjx:
+    - kind: TODO
+      places: []
+      # type: docs-mention
+      description: The tool is based on a paper where the two appear together
+  
+prometheus:
+  cadvisor:
+    - kind: TODO
+      places: []
+      # type: test,data
+      description: Used in test data
+    - kind: TODO
+      places: []
+      # type: docs,example
+      description: Appears in example setup
+  elasticsearch:
+    - kind: TODO
+      places: []
+      # type: test,data
+      description: Used in test data
+  fluentd:
+    - kind: TODO
+      places: []
+      # type: test,data
+      description: Used in test data
+  grafana:
+    - kind: TODO
+      places: []
+      # type: test,data
+      description: Used in test data
+    - kind: TODO
+      places: []
+      # type: false-positive,lockfile
+      description: Appears as part of depependency namespace (regexp)
+    - kind: TODO
+      places: []
+      # type: false-positive,changelog
+      description: Contributor email
+    - kind: TODO
+      places: []
+      # type: docs,mention
+      description: Is mentioned in examples
+  influxdb:
+    - kind: TODO
+      places: []
+      # type: code,docs,integration
+      description: Is shown as a sample adapter
+    - kind: TODO
+      places: []
+      # type: historic,false-positive,changelog
+      description: Former integration
+  jaeger:
+    - kind: TODO
+      places: []
+      # type: historic,false-positive,changelog
+      description: Former integration
+  kafka:
+    - kind: TODO
+      places: []
+      # type: docs,mention
+      description: Is mentioned in examples
+  opentelemetry:
+    - kind: TODO
+      places: []
+      # type: code,library
+      description: Used as library
+    - kind: TODO
+      places: []
+      # type: lockfile,false-positive
+      description: Client appears in lockfile.
+    - kind: TODO
+      places: []
+      # type: code,integration,external
+      description: Can be used as source (otlptranslator)
+  opentsdb:
+    - kind: TODO
+      places: []
+      # type: code,docs,integration
+      description: Is shown as a sample storage adapter
+  
+scaphandre:
+  grafana:
+    - kind: TODO
+      places: []
+      # type: docs
+      description: Usage together is shown in docs
+    - kind: TODO
+      places: []
+      # type: packaging
+      description: Appears in example docker-compose and helm chart
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: code,integration
+      description: Exports prometheus metrics
+    - kind: TODO
+      places: []
+      # type: docs
+      description: Usage together is shown in docs
+    - kind: TODO
+      places: []
+      # type: packaging
+      description: Appears in example docker-compose and helm chart
+  
+skydive:
+  elasticsearch:
+    - kind: TODO
+      places: []
+      # type: code,integration
+      description: Can be used as persistency
+    - kind: TODO
+      places: []
+      # type: packaging
+      description: Appears in example helm chart
+  fluentd:
+    - kind: TODO
+      places: []
+      # type: test,transitive
+      description: Appears as part of test case
+  grafana:
+    - kind: TODO
+      places: []
+      # type: meta,changelog
+      description: Mention of integration appears in changelog
+  kafka:
+    - kind: TODO
+      places: []
+      # type: lockfile,false-positive
+      description: Client appears in lockfile. Probably a dev dependency of an actual dependency.
+  kibana:
+    - kind: TODO
+      places: []
+      # type: packaging,transitive
+      description: Appears in example helm chart
+  opentelemetry:
+    - kind: TODO
+      places: []
+      # type: lockfile,false-positive
+      description: Instrumentation appears in lockfile.
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: lockfile,false-positive
+      description: Instrumentation appears in lockfile.
+  snort:
+    - kind: TODO
+      places: []
+      # type: code,integration
+      description: Supports snort format
+  
+sysdig:
+  elasticsearch:
+    - kind: TODO
+      places: []
+      # type: code,integration,minor
+      description: Maps ports to app name
+  fluentd:
+    - kind: TODO
+      places: []
+      # type: code,integration,minor
+      description: Maps ports to app name
+  kafka:
+    - kind: TODO
+      places: []
+      # type: code,integration,minor
+      description: Maps ports to app name
+  
+syslog-ng:
+  calico:
+    - kind: TODO
+      places: []
+      # type: test,data
+      description: Used in test data
+  collectd:
+    - kind: TODO
+      places: []
+      # type: code,integration
+      description: Can be used as destination
+  elasticsearch:
+    - kind: TODO
+      places: []
+      # type: code,integration
+      description: Can be used as destination
+  grafana:
+    - kind: TODO
+      places: []
+      # type: false-positive
+      description: Appears as part of loki namespace
+  kafka:
+    - kind: TODO
+      places: []
+      # type: code,integration
+      description: Can be used as destination
+  kibana:
+    - kind: TODO
+      places: []
+      # type: comment,compatibility,minor
+      description: Uses date format that is compatible
+  logstash:
+    - kind: TODO
+      places: []
+      # type: docs
+      description: Has sample setup with kafka using it as format
+    - kind: TODO
+      places: []
+      # type: comment,compatibility,minor
+      description: Uses compatible format
+  nagios:
+    - kind: TODO
+      places: []
+      # type: test,data
+      description: Used in test data
+  net-snmp:
+    - kind: TODO
+      places: []
+      # type: code,library
+      description: Used as library
+  opentelemetry:
+    - kind: TODO
+      places: []
+      # type: code,integration
+      description: Can be used as destination
+    - kind: TODO
+      places: []
+      # type: code,library
+      description: Used as library for GRPC
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: code,integration
+      description: Can be used as source
+    - kind: TODO
+      places: []
+      # type: code,integration
+      description: Used for instrumentation
+  
+systemtap:
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Exports prometheus metrics
+  
+telegraf:
+  cadvisor:
+    - kind: TODO
+      places: []
+      # type: test,data
+      description: Used in test data
+    - kind: TODO
+      places: []
+      # type: code,integration
+      description: Appears in kubernetes integration
+  chronograf:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Part of the TICK stack
+    - kind: TODO
+      places: []
+      # type: test,data
+      description: Used in test data
+    - kind: TODO
+      places: []
+      # type: code,integration
+      description: Appears in kubernetes integration
+  collectd:
+    - kind: TODO
+      places: []
+      # type: code,integration,format
+      description: Contains parser plugin
+  elasticsearch:
+    - kind: TODO
+      places: []
+      # type: code,integration,collector
+      description: Contains input plugin
+    - kind: TODO
+      places: []
+      # type: code,integration,exporter
+      description: Contains output plugin
+  fluentd:
+    - kind: TODO
+      places: []
+      # type: test,data
+      description: Used in test data
+    - kind: TODO
+      places: []
+      # type: code,integration,collector
+      description: Contains input plugin
+  grafana:
+    - kind: TODO
+      places: []
+      # type: docs,false-positive
+      description: Appears as namespace for loki
+    - kind: TODO
+      places: []
+      # type: lockfile,library,false-positive
+      description: Library regexp in lockfile.
+    - kind: TODO
+      places: []
+      # type: test,data
+      description: Used in test data
+    - kind: TODO
+      places: []
+      # type: docs,mention
+      description: Mentioned in documentation
+  influxdb:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Part of the TICK stack
+  jaeger:
+    - kind: TODO
+      places: []
+      # type: lockfile,library,false-positive
+      description: Client appears in lockfile, transitive.
+  kafka:
+    - kind: TODO
+      places: []
+      # type: code,integration,exporter
+      description: Contains output plugin
+    - kind: TODO
+      places: []
+      # type: code,integration,collector
+      description: Contains input plugin
+  kapacitor:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Part of the TICK stack
+  kibana:
+    - kind: TODO
+      places: []
+      # type: test,data
+      description: Used in test data
+    - kind: TODO
+      places: []
+      # type: code,integration,collector
+      description: Contains input plugin
+  logstash:
+    - kind: TODO
+      places: []
+      # type: test,data
+      description: Used in test data
+    - kind: TODO
+      places: []
+      # type: code,integration,collector
+      description: Contains input plugin
+  nagios:
+    - kind: TODO
+      places: []
+      # type: code,integration,format
+      description: Contains parser plugin
+  netdata:
+    - kind: TODO
+      places: []
+      # type: code,false-positive
+      description: Variable with the same name
+  net-snmp:
+    - kind: TODO
+      places: []
+      # type: code,integration,collector
+      description: Contains input plugin
+  opentelemetry:
+    - kind: TODO
+      places: []
+      # type: code,integration,collector
+      description: Contains input plugin
+    - kind: TODO
+      places: []
+      # type: code,integration,exporter
+      description: Contains output plugin
+    - kind: TODO
+      places: []
+      # type: library
+      description: Uses as telemetry library
+  opentsdb:
+    - kind: TODO
+      places: []
+      # type: code,integration,collector
+      description: Contains input plugin
+    - kind: TODO
+      places: []
+      # type: code,integration,exporter
+      description: Contains output plugin
+    - kind: TODO
+      places: []
+      # type: code,integration,format
+      description: Contains parser plugin
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: code,integration,collector
+      description: Contains input plugin
+    - kind: TODO
+      places: []
+      # type: code,integration,exporter
+      description: Contains output plugin
+    - kind: TODO
+      places: []
+      # type: code,integration,format
+      description: Contains parser/serializer plugin
+  zabbix:
+    - kind: TODO
+      places: []
+      # type: code,integration,exporter
+      description: Contains output plugin
+    - kind: TODO
+      places: []
+      # type: test,data
+      description: Used in test data
+  zipkin:
+    - kind: TODO
+      places: []
+      # type: code,integration,collector
+      description: Contains input plugin
+    - kind: TODO
+      places: []
+      # type: test,data
+      description: Used in test data
+  
+tetragon:
+  cacti:
+    - kind: TODO
+      places: []
+      # type: vendor,false-positive
+      description: Appears in a wordlist
+  elasticsearch:
+    - kind: TODO
+      places: []
+      # type: vendor,false-positive
+      description: Appears in vendored k8s.io code
+    - kind: TODO
+      places: []
+      # type: docs,transitive
+      description: Appears in docs
+  fluentd:
+    - kind: TODO
+      places: []
+      # type: docs,compatibility
+      description: Mentioned as compatible with format
+    - kind: TODO
+      places: []
+      # type: packaging,transitive
+      description: Appears in example kubernetes
+  ganglia:
+    - kind: TODO
+      places: []
+      # type: vendor,false-positive
+      description: Appears in a wordlist
+  grafana:
+    - kind: TODO
+      places: []
+      # type: docs,transitive
+      description: Appears in docs as an example to use with prometheus
+  influxdb:
+    - kind: TODO
+      places: []
+      # type: vendor,false-positive
+      description: Appears in vendored k8s.io code
+  jaeger:
+    - kind: TODO
+      places: []
+      # type: test,data
+      description: Used in test data
+  kafka:
+    - kind: TODO
+      places: []
+      # type: test,data
+      description: Used in test data
+  logstash:
+    - kind: TODO
+      places: []
+      # type: docs,compatibility
+      description: Mentioned as compatible with format
+  opentelemetry:
+    - kind: TODO
+      places: []
+      # type: lockfile,false-positive
+      description: SDK appears in lockfile
+    - kind: TODO
+      places: []
+      # type: docs,compatibility
+      description: Mentioned as part of a solution
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Exports prometheus metrics
+    - kind: TODO
+      places: []
+      # type: packaging
+      description: Appears in example kubernetes
+  systemtap:
+    - kind: TODO
+      places: []
+      # type: vendor,false-positive
+      description: Appears in vendored ebpf code
+  zipkin:
+    - kind: TODO
+      places: []
+      # type: vendor,false-positive
+      description: Appears in vendored otel code
+  
+thingsboard:
+  elasticsearch:
+    - kind: TODO
+      places: []
+      # type: code,integration
+      description: Can be used as audit log sink
+  grafana:
+    - kind: TODO
+      places: []
+      # type: packaging,transitive
+      description: Appears in example docker-compose
+    - kind: TODO
+      places: []
+      # type: docs,transitive
+      description: Appears in docs for setup with prometheus
+  kafka:
+    - kind: TODO
+      places: []
+      # type: code,integration,broker
+      description: Can be used as a microservice broker
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: code,integration,instrumentation
+      description: Used for instrumentation
+  
+tracecompass:
+  kepler:
+    - kind: TODO
+      places: []
+      # type: comment,compatibility,minor
+      description: Compatible with trace format
+  
+wazuh:
+  cadvisor:
+    - kind: TODO
+      places: []
+      # type: packaging,transitive
+      description: Appears in docker and dashboard templates
+  collectd:
+    - kind: TODO
+      places: []
+      # type: mentioned-test
+      description: Appears in test data
+  elasticsearch:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as target
+  fluentd:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as target
+  grafana:
+    - kind: TODO
+      places: []
+      # type: packaging,transitive
+      description: Part of the proposed monitoring stack
+  kafka:
+    - kind: TODO
+      places: []
+      # type: false-positive
+      description: Auhtors names are present in a list of exploits
+  kibana:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Includes kibana dashboards, and plugins for interaction
+  logstash:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as data source and target
+  net-snmp:
+    - kind: TODO
+      places: []
+      # type: data
+      description: net-SNMP is present in one of the rules for compliance
+  opentelemetry:
+    - kind: TODO
+      places: []
+      # type: library
+      description: Uses as telemetry library
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: data,docs
+      description: Part of a rule example documentation
+  snort:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can use snort alerts as source
+  sysdig:
+    - kind: TODO
+      places: []
+      # type: data
+      description: Sysdig's website is a source for info on one of the exploints in the rulesets
+  syslog-ng:
+    - kind: TODO
+      places: []
+      # type: data
+      description: Syslog-ng is present in one of the rules for compliance
+  systemtap:
+    - kind: TODO
+      places: []
+      # type: docs-mention
+      description: Appears as an example of stack source in code comments
+  
+xdmod:
+  grafana:
+    - kind: TODO
+      places: []
+      # type: mentioned-test,false-positive
+      description: Appears in test result logs
+  kafka:
+    - kind: TODO
+      places: []
+      # type: mentioned-test,false-positive
+      description: Appears in test result logs
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Data source for xdmod-supremm
+  
+zabbix:
+  cadvisor:
+    - kind: TODO
+      places: []
+      # type: packaging,transitive
+      description: Appears in template
+  elasticsearch:
+    - kind: TODO
+      places: []
+      # type: packaging
+      description: Appears in template
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Can be used as format
+  influxdb:
+    - kind: TODO
+      places: []
+      # type: packaging
+      description: Appears in template
+  kafka:
+    - kind: TODO
+      places: []
+      # type: packaging
+      description: Appears in template
+  kepler:
+    - kind: TODO
+      places: []
+      # type: packaging
+      description: Appears in template
+  net-snmp:
+    - kind: TODO
+      places: []
+      # type: packaging
+      description: Appears in template
+    - kind: TODO
+      places: []
+      # type: code,library
+      description: Used as library
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: packaging
+      description: Appears in template
+    - kind: TODO
+      places: []
+      # type: code,instrumentation
+      description: Used for instrumentation
+  telegraf:
+    - kind: TODO
+      places: []
+      # type: packaging
+      description: Appears in template
+  
+zenoss:
+  nagios:
+    - kind: TODO
+      places: []
+      # type: historic,integration
+      description: Deprecated integration
+  net-snmp:
+    - kind: TODO
+      places: []
+      # type: code,library
+      description: Used as library
+  syslog-ng:
+    - kind: TODO
+      places: []
+      # type: docs
+      description: Mentioned in docs as compatible
+  
+zipkin:
+  elasticsearch:
+    - kind: TODO
+      places: []
+      # type: code,integration
+      description: Can be used as storage backend
+  grafana:
+    - kind: TODO
+      places: []
+      # type: packaging,mention,transitive
+      description: Appears in example docker-compose
+    - kind: TODO
+      places: []
+      # type: docs,transitive
+      description: Appears in docs for setup with prometheus
+  jaeger:
+    - kind: TODO
+      places: []
+      # type: docs,mention,alternative
+      description: Mentioned as alternative
+  kafka:
+    - kind: TODO
+      places: []
+      # type: integration,collector
+      description: Can collect from kafka
+    - kind: TODO
+      places: []
+      # type: integration,broker
+      description: Can be used as a databroker
+  kibana:
+    - kind: TODO
+      places: []
+      # type: docs,integration,transitive
+      description: Appears as part of elasticsearch docs
+    - kind: TODO
+      places: []
+      # type: tests,integration,transitive
+      description: Appears as part of elasticsearch tests
+  opentelemetry:
+    - kind: TODO
+      places: []
+      # type: library
+      description: Uses stringutils library
+    - kind: TODO
+      places: []
+      # type: docs,alternative
+      description: Mentioned as alternative
+  prometheus:
+    - kind: TODO
+      places: []
+      # type: packaging
+      description: Appears in example docker-compose
+    - kind: TODO
+      places: []
+      # type: integration
+      description: Has a builtin exporter

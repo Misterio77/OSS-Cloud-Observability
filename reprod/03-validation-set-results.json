@@ -1,0 +1,469 @@
+[
+  {
+    "source": "keyword",
+    "id": 43,
+    "title": "Internet of Things Platform for Assessment and Research on Cybersecurity of Smart Rural Environments",
+    "abstract": "Rural regions face significant barriers to adopting IoT technologies, due to limited connectivity, energy constraints, and poor technical infrastructure. While urban environments benefit from advanced digital systems and cloud services, rural areas often lack the necessary conditions to deploy and evaluate secure and autonomous IoT solutions. To help overcome this gap, this paper presents the Smart Rural IoT Lab, a modular and reproducible testbed designed to replicate the deployment conditions in rural areas using open-source tools and affordable hardware. The laboratory integrates long-range and short-range communication technologies in six experimental scenarios, implementing protocols such as MQTT, HTTP, UDP, and CoAP. These scenarios simulate realistic rural use cases, including environmental monitoring, livestock tracking, infrastructure access control, and heritage site protection. Local data processing is achieved through containerized services like Node-RED, InfluxDB, MongoDB, and Grafana, ensuring complete autonomy, without dependence on cloud services. A key contribution of the laboratory is the generation of structured datasets from real network traffic captured with Tcpdump and preprocessed using Zeek. Unlike simulated datasets, the collected data reflect communication patterns generated from real devices. Although the current dataset only includes benign traffic, the platform is prepared for future incorporation of adversarial scenarios (spoofing, DoS) to support AI-based cybersecurity research. While experiments were conducted in an indoor controlled environment, the testbed architecture is portable and suitable for future outdoor deployment. The Smart Rural IoT Lab addresses a critical gap in current research infrastructure, providing a realistic and flexible foundation for developing secure, cloud-independent IoT solutions, contributing to the digital transformation of rural regions. © 2025 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "influxdb",
+      "grafana"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 175,
+    "title": "Charting the Future: An in-Depth Review of Cuttingedge Big Data Visualization Tools for 2025",
+    "abstract": "The exponential growth of data necessitates advanced big data visualization tools to extract meaningful insights efficiently. This study evaluates the capabilities of leading visualization tools-Tableau, Microsoft Power BI, Looker Studio, Qlik Sense, and Grafana-based on scalability, real-time processing, usability, and integration with modern cloud environments. Using the Pradhan Mantri Awas Yojana (PMAY) dataset, a comparative analysis was conducted to predict these tools' effectiveness in predictive analytics, interactive dashboards, and AI-driven automation. The study reveals that these tools sustain diverse user needs, from beginners to experts, by advancing intuitive interfaces and seamless machine learning integration. Findings signify that Tableau and Power BI excel in predictive modeling and interactive reporting, while Grafana is optimal for real-time monitoring. These insights guide businesses in selecting the most suitable visualization platform, enhancing data-driven decision-making and strategic innovation in a rapidly evolving digital economy © 2025 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "grafana"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 221,
+    "title": "Enhancing Gen3 for clinical trial time series analytics and data discovery: a data commons framework for NIH clinical trials",
+    "abstract": "This work presents a framework for enhancing Gen3, an open-source data commons platform, with temporal visualization capabilities for clinical trial research. We describe the technical implementation of cloud-native architecture and integrated visualization tools that enable standardized analytics for longitudinal clinical trial data while adhering to FAIR principles. The enhancement includes Kubernetes-based container orchestration, Kibana-based temporal analytics, and automated ETL pipelines for data harmonization. Technical validation demonstrates reliable handling of varied time-based data structures, while maintaining temporal precision and measurement context. The framework's implementation in NIH HEAL Initiative networks studying chronic pain and substance use disorders showcases its utility for real-time monitoring of longitudinal outcomes across multiple trials. This adaptation provides a model for research networks seeking to enhance their data commons capabilities while ensuring findable, accessible, interoperable, and reusable clinical trial data. © 2025 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "kibana"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 225,
+    "title": "Adaptive Monitoring for Cloud-Native Microservices",
+    "abstract": "Monitoring is essential in cloud environments, ensuring performance, efficient resource use, and application oversight. In microservices, it aids debugging and issue resolution, but its cost and resource impact must be minimized, especially in edge-cloud scenarios. In this paper, we propose the Adaptive Monitoring Controller (AdaMC) as a novel adaptive sampling approach for monitoring systems managing dynamic microservices and operated in edge-cloud environments. Our contribution is threefold. First, we present the problem of scrape frequency adaption for microservices. Second, we propose the AdaMC framework as a practical solution to the problem. Third, we evaluate AdaMC using real-world cloud scaling patterns, and different scenarios and compare the results with those of Prometheus monitoring tool. Our tests confirm that this dynamic adjustment can lead to significant resource savings and provide frequent monitoring depending on the behavior of the microservices. © 2025 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "prometheus"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 314,
+    "title": "Building Resilient CICD Pipelines: A DevOps Security-First Framework",
+    "abstract": "Continuous Integration and Continuous Deployment are now integrated in automated systems that enhance code stability, and accelerate the deployment process as well as improving monitoring of the whole system in the software development field. This document deals with setting up of a strong CI/CD process involving AWS cloud services and DevOps. The infrastructure is built with the help of Terraform which ensures the scalability and repeatability applying the Infrastructure as Code (IaC) approach. A safe Virtual Private Cloud (VPC) is designed consisting of public and private subnets, load balancing for traffic distribution, and CloudFront CDN to improve geographical distribution. Jenkins is used in CI process to perform disk analysis, OWASP and Trivy vulnerability scanning, and making Docker images. The CD phase use ArgoCD for updates on Kubernetes and integrates Monitoring and observability using Prometheus and Grafana. Notifications are produced to JIRA and email communication for improvement. With the help of the offered cloud services and DevOps tool it is possible to consolidate the SDLC and bring effects in code safety, testing and utilization. This document also provides an overview of methods, instruments, and outcomes, demonstrating how the CI/CD automation influences the development and operation positively. © 2025 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "grafana",
+      "prometheus"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 343,
+    "title": "Monitoring Framework for the Performance Evaluation of an IoT Platform with Elasticsearch and Apache Kafka",
+    "abstract": "IoT platforms are in charge of extracting and processing the data that come from IoT networks, generating additional value, and providing access to the user through usable interfaces. However, the ever growing number of devices, networks, services and applications within the IoT ecosystem, and the recently adopted edge/cloud architecture, increase the complexity. Therefore, IoT platforms should integrate monitoring and visualization tools to facilitate deployment, management and maintenance tasks. In this work, we present the implementation and performance evaluation of an IoT modular platform for distributed architectures that combines the use of Elastic Stack tools (Elasticsearch, Kibana and Beats) and Apache Kafka. We have developed a monitoring framework based on Beats agents that supervise the platform performance attending to different metrics; and adapted the Kibana visualization tools to provide friendly and accessible information to platform administrators and users. Finally, we have deployed and evaluated the IoT platform in four real use cases, identifying the factors that affect the performance of the different modules: Edge Node, Data Streaming, Cloud Server and Search Engine. © 2025 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "elasticsearch",
+      "kibana",
+      "beats",
+      "kafka"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 368,
+    "title": "Standardizing Multimedia QoE Telemetry from Telecommunications Networks for Open Analytics",
+    "abstract": "Telecommunications network operators routinely use active and passive network monitoring tools for observability into their networks, so they can ensure good quality of experience (QoE) for their users on real-time multimedia applications such as video streaming and online gaming. Commercial tools for network observability have typically been standalone appliances that export telemetry in proprietary formats, which limits network operators from coupling the data with emerging cloud-based analytics and AI platforms to unlock more value in areas such as network operations, customer care, and personalized product creation. In this paper, we aim to fill this gap by proposing a standardized schema for representation and export of QoE for a wide range of multimedia applications that can help bridge network observability tools with data analytics platforms. We design and implement an open-source tool by extending the widely used IPFIX and OpenTelemetry standards, and demonstrate a live implementation in a University campus network carrying thousands of application streams. © 2024 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "opentelemetry"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 375,
+    "title": "Deployment and performance monitoring of docker based federated learning framework for software defect prediction",
+    "abstract": "There are significant challenges in machine learning models due to information security and data privacy issues. In traditional machine learning approaches, the data used to train the centralized model may be sensitive leading to privacy issues. Federated learning overcomes these issues by following the concept of bringing the code to the data instead of data to the code. In today’s era of digital transformation, researchers and industries are focusing on cloud-based technologies. New approaches such as microservice models, docker, kubernetes, containers, and virtual machines are being used by IT industries to develop and deploy applications. We make use of software containers to deploy federated learning models and then we identify security vulnerabilities and resource usage in federated learning model. Flask, docker, cAdvisor, prometheus, and grafana are integrated to monitor the resource usage of the federated learning model in terms of CPU utilization, memory utilization, network traffic usage, and disk usage. The generated federated learning model is deployed on docker, and security vulnerabilities and performance are analyzed using open-source tools. The result shows that the generated model is secure and performs efficiently. © 2024 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "cadvisor",
+      "grafana",
+      "prometheus"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 436,
+    "title": "Towards adding digital forensics capabilities in software defined networking based moving target defense",
+    "abstract": "Moving Target Defense (MTD) is a security technique for Software Defined Networks (SDN) to change the attack surface constantly. Although MTD is an effective technique, it makes the digital forensics procedure challenging due to high transitions in the system state. There is an ever-increasing requirement for SDN forensics due to the increasing number of cyberattacks and the adoption of SDN by large-scale cloud service providers, telecommunication operators, and internet service providers. In this paper, we have proposed a digital forensics scheme for MTD-based SDN to record every movement of the MTD for collecting attack-related evidence, especially the attacker (attack source), to augment the forensics investigation. The proposed technique consists of a three-level logging mechanism. The first one is the native logging technique of ONOS. The second is a Java-based logging application called “Java ONOS Logs Collector (JOLC)”, developed to capture MTD-based SDN logs. Lastly, we utilized the Fluentd unified logging tool to dig out evidential data from MTD logs. The experimental testbed comprises an ONOS SDN controller, Mininet, and an event-based MTD application running over SDN using JSON FlowRule scripts on the ONOS controller while using sflow-rt to detect the level of attack/number of packets sent by the attacker. The native ONOS logging mechanism provides initial-level artifacts. The developed JOLC application creates separate files for ONOS and Mininet/host machine logs stored with the current timestamp. Fluentd generates a single file for the SDN controller, Mininet, and host machine logs, along with the flow rule entry into the SDN controller. Experimental results confirmed that our proposed multi-level forensics technique successfully collected all the relevant records. © 2024 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "fluentd"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 443,
+    "title": "Aqua Optimize Transformation of Water Management With Cloud-Powered Efficiency",
+    "abstract": "Effective water quality monitoring is crucial to ensuring the sustainability and safety of water resources, particularly in fields such as municipal water management, aquaculture, and agriculture. Traditional methods often result in water wastage, environmental degradation, and public health risks due to delayed responses and manual inefficiencies. With the rising focus on sustainable resource management and the impacts of climate change, there is a pressing need for innovative solutions that enable real-time water quality assessment. This research presents an Internet of Things (IoT)-based water quality monitoring system that connects multiple sensors to cloud-based platforms for continuous data analysis. The system monitors key parameters - temperature, flow rate, pH, and water depth - and transmits data using the MQTT protocol to visualization tools like Grafana and Power BI. These tools provide stakeholders with interactive dashboards, displaying real-time water quality trends, anomalies, and alerts for immediate action. The system recommends scalability to adapt a range of industrial applications, providing a cost-effective solution for both small and large-scale water management needs, based on its modularity. Compared to traditional methods, the proposed system improves water quality assessment accuracy, reducing human error and manual inefficiencies by over 30%. Cloud-based data storage and visualization reduce processing times by 40%, while the automated alert system accelerates response times by 25%, allowing prompt interventions when water quality falls below critical thresholds. The system's adaptable, modular architecture allows for seamless integration with existing water management frameworks in urban water distribution, wastewater treatment, and agriculture. This research demonstrates the system's potential to enhance water resource management, lower operational costs, and promote environmental sustainability across diverse sectors. © 2025 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "grafana"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 458,
+    "title": "CEEMS: A Resource Manager Agnostic Energy and Emissions Monitoring Stack",
+    "abstract": "With the rapid acceleration of ML/AI research in the last couple of years, the energy consumption of the Information and Communication Technology (ICT) domain has rapidly increased. As a major part of this energy consumption is due to users' workloads, it is evident that users need to be aware of the energy footprint of their applications. Compute Energy & Emissions Monitoring Stack (CEEMS) has been designed to address this issue. CEEMS can report energy consumption and equivalent emissions of user workloads in real time for HPC and cloud platforms alike. Besides CPU energy usage, it supports reporting energy usage of workloads on NVIDIA and AMD GPU accelerators. CEEMS has been built around the prominent open-source tools in the observability eco-system like Prometheus and Grafana. CEEMS has been designed to be extensible and it allows the Data Center (DC) operators to easily define the energy estimation rules of user workloads based on the underlying hardware. This paper explains the architectural overview of CEEMS, data sources that are used to measure energy usage and estimate equivalent emissions and potential use cases of CEEMS from operator and user perspectives. Finally, the paper will conclude by describing how CEEMS deployment on the Jean-Zay supercomputing platform is capable of monitoring more than 1400 nodes that have a daily job churn rate of around 20k jobs. © 2025 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "grafana",
+      "prometheus"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 463,
+    "title": "ON THE CLOUD DETECTION FROM BACKSCATTERED IMAGES GENERATED FROM A LIDAR-BASED CEILOMETER: CURRENT STATE AND OPPORTUNITIES",
+    "abstract": "Accurate weather monitoring depends significantly on cloud detection, a crucial process achievable through remote sensing tools such as satellite imagery and radar or through the analysis of data obtained from ceilometers. A ceilometer is a lidar-based device allowing to analyse the atmosphere and detect the presence of particles within clouds. The data retrieved from ceilometers involve analysis of the backscatter of the lidar signal returning to the surface. Given the inherent noise in this data, we leverage deep learning models to detect the presence of clouds in the data. To label the data, we take advantage of a Weather Research & Forecasting (WRF) model, which provided us with ground-truth used for validation purposes. We performed a comparative analysis with current state-of-the-art deep learning architectures on this specialist domain. This comparative analysis shows that the best model is ResNet 50, but also a transformer-based model, such as ViT, achieves great results. These preliminary results pave the scenario for future works aimed at detecting other particles composing the atmosphere, such as polluting agents that can be detected from the ceilometer backscatter data. © 2025 Elsevier B.V., All rights reserved.",
+    "tools": [
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 493,
+    "title": "Cloud-Native CDN Monitoring Using CI/CD",
+    "abstract": "In a time where digital content consumption reigns, it is essential to efficiently deliver multimedia resources. This research seeks to transform how content is delivered by implementing and overseeing a secure, monitored Content Delivery Network (CDN) on a scalable Kubernetes cluster, managed through a secure CI/CD pipeline built on Jenkins, using the Amazon Web Services (AWS) and essential DevOps tools like Docker, SonarQube, Trivy, Prometheus, Grafana, Argo CD and Helm. The results obtained in this study are derived from an emulation of a CDN. The SonarQube analysis confirms whether the system meets all code quality gates, Trivy identifies and resolves critical container vulnerabilities and OWASP vulnerability checks identify and mitigate security risks in software dependencies. The system is monitored by analyzing the performance metrics visualized in Grafana dashboards, which offer detailed insights into metrics including and not limited to: active jobs, job queue duration, queued rate, memory usage, CPU usage, executor health metrics, system load, RAM usage, root filesystem usage, disk space usage, disk I/O activities, time synchronized drift and time synchronized status. Additionally, SMTP e-mail notifications are configured to improve responsiveness to anomalies identified via monitoring. This study emphasizes making content delivery mechanisms more robust, providing advanced tools for developers, and enabling easy access to digital resources for the community. © 2024 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "grafana",
+      "prometheus"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 573,
+    "title": "MLPing: Real-Time Proactive Fault Detection and Alarm for Large-Scale Distributed IDC Network",
+    "abstract": "Through providing cheap rack and network hosting services, third-party internet data centers (IDCs) have gained significant popularity among cloud service providers. Real-time monitoring of the quality of the IDC network and proactively alarming is crucial to guaranteeing the reliability of cloud services. The prevailing approach to addressing this problem involves utilizing active probes and making evaluations based on the results of single-link or multi-link probing. However, the existing efforts still tend to generate a significant number of unnecessary alerts, resulting in enormous operational costs. For this reason, we first build a large-scale distributed ping-based dial test system that enables monitoring the quality of the IDC network in a many-to-one probe mode. We develop an efficient exporter tool based on the standard Prometheus' data interface to ensure real-time and precise measurement data collection. To quickly and accurately detect potential network issues, we also design a multi-step heuristic-based fault detection and alarm method. Furthermore, we propose a comprehensive alarm life-cycle model based on the results of multi-link probing to guide alarm management in production practice. This system has been successfully deployed in the production environment of Sangfor company's managed cloud for over a year, enabling proactive diagnosis of hundreds of IDC gateway IP addresses. The actual statistical results indicate a significant improvement in the mean time to repair (MTTR) for IDC network failures, reducing it from a few hours to just a few minutes. The average daily number of alarms generated by this system is less than 15, decreasing approximately 85 % compared to before. The alarm accuracy exceeds 95 % and the false negative rate is less than 2 %. © 2024 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "prometheus"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 587,
+    "title": "Implementing a Flexible IIoT Service Framework with Microservices: A Case Study of Machine Tools",
+    "abstract": "With the continuous attention given to 'smart manufacturing' and 'smart factories,' the importance of equipment networking and data collection has been increasing. One key issue is the standardization of equipment networking. Currently, Modbus and OPC/UA are important communication protocols in machine networking. However, software engineers who mainly focus on developing user interfaces and business logic are not proficient in dealing with communication protocols. Therefore, it becomes crucial to enable IT application software engineers to easily interface with various OPC/UA and Modbus machines. Due to the requirements of integration and application of various PLC devices in the machine tool industry, we designed an efficient and flexible IIoT Gateway framework. With the assistance of the IIoT Gateway, IT application engineers developing the ERP/MES systems can easily exchange data (with read and write operations) with various PLC machines. Additionally, to meet the requirements of high performance, the system's functional modules have been designed using multi-threading, asynchronous, and non-blocking techniques. To achieve flexibility in functionality expansion, deployment, high reusing, and low coupling of modules, the Spring Cloud framework has been used to implement microservices and API design for the functional modules. In the future, various system data exchanging and visualization can be facilitated through technologies such as Micrometer/Prometheus, MQTT/Node-RED, and others for convenient logging and tracking. © 2024 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "prometheus"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 668,
+    "title": "An Innovative Approach of API Automation Testing Implemented on Cloud Environments Using Container Management Services",
+    "abstract": "This research paper focuses on developing a complete system for daily automation testing of comprehensive web applications implemented on cloud environments, encompassing the execution of automated API tests, real-time monitoring and results visualization of the testing environments. Despite the tools for developing automated API tests, the study uses containerization tools as Docker and Kubernetes, showcasing their integration into a cohesive testing framework. Furthermore, the implementation leverages the potential of the Google Cloud Platform (GCP) to demonstrate the usage of cloud computing services, emphasizing scalability and efficiency. Additionally, the paper details the integration of monitoring tools, specifically Elasticsearch, to assess and visualize the health and performance of the underlying Kubernetes cluster. Through a comprehensive approach, encompassing a wide variety of tools, the research establishes a continuous and automated testing environment essential for cutting-edge software applications. Results showcase the successful orchestration of all the technologies, highlighting their collective impact on achieving a robust and efficient system for continuous automation testing and monitoring. © 2024 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "elasticsearch"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 669,
+    "title": "The Lasercom Atmospheric Monitoring and Prediction System",
+    "abstract": "Free space optical communications are impacted by atmospheric effects including clouds and aerosols. Clouds can partially or fully obscure lines of site requiring a reduction in data rate or a link handover. These impacts can be mitigated by identifying a geographically diverse set of Optical Ground Stations (OGS) that optimize cloud free line of sight (CFLOS). The Lasercom Network Optimization Tool identifies the smallest number of ground stations that achieves the required CFLOS availability. During mission operations, negative impacts are further mitigated through accurate atmospheric characterization and predictions, enabling consistent and secure communication from space to ground. The Laser communications Atmospheric Monitoring and Prediction System (LAMPS) is a critical component of operational OGSs, providing real-time situational awareness and informing prediction systems that provide advance warning of communication outages. LAMPS consists of three instruments including a laser ceilometer, an infrared whole sky cloud imager and an automated weather station. Measurements from these instruments serve as inputs to a set of neural networks which are trained to learn and predict the state of the atmospheric channel. LAMPS’ deep learning models provide cloud predictions for three time periods: days-ahead, hours-ahead, and minutes-ahead. These time scales optimize operational planning, link handovers, OGS maintenance, and inter-operability and cross support. LAMPS, which follows the best practices in the Consultative Consortium on Space Data Systems Magenta book, has been deployed to two sites. This talk will give an overview of LAMPS and provide recent observations from the Laser Communications Relay Demonstration. © 2024 Elsevier B.V., All rights reserved.",
+    "tools": [
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 671,
+    "title": "Performance Evaluation of Visual Analytics Framework for Monitoring Neuromotor Rehabilitation",
+    "abstract": "Remote rehabilitation of stroke patients reinforces in-person rehabilitation and enhances the regaining of neuromotor capabilities. However, monitoring stroke patients’ rehabilitation from different locations and on a large scale requires a low latency and scalable approach. A real-time visual analytics framework for monitoring in-home rehabilitation of stroke patients based on fog computing is proposed. The objective of this paper is to evaluate the performance of the proposed framework in terms of latency and scalability. OpenTelemetry was used for the evaluation of the proposed framework. OpenTelemetry was chosen over simulation tools for its real-time observability features providing accurate comprehension of the distributed system behaviors in real-world implementation. Five scenarios were setup by progressively escalating the volume of data flow and the number of packets. These scenarios enabled a thorough examination of the framework's ability to handle higher workloads and scalability. The results of end-to-end latency of the proposed system were compared to the Cloud-only implementation. Compared to Cloud-only implementation, the findings of the evaluation showed that the latency of the proposed system was significantly low. Reflecting the scalability feature, the capacities of handling workload by the proposed system in terms of latency, throughput, processing, and resource utilization were stable across the first four configurations. However, the limitations noticed in the fifth configuration put in evidence the constraints of the experimental setup used in this research. Moreover, the scalability and efficiency of the system can be further enhanced in a distributed deployment in real-world conditions. © 2024 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "opentelemetry"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 725,
+    "title": "Oracle Cloud Infrastructure (OCI) GoldenGate: Real-world Examples",
+    "abstract": "This book focuses on the utilization of GoldenGate Services (GGS) in conjunction with a microservices architecture on the Oracle cloud (OCI), primarily for data migration and integration across various data sources and targets. The book begins with a practical example of utilizing GGS on a Marketplace VM, progressively advancing to in-depth discussions on implementing GoldenGate as a Service on OCI. The book offers illustrative guides for data replication between RDBMSs (such as Oracle, Postgres, and big data targets such as Kafka). Additionally, it explores monitoring techniques using Enterprise Manager and Grafana dashboards. A comparative analysis is presented between traditional VM-based GoldenGate installations and the OCI service model. Special attention is given to Zero Downtime Migration (ZDM) and leveraging GGS for database migration from on-premises to OCI. Some chapters address multi-cloud replication using OCI GGS and include real-life case studies. By the end of this book you will have gained comprehensive insights into the architectural design of GoldenGate Services and will be adept at replicating data using GGS, enabling you to replicate setups in your own environments. What You Will Learn Set up GoldenGate Services for high availability (HA), disaster recovery (DR), migration of data to cloud, and moving data into the data lake or lakehouse Perform logical migration of data to the cloud using the ZDM tool (ZDM uses GoldenGate internally). Replicate data to big data targets Monitor GGS using Enterprise Manager and Grafana Replicate data in a multi-cloud environment Who This Book Is For Oracle database administrators who want to replicate data or use Oracle GoldenGate Services for migration and setup of high availability (HA) and disaster recovery (DR); and data engineers who want tobuild the data warehouse, data lake, data lakehouse to push data in near real-time. © 2025 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "grafana"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 827,
+    "title": "Transparent Trace Annotation for Performance Debugging in Microservice-oriented Systems (Work In Progress Paper)",
+    "abstract": "Microservices is a cloud-native architecture in which a single application is implemented as a collection of small, independent, and loosely-coupled services. This architecture is gaining popularity in the industry as it promises to make applications more scalable and easier to develop and deploy. Nonetheless, adopting this architecture in practice has raised many concerns, particularly regarding the difficulty of diagnosing performance bugs and explaining abnormal software behaviour. Fortunately, many tools based on distributed tracing were proposed to achieve observability in microservice-oriented systems and address these concerns (e.g., Jaeger). Distributed tracing is a method for tracking user requests as they flow between services. While these tools can identify slow services and detect latency-related problems, they mostly fail to pinpoint the root causes of these issues. This paper presents a new approach for enacting cross-layer tracing of microservice-based applications. It also proposes a framework for annotating traces generated by most distributed tracing tools with relevant tracing data and metrics collected from the kernel. The information added to the traces aims at helping the practitioner get a clear insight into the operations of the application executing user requests. The framework we present is notably efficient in diagnosing the causes of long tail latencies. Unlike other solutions, our approach for annotating traces is completely transparent as it does not require the modification of the application, the tracer, or the operating system. Furthermore, our evaluation shows that this approach incurs low overhead costs. © 2023 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "jaeger"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 911,
+    "title": "Monitoring and Alerting for Horizontal Auto-Scaling Pods in Kubernetes Using Prome Theus",
+    "abstract": "Software application that is deployed in a cloud environment as opposed to being hosted on a local server or machine is referred to as a cloud application. It is a piece of software that combines local and cloud-based components. The existing model uses remote servers that are accessed through a web browser and an ongoing internet connection to process logic. For deploying the application in cloud computing, currently there is no adequate infrastructure and adequate order in deploying with achieving the zero-down time. Organizations are using one time deployment for deploying their application and upgrading that application will lead to crash down and result in down time in deployment. For monitoring and alerting the cause of error in deployment of the application, there is no specific solution for that. Thus by using multiple tools like Kubernetes, helm, Prometheus, Grafana, etc... using together and optimized, we can achieved the above scenario in the most optimized manner. Cloud applications offer businesses quick time to market and agility because they can be updated, tested, and deployed quickly. This speed may result in cultural changes in how businesses operate. Cloud applications offer businesses quick time to market and agility because they can be updated, tested, and deployed quickly. This speed may result in cultural changes in how businesses operate. © 2024 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "grafana",
+      "prometheus"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 955,
+    "title": "MONCHi: MONitoring for Cloud-native Hyperconnected Islands",
+    "abstract": "Network performance monitoring is a crucial aspect in order to maintain reliable and efficient communications between different hosts and clusters. This is becoming more relevant as companies are progressively moving towards cloud-native environments, where hyperconnected islands are deployed. While monitoring for individual clusters and components is widely deployed, inter-domain metrics have not been yet added to present solutions. In this paper, we present MONCHi, an open-source based custom monitoring tool designed to collect and analyse traditional and custom metrics for network links within and among Kubernetes clusters. MONCHi consists on the flexible design and implementation on top of a conventional monitoring tool –Prometheus in this case– of several custom scripts that run in separate containers within a single pod and continuously collect and store metrics. These metrics are then exposed and visualised in an analysis tool, allowing for easy monitoring of network performance in clusters and for scalable multi-domain deployments based on multiple Prometheus instances. We also discuss the modification of Prometheus configuration to support the new endpoint for MONCHi. Finally, we present the results of several performance tests, focusing mainly on Round-Trip Time (RTT) and bandwidth, conducted to validate the effectiveness of MONCHi to accurately collect and analyse network performance metrics. Overall, MONCHi provides an effective and easy to customise solution for monitoring cloud-native multi-domain environments. © 2023 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "prometheus"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 1030,
+    "title": "Monitoring and Control System for Energy Harvesting IoT Applications",
+    "abstract": "This work shows the design and implementation of a monitoring system for a hybrid energy harvesting device based on the Internet of Things (IoT), with the purpose of acquiring real-time data to be visualized in a metrics representation platform using Cloud computing. Which is formed by a server or several servers that involve software and hardware whose purpose is to monitor and control energy harvesting systems. For the project we used open-source tools selected on the basis of a technical study, the results of which were verified with the implementation of a dashboard. The monitored voltage signals are processed by a 16-bit ADC (Analog-to-Digital Converter), the values that are sent to the central ESP32 controller, which is responsible for reading the processed data and transmitting them via the MQTT (Message Queuing Telemetry Transport) protocol to the Red Hat Enterprise Linux server located in the Microsoft Azure cloud, and then displayed in Grafana. With the work done we can obtain a control of variables such as antenna voltage, panel and battery which is very promising to provide continuous control of all variables involved in energy storage. © 2024 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "grafana"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 1049,
+    "title": "Auto Scaling Infrastructure with Monitoring Tools using Linux Server on Cloud",
+    "abstract": "Cloud computing is the term that has gained widespread usage over these last few years. Due to the rapid increase in the use of information in the digital age of the 21st century, it is increasingly becoming a more attractive option for individuals and organizations to manage all their essential data, projects, and collaborations, rather than relying solely on in-house computers. The user's requirement for hardware and software is reduced via cloud computing. The interface software of cloud computing systems, typically as simple as a web browser, is the only thing the user must operate, and the Cloud network handles the rest. To decrease operational costs, both business and government organizations are adopting cloud computing, seeking a flexible and adaptable solution for the supply and delivery of their product services. Microservices and decoupled apps are becoming more popular. These container-based architectures make it easier to build sophisticated SaaS apps quickly, but managing and creating microservices can be a daunting task. Managing and creating microservices that involve a wide range of diverse functions, including handling and storing information, and performing predictive and prescriptive analysis, can be a challenging undertaking. Establishing auto scaling infrastructure on cloud can be challenging due to several reasons, some of which are: understanding the application architecture, setting up monitoring, scaling policies, cost optimization and implementation complexity. Server farms include the tremendous and heterogeneous virtualized frameworks, which are continually extending and broadening after sometime are the essential starting point for registering specialized organizations. These solutions also need to be integrated into existing systems while adhering to Quality of Service (QoS) requirements. The principal objective of this work is to propose an on-premise design to leverage Kubernetes and Docker containers to improve the quality of service based on resource usage and Service Level Objectives (SLOs). The Prometheus Administrator set up is used to perform namespace checking. Normally, cloud providers enable their own monitoring tools (like CloudWatch) for monitoring CPU, storage and network usage, service component, however these tools cannot monitor the service component. Additionally, the advancements have restricted the capacity to follow QoS highlights at the application level (like security and execution) since the main focus will be dedicated towards the equipment assets. These types of node-level monitoring make it difficult to scale requests and deploy pods to match the demand. Infrastructure monitoring should enable runtime changes to monitor the requirements or metric operationalization should be done on those criteria without modifying the underlying infrastructure. © 2023 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "prometheus"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 1408,
+    "title": "Monitoring Cloud-Native Applications: Lead Agile Operations Confidently Using Open Source Software",
+    "abstract": "Introduce yourself to the nuances of modern monitoring for cloud-native applications running on Kubernetes clusters. This book will help you get started with the concepts of monitoring, introduce you to popular open-source monitoring tools, and help with finding the correct set of use cases for their implementation. It covers the in-depth technical details of open-source software used in modern monitoring systems that are tailor made for environments running microservices. Monitoring Cloud-Native Applications is divided into two parts. Part 1 starts with an introduction to cloud-native applications and the foundational concepts of monitoring. It then walks you through the various aspects of monitoring containerized workloads using Kubernetes as the de-facto orchestration platform. You will dive deep into the architecture of a modern monitoring system and look at its individual components in detail. Part 2 introduces you to popular open-source tools which are used by enterprises and startups alike and are well established as the tools of choice for industry stalwarts. First off, you will look at Prometheus and understand its architecture and usage. You will also learn about InfluxDB, formerly called TICK Stack (Telegraf, InfluxDB, Chronograf, and Kapacitor). You will explore the technical details of its architecture and the use cases which it solves. In the next chapter, you will be introduced to Grafana, a multi-platform open source analytics and interactive visualization tool that can help you with visualization of data and dashboards. After reading this book, you will have a much better understanding of key terminologies and general concepts around monitoring and observability. You will also be able to select a suitable monitoring solution from the bouquet of open-source monitoring solutions available for applications, microservices, and containers. Armed with this knowledge, you will be better prepared to design and lead a successful agile operations team. What You Will Learn Monitor and observe of metrics, events, logs, and traces Carry out infrastructure and application monitoring for microservices architecture Analyze and visualize collected data Use alerting, reporting, and automated actions for problem resolution Who This Book Is For DevOps administrators, cloud administrators, and site reliability engineers (SREs) who manage and monitor applications and cloud infrastructure on a day-to-day basis within their organizations. © 2023 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "grafana",
+      "prometheus",
+      "influxdb",
+      "telegraf",
+      "chronograf",
+      "kapacitor"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 1419,
+    "title": "Aggregating data center measurements for availability analysis",
+    "abstract": "A data center infrastructure is composed of heterogeneous resources divided into three main subsystems: IT (processor, memory, disk, network, etc.), power (generators, power transformers, uninterruptible power supplies, distribution units, among others), and cooling (water chillers, pipes, and cooling tower). This heterogeneity brings challenges for collecting and gathering data from several devices in the infrastructure. In addition, extracting relevant information is another challenge for data center managers. While seeking to improve the cloud availability, monitoring the entire infrastructure using a variety of (open source and/or commercial) advanced monitoring tools, such as Zabbix, Nagios, Prometheus, CloudWatch, AzureWatch, and others is required. It is often common to use many monitoring systems to collect real-time data for data center components from different subsystems. Such an environment brings an inherent challenge stemming from the need to aggregate and organize the whole collected infrastructure data and measurements. This first step is necessary prior to obtaining any valuable insights for decision-making. In this paper, we present the Data Center Availability (DCA) System, a software system that is able to aggregate and analyze data center measurements aimed toward the study of DCA. We also discuss the DCA implementation and illustrate its operation, monitoring a small University research laboratory data center. The DCA System is able to monitor different types of devices using the Zabbix tool, such as servers, switches, and power devices. The DCA System is able to automatically identify the failure time seasonality and trend present in the collected data from different devices of the data center. © 2021 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "prometheus",
+      "zabbix",
+      "nagios"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 1584,
+    "title": "Teemon: A continuous performance monitoring framework for TEEs",
+    "abstract": "Trusted Execution Environments (TEEs), such as Intel Software Guard eXtensions (SGX), are considered as a promising approach to resolve security challenges in clouds. TEEs protect the confidentiality and integrity of application code and data even against privileged attackers with root and physical access by providing an isolated secure memory area, i.e., enclaves. The security guarantees are provided by the CPU, thus even if system software is compromised, the attacker can never access the enclave's content. While this approach ensures strong security guarantees for applications, it also introduces a considerable runtime overhead in part by the limited availability of protected memory (enclave page cache). Currently, only a limited number of performance measurement tools for TEE-based applications exist and none offer performance monitoring and analysis during runtime. This paper presents TEEMon, the first continuous performance monitoring and analysis tool for TEE-based applications. TEEMon provides not only fine-grained performance metrics during runtime, but also assists the analysis of identifying causes of performance bottlenecks, e.g., excessive system calls. Our approach smoothly integrates with existing open-source tools (e.g., Prometheus or Grafana) towards a holistic monitoring solution, particularly optimized for systems deployed through Docker containers or Kubernetes and offers several dedicated metrics and visualizations. Our evaluation shows that TEEMon's overhead ranges from 5% to 17%. © 2020 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "grafana",
+      "prometheus"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 1667,
+    "title": "Monitoring System of OpenStack Cloud Platform Based on Prometheus",
+    "abstract": "Prometheus is currently the hottest open source monitoring tool in the world. With the continuous development of cloud computing, OpenStack has become the most widely used open source cloud platform. Cloud platform as a production system, comprehensive system monitoring is an essential link and an important means to maintain the reliability and stability of cloud platform. Combined with the characteristics of OpenStack cloud platform, this paper uses prometheus to collect the monitoring data of OpenStack cloud platform, and uses the visualization tool grafana to display the monitoring data in real time, designs and implements a comprehensive, intelligent and efficient monitoring system. Through testing, the system can effectively improve the reliability and stability of OpenStack cloud platform. © 2020 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "grafana",
+      "prometheus"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 1722,
+    "title": "Monitoring Microservices and Containerized Applications: Deployment, Configuration, and Best Practices for Prometheus and Alert Manager",
+    "abstract": "Discover the methodologies and best practices for getting started with container services monitoring using Prometheus, AppDynamics, and Dynatrace. The book begins with the basics of working with the containerization and microservices architecture while establishing the need for monitoring and management technologies. You'll go through hands-on deployment, configuration, and best practices for Prometheus. Next, you'll delve deeper into monitoring of container ecosystems for availability, performance, and logs, and then cover the reporting capabilities of Prometheus. Further, you'll move on to advanced topics of extending Prometheus including how to develop new use cases and scenarios. You'll then use enterprise tools such as AppDynamics and Wavefront to discover deeper application monitoring best practices. You'll conclude with fully automated deployment of the monitoring and management platforms integrated with the container ecosystem using infrastructure-as -code tools such as Jenkins, Ansible and Terraform. The book provides sample code and best practices for you to look at container monitoring from a holistic viewpoint. This book is a good starting point for developers, architects, and administrators who want to learn about monitoring and management of cloud native and microservices containerized applications. © 2023 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "prometheus"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 1773,
+    "title": "Workflow Improvement for KubeFlow DL Performance over Cloud-Native SmartX AI Cluster",
+    "abstract": "Cloud-native Kubernetes-based orchestration is widely adopted to take advantage of building large-scale resource pools by flexibly expanding the size of pools with the insertion of additional worker nodes. To meet the emerging demand for AI (Artificial Intelligence)-inspired HPC (High Performance Computing)/HPDA (High Performance Data Analytics) workloads, versatile AI clusters driven by open-source KubeFlow software have been rapidly developed by leveraging for various ML (Machine Learning)/DL (Deep Learning) tools and frameworks. However, since the current version of KubeFlow is not fully aware of underlying GPU (Graphics Processing Unit) resources, special attention should be made to smoothly execute the ML/DL workloads. Thus, in this paper, we explore tentative options to improve the ML/DL workflow under a KubeFlow-enabled AI cluster, which focus on GPU utilization efficiency with the assistance of Prometheus open-source monitoring. © 2021 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "prometheus"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 1913,
+    "title": "Detecting and analyzing the malicious linux events using filebeat and ELK stack",
+    "abstract": "If we look at the current day scenario almost every individual and businesses “are moving their ways of data storage from traditional ways (i.e., paper and files) to digital ways (i.e., cloud storages), which provides a platform to store and maintain data in an accurate, reliable and secure way. But, if the system is not configured securely it leads to data breaches and results in confidential data of an individual or a business being landed in the hands of bad guys, which results in huge financial and reputation loss and may even lead to life loss in some major cases. 0Although Linux is considered as the most secured operating system compared to other competition, but in recent times attackers started exploiting the vulnerabilities present in the Linux operating system and is becoming the next big target for the cyber criminals”“Now, the major provocation for any business or IT companies is to train its internal employees and maintain log analysis and monitoring domain, which is time consuming and requires expensive resources and knowledge. We have multiple log analysis commercial tools available in market which are expensive for small scale businesses and start-ups. So, in this paper I am going to propose a profitable way of implementing log monitoring and analysis infrastructure using open source tools like ELK stack and Moloch.“ELK Stack is an open-source tool which is a combination of three open source tools Elasticsearch “Logstash and Kibana which is used for monitoring and analyzing logs, here we are using ELK stack and Filebeat, Auditbeat which is light weight data shipper used to push Linux events to remote server, to build a profitable log monitoring and analysis infrastructure which can also be used for establishing a small scale Security Operations Center (SOC) services. © 2019 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "elasticsearch",
+      "kibana",
+      "logstash",
+      "filebeat",
+      "auditbeat"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 1981,
+    "title": "A containerized big data streaming architecture for edge cloud computing on clustered single-board devices",
+    "abstract": "The constant increase of the amount of data generated by Internet of Things (IoT) devices creates challenges for the supporting cloud infrastructure, which is often used to process and store the data. This work focuses on an alternative approach, based on the edge cloud computing model, i.e., processing and filtering data before transferring it to a backing cloud infrastructure. We describe the implementation of a low-power and low-cost cluster of single board computers (SBC) for this context, applying models and technologies from the Big Data domain with the aim of reducing the amount of data which has to be transferred elsewhere. To implement the system, a cluster of Raspberry Pis was built, relying on Docker to containerize and deploy an Apache Hadoop and Apache Spark cluster, on which a test application is then executed. A monitoring stack based on Prometheus, a popular monitoring and alerting tool in the cloud-native industry, is used to gather system metrics and analyze the performance of the setup. We evaluate the complexity of the system, showing that by means of containerization increased fault tolerance and ease of maintenance can be achieved, which makes the proposed solution suitable for an industrial environment. Furthermore, an analysis of the overall performance, which takes into account the resource usage of the proposed solution with regards to the constraints imposed by the devices, is presented in order to discuss the capabilities and limitations of proposed architecture. © 2020 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "prometheus"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 2034,
+    "title": "Enhancing HPC System Log Analysis by Identifying Message Origin in Source Code",
+    "abstract": "Supercomputers, high performance computers, and clusters are composed of very large numbers of independent operating systems that are generating their own system logs. Messages are generated locally on each host and usually are transferred to a central logging infrastructure which keeps a master record of the system as a whole. At Los Alamos National Laboratory (LANL) a collection of open source cloud tools are used which log over a hundred million system log messages per day from over a dozen such systems. Understanding what source code created those messages can be extremely useful to system administrators when they are troubleshooting these complex systems as it can give insight into a subsystem (disk, network, etc.) or even line numbers of source code. Oftentimes, debugging supercomputers is done in environments where open access cannot be provided to all individuals due to security concerns. As such, providing a means for conveying information between system log messages and source code lines allows for communication between system administrators and source developers or supercomputer vendors. In this work, we demonstrate a prototype tool which aims to provide such an expert system. We leverage capabilities from ElasticSearch, one of the open source cloud tools deployed at LANL, and with our own metrics develop a means for correctly matching source code lines as well as files with high confidence. We discuss confidence metrics and show that in our experiments 92% of syslog lines were correctly matched. For any future samples, we predict with 95% confidence that the correct file will be detected between 88.2% and 95.8% of the time. Finally, we discuss enhancements that are underway to improve the tool and study it on a larger dataset. © 2019 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "elasticsearch"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 2159,
+    "title": "Making runtime data useful for incident diagnosis: An experience report",
+    "abstract": "Important and critical aspects of technical debt often surface at runtime only and are difficult to measure statically. This is a particular challenge for cloud applications because of their highly distributed nature. Fortunately, mature frameworks for collecting runtime data exist but need to be integrated. In this paper, we report an experience from a project that implements a cloud application within Kubernetes on Azure. To analyze the runtime data of this software system, we instrumented our services with Zipkin for distributed tracing; with Prometheus and Grafana for analyzing metrics; and with fluentd, Elasticsearch and Kibana for collecting, storing and exploring log files. However, project team members did not utilize these runtime data until we created a unified and simple access using a chat bot. We argue that even though your project collects runtime data, this is not sufficient to guarantee its usage: In order to be useful, a simple, unified access to different data sources is required that should be integrated into tools that are commonly used by team members. © 2019 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "zipkin",
+      "grafana",
+      "prometheus",
+      "elasticsearch",
+      "fluentd",
+      "kibana"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 2174,
+    "title": "Proceedings of SPIE-The International Society for Optical Engineering",
+    "abstract": "The proceedings contain 87 papers. The topics discussed include: Application of cloud computing in astrophysics: The case of Amazon web services; very large scale high performance computing and instrument management for high availability systems through the use of virtualization at the square kilometre array (SKA) telescope; challenges of real-time processing in HPC environments: The ASKAP experience; real-time processing of the imaging data from the network of Las Cumbres observatory telescopes using BANZAI; tensor representation, constrain (storage) and processing of multidimensional astronomical data over intense computing support; autonomous on-board data processing and instrument calibration software for the SO/PHI; general-purpose software for managing astronomical observing programs in the LSST era; dynamically scheduling observations of moving objects: The Catalina sky survey queue manager; the MAORY ICS software architecture; connecting the dots: Reducing fragmentation in radio-telescopes user interfaces; increasing the usability of the MICADO observation preparation tool through a hybrid user interface; the infrared imaging spectrograph (IRIS) for TMT: Closed-loop adaptive optics while dithering; the preliminary design of the G-CLEF spectrograph instrument device control system; building a telescope engineering data system with Redis, InfluxDB and Grafana; and tm services: An architecture for monitoring and controlling the square kilometre array (SKA) telescope manager (TM). © 2018 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "grafana",
+      "influxdb"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 2290,
+    "title": "Exploring the trade-off between performance and energy consumption in cloud infrastructures",
+    "abstract": "Emerging fog and mobile edge computing paradigms will create distributed pervasive virtualization environments, where computing, storage, and networking resources will be deployed at the network boundary in a capillary way. To effectively tackle the large dynamic fluctuations in workload engendered by user-centric services, effective energy management schemes must be in place to modulate power consumption according to the actual processing load in each installation. In this respect, service orchestrators and multi- and cross-cloud energy management systems need proper tools to understand how power consumption would change with different placement decisions, both in the single as well as in federated clouds. In this paper, we describe a framework for exploring the trade-off between performance and energy consumption. Our work builds on the availability of both resource usage and power consumption measurements in Cloud Management Software, and makes proper correlation between these values to effectively support energy-efficiency strategies. We describe the implementation of energy monitoring framework in OpenStack, which leverages available features in the Ceilometer component. © 2017 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "ceilometer"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 2331,
+    "title": "Detection and analysis of fog/low cloud using Ceilometer and INSAT-3D satellite data over Delhi Earth Station, New Delhi",
+    "abstract": "Fog/low cloud base height has been continuously monitored using ground based Ceilometer during the fog season of 2016-17 over Delhi Earth Station, New Delhi. The INSAT-3D fog product results have been validated with the in-situ observations. Fog/low cloud has been successfully detected by both Ceilometer and INSAT-3D during single layer cloud in most of the cases. Fog/low cloud detection using INSAT-3D observed to be a difficult task in multi-layer clouds whereas both single and multi-layer clouds has been well captured by Ceilometer. Since fog is a near surface phenomenon, ground based observation like Ceilometer could be the most effective approach for the detection of fog and however, to get information about the complete spatial coverage of fog, remote sensing technology provides better opportunity. Satellite remote sensing is an important tool in the detection and now casting of fog events. A collective approach is required which consider both ground based Ceilometer and satellite based observations for an improved and continuous monitoring of fog/low cloud. © 2018 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "ceilometer"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 2356,
+    "title": "Assessment of private cloud infrastructure monitoring tools: A comparison of Ceilometer and Monasca",
+    "abstract": "Cloud monitoring tools are a popular solution for both cloud users and administrators of private cloud infrastructures. These tools provide information that can be useful for effective and efficient resource consumption management, supporting the decision-making process in scenarios where administrators must react rapidly to saturation and failure events. However, the estimation of the impact on host systems in a private cloud is not a trivial issue for administrators, specially when monitoring measurements are required in reduced periods of times. This paper presents a performance comparison between two free and well supported cloud monitoring tools called Ceilometer and Monasca, deployed on a private cloud infrastructure. This comparison is mainly focused on evaluating these tools ability to obtain monitoring information in short time intervals for early detection of resource constraints. The impact of resource consumption on the performance of host systems produced by both tools was analyzed and the evaluation revealed that Monasca produced a better performance than Ceilometer for evaluated scenarios and that, according to the learned lessons in this comparison, Monasca represents a suitable option for being integrated into an adaptive cloud resource management system. © 2020 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "ceilometer",
+      "monasca"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 2419,
+    "title": "Performance of the new DAQ system of the CMS experiment for run-2",
+    "abstract": "The data acquisition system (DAQ) of the CMS experiment at the CERN Large Hadron Collider (LHC) assembles events at a rate of 100 kHz, transporting event data at an aggregate throughput of more than 100GB/s to the Highlevel Trigger (HLT) farm. The HLT farm selects and classifies interesting events for storage and offline analysis at an output rate of around 1 kHz. The DAQ system has been redesigned during the accelerator shutdown in 2013-2014. The motivation for this upgrade was twofold. Firstly, the compute nodes, networking and storage infrastructure were reaching the end of their lifetimes. Secondly, in order to maintain physics performance with higher LHC luminosities and increasing event pileup, a number of sub-detectors are being upgraded, increasing the number of readout channels as well as the required throughput, and replacing the off-detector readout electronics with a MicroTCA-based DAQ interface. The new DAQ architecture takes advantage of the latest developments in the computing industry. For data concentration 10/40 Gbit/s Ethernet technologies are used, and a 56Gbit/s Infiniband FDR CLOS network (total throughput 4Tbit/s) has been chosen for the event builder. The upgraded DAQ-HLT interface is entirely file-based, essentially decoupling the DAQ and HLT systems. The fully-built events are transported to the HLT over 10/40 Gbit/s Ethernet via a network file system. The collection of events accepted by the HLT and the corresponding metadata are buffered on a global file system before being transferred off-site. The monitoring of the HLT farm and the data-Taking performance is based on the Elasticsearch analytics tool. This paper presents the requirements, implementation, and performance of the system. Experience is reported on the first year of operation with LHC proton-proton runs as well as with the heavy ion lead-lead runs in 2015. © 2017 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "elasticsearch"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 2423,
+    "title": "Test environment & application as a Service",
+    "abstract": "In the highly competitive global information technology (IT) industry it is crucial to apply the latest scientific know-how and service lifecycle models straight to daily business. Test Environment and Application as a Service (TEAaaS) is an OpenStack based Cloud solution developed in Ericsson Nikola Tesla, a Croatian provider of modern information-communications products, solutions, software and services, to transform the way IT applications, tools and environments are delivered to users. Information Technology Infrastructure Library v3 (ITILv3) Service Lifecycle Model has been applied in all development phases. The solution comprises applications and tools made available to users as a customized service portfolio through a Web Cloud Portal, ready to be deployed as an automated development and test environment model. Multiple controller nodes in a high availability cluster provide effective reliability on the OpenStack level, while the custom adapted FreeNX based Load Balancer improves the overall application capacity. The OpenStack Ceilometer component provides real-time monitoring of the used resources and their utilization, so TEAaaS delivers a transparent and flexible pay-per-use service model. © 2017 Elsevier B.V., All rights reserved.",
+    "tools": [
+      "ceilometer"
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 2937,
+    "title": "Adding confidence levels and error bars to mixing layer heights detected by ceilometer",
+    "abstract": "Eye-safe lidar ceilometers are reliable tools for unattended boundary layer structure monitoring around the clock. A single lens optical design enables precise assessment of inversion layers and nocturnal stable layers below 200 m. This design has been chosen for the Vaisala Ceilometers CL31 and CL51. Based on the gradient method, an automatic algorithm for online retrieval of boundary layer depth and additional residual structures has been developed. This robust all weather algorithm is part of the Vaisala boundary layer reporting and analysis tool BL-VIEW. The data averaging intervals used depend on range and signal noise; detection thresholds vary with signal amplitude. All layer heights reported are accomponied by a quality index. In most cases the lowest of these layers is a good measure for the mixing layer height. The continuous knowledge of this atmospheric parameter is supporting the understanding of processes directing air quality. The utility of mixing layer height values for air quality forecast can be further increased by additionally utilizing unaveraged profiles for gradient minima detection. Based on their variation from the result of the BL-VIEW algorithm, confidence levels and error bars can be calculated. Results are presented from campaigns at three different sites. Validation with mixing layer height values derived from co-located radiosoundings confirm the applicability of this novel method. © 2011 SPIE. © 2011 Elsevier B.V., All rights reserved.",
+    "tools": [
+    ]
+  },
+  {
+    "source": "keyword",
+    "id": 2978,
+    "title": "Water vapour profiling in cloudy conditions integrating Raman lidar and passive microwave observations",
+    "abstract": "At the Istituto di Metodologie per l'Analisi Ambientale of the Italian National Research Council (CNR-IMAA) an advanced observatory for the ground-based remote sensing of the atmosphere is operative. This facility is equipped with several instruments including two multi-wavelength Raman lidars, one of which mobile, a microwave profiler, a 36 GHz Doppler polarimetric radar, two laser ceilometers, a sun photometer, a surface radiation station and three radiosounding stations. CNR-IMAA atmospheric observatory (CIAO) is located in Southern Italy on the Apennine mountains (40.60N, 15.72E, 760 m a.s.l.), less than 150 km from the West, South and East coasts. The site is in a valley surrounded by low mountains (<1100 m a.s.l.) and this location offers an optimal opportunity to study different kinds of weather and climate regimes. CIAO represents an optimal site where testing possible synergies between active and passive techniques for improving the profiling capabilities of several atmospheric key variables, such as aerosol, water vapour and clouds, and for the development of an integration strategy for their long-term monitoring. CIAO strategy aims at the combination of observations provided by active and passive sensors for providing advanced retrievals of atmospheric parameters exploiting both the high vertical resolution of active techniques and the typical operational capabilities of passive sensors. This combination offers a high potential for profiling atmospheric parameters in an enlarged vertical range nearly independently on the atmospheric conditions. In this work, we describe two different integration approaches for the improvement of water vapour profiling during cloudy condition through the combination of Raman lidar and microwave profiler measurements. These approaches are based on the use of Kalman filtering and Tikhonov regularization methods for the solution of the radiative transfer equation in the microwave region. The accuracy of the retrieved water vapour profiles during cloudy conditions is improved by the use of the water vapour Raman lidar profiles, retrieved up to a maximum height level located around the cloud base region (depending on their optical thickness), as a constraint to the obtained solution set. The presented integration approaches allow us to provide physically consistent solution to the inverse problem in the microwave region retrieving water vapour vertical profiles also in presence of thick clouds. The integration of Raman lidar and microwave measurements also provides a continuous high-resolution estimation of the water vapour content in the full troposphere and, therefore, a useful tool for the evaluation of model capability to capture mean aspects of the water vapour field in nearly all weather conditions as well as for the identification of possible discrepancies between observations and models. © 2010 Copyright SPIE - The International Society for Optical Engineering. © 2011 Elsevier B.V., All rights reserved.",
+    "tools": [
+    ]
+  },
+  {
+    "source": "random",
+    "id": 839,
+    "title": "Complexity and Monitoring of Economic Operations Using a Game-Theoretic Model for Cloud Computing",
+    "abstract": "In this study, a model is presented for allocating cloud computing resources based on economic considerations using tools from game theory. The model, called the Non-Cooperative Game Resource Allocation Algorithm (NCGRAA), is designed to achieve the optimum stage in cloud computing. In addition, the Bargaining Game Resource Allocation Algorithm (BGRAA) is introduced to the existing system to develop the billing process within the constraints of availability and fairness. This system-based algorithm implements methods for converging on and improving the Nash Equilibrium and Nash Bargaining solutions. While the Nash equilibrium helps to develop decision-making concepts with game theory, one of its main goals is to achieve the desired outcome and avoid deviation from the working stage. Nash Bargaining is a unique solution that occurs between two parties and takes into account the process of bargaining to provide a fair solution that is scale invariant and independent. In recent years, cloud computing has become a popular way to manage computing services and enable producers and consumers to interact. This process allows users to obtain goods at an affordable cost from sellers according to their expectations. This research investigates the economic operation monitoring of cloud computing using the gaming theory model. A Static Negotiation Analysis Method with a Bargaining Process (SNAM-BP) for a dynamic conceptual framework is presented to display the weighted relationship between primary issues and keywords used to evaluate the potential partnership of each country. © 2023 Elsevier B.V., All rights reserved.",
+    "tools": [
+    ]
+  },
+  {
+    "source": "random",
+    "id": 2926,
+    "title": "On-demand provisioning of Cloud and Grid based infrastructure services for collaborative projects and groups",
+    "abstract": "Effective use of existing network and IT infrastructure can be achieved by providing combined network and IT resources on-demand as infrastructure services that are capable of supporting complex technological processes, scientific experiments, and collaborative groups of researchers and applications. This paper provides a short overview of existing standards and technologies and refers to ongoing projects. We also describe experiences in developing an architectural framework and tools for combined on-demand network and Grid/Cloud service provisioning. The paper proposes an architectural framework for on-demand infrastructure service provisioning comprising of three main components: the Composable Services Architecture (CSA) that intends to provide a conceptual and methodological framework for developing dynamically configurable virtualised infrastructure services; the Infrastructure Services Modeling Framework (ISMF) that provides a basis for the infrastructure resources virtualisation and management, including description, discovery, modeling, composition and monitoring; and the Service Delivery Framework (SDF) that provides a basis for defining the whole composable services life cycle management and supporting infrastructure services. We discuss implementation suggestions for the defined architectural components and provides information about the ongoing developments of the GEMBus which is considered as a middleware framework for CSA. © 2011 IEEE. © 2011 Elsevier B.V., All rights reserved.",
+    "tools": []
+  },
+  {
+    "source": "random",
+    "id": 1462,
+    "title": "The Definitive Guide to Azure Data Engineering Modern ELT, DevOps, and Analytics on the Azure Cloud Platform",
+    "abstract": "Build efficient and scalable batch and real-time data ingestion pipelines, DevOps continuous integration and deployment pipelines, and advanced analytics solutions on the Azure Data Platform. This book teaches you to design and implement robust data engineering solutions using Data Factory, Databricks, Synapse Analytics, Snowflake, Azure SQL database, Stream Analytics, Cosmos database, and Data Lake Storage Gen2. You will learn how to engineer your use of these Azure Data Platform components for optimal performance and scalability. You will also learn to design self-service capabilities to maintain and drive the pipelines and your workloads. The approach in this book is to guide you through a hands-on, scenario-based learning process that will empower you to promote digital innovation best practices while you work through your organization’s projects, challenges, and needs. The clear examples enable you to use this book as a reference and guide for building data engineering solutions in Azure. After reading this book, you will have a far stronger skill set and confidence level in getting hands on with the Azure Data Platform. What You Will Learn Build dynamic, parameterized ELT data ingestion orchestration pipelines in Azure Data Factory Create data ingestion pipelines that integrate control tables for self-service ELT Implement a reusable logging framework that can be applied to multiple pipelines Integrate Azure Data Factory pipelines with a variety of Azure data sources and tools Transform data with Mapping Data Flows in Azure Data Factory Apply Azure DevOps continuous integration and deployment practices to your Azure Data Factory pipelines and development SQL databases Design and implement real-time streaming and advanced analytics solutions using Databricks, Stream Analytics, and Synapse Analytics Get started with a variety of Azure data services through hands-on examples Who This Book Is For Data engineers and data architects who are interested in learning architectural and engineering best practices around ELT and ETL on the Azure Data Platform, those who are creating complex Azure data engineering projects and are searching for patterns of success, and aspiring cloud and data professionals involved in data engineering, data governance, continuous integration and deployment of DevOps practices, and advanced analytics who want a full understanding of the many different tools and technologies that Azure Data Platform provides. © 2023 Elsevier B.V., All rights reserved.",
+    "tools": [
+    ]
+  },
+  {
+    "source": "random",
+    "id": 2030,
+    "title": "Modeling, Designing and Monitoring Value-added Chains of Cognitive Economy",
+    "abstract": "The article examines best practices development cognitive economy based on value-added chains. The article proposes the concept of cloud tools for modeling, designing and monitoring program of innovative development in a knowledge economy. © 2019 Elsevier B.V., All rights reserved.",
+    "tools": [
+    ]
+  },
+  {
+    "source": "random",
+    "id": 931,
+    "title": "Vicious Cycles in Distributed Software Systems",
+    "abstract": "A major threat to distributed software systems' reliability is vicious cycles, which are observed when an event in the distributed software system's execution causes a system degradation, and the degradation, in turn, causes more of such events. Vicious cycles often result in large-scale cloud outages that are hard to recover from due to their self-reinforcing nature. This paper formally defines Vicious Cycle, and conducts the first in-depth study of 33 real-world vicious cycles in 13 widely-used open-source distributed software systems, shedding light on the root causes, triggering conditions, and fixing strategies of vicious cycles, with over a dozen concrete implications to combat them. Our findings show that the majority of the vicious cycles are caused by incorrect error handlers, where the handlers do not obtain enough information to distinguish between 1) an error induced by incoming requests and 2) an error induced by an unexpected interference from another error handler. This paper further performs a feasibility study by 1) building a monitoring tool that prevents one type of vicious cycle by collecting information to make a more informed decision in error handling, and 2) investigating the effectiveness of one commonly suggested practice-injecting exponential backoff-to prevent vicious cycles induced by unconstrained retry. © 2023 Elsevier B.V., All rights reserved.",
+    "tools": [
+    ]
+  },
+  {
+    "source": "random",
+    "id": 2527,
+    "title": "A satellite ocean colour spectral library for the analysis and classification of extreme optical conditions in European seas",
+    "abstract": "In a context of climate change, extreme conditions may be becoming more frequent. For instance, ecologically disruptive or harmful algal blooms in the marine environment show signs of increased frequencies. Some of these blooms are also optical extremes with intense manifestations in the satellite ocean colour record but often without correct derived metrics related to their occurrence, in some cases they are even omitted completely due to failures in atmospheric correction or cloud masking. Considering the ecological importance of these conditions on marine ecosystems and even human activities, they should be described quantitatively by remote sensing to be properly integrated into the statistical treatment of extreme events. Therefore, a spectral library was created containing the two main types of extreme blooms in European waters, namely intense cyanobacteria blooms in the Baltic Sea and coccolithophore blooms in the North-East Atlantic and Black Sea, including data previously excluded by operational satellite ocean colour processing. This library is a unique resource that can facilitate the use of novel spectral analysis and classification techniques for extreme marine optical events. Demonstration applications of such techniques gave results indicating single spectral classes may be sufficient to describe each case and that this kind of spectral library, analysis and classification could serve as important tools in the monitoring of these extreme events in terms of their occurrence, size, extent and evolution. © 2016 Elsevier B.V., All rights reserved.",
+    "tools": [
+    ]
+  },
+  {
+    "source": "random",
+    "id": 2048,
+    "title": "Evaluating the performance of terrestrial laser scanning for landslide monitoring",
+    "abstract": "Nowadays, Terrestrial Laser Scanning (TLS) technology is gaining popularity in monitoring and predicting the movement of landslide due to the capability of high-speed data capture without requiring a direct contact with the monitored surface. It offers very high density of point cloud data in high resolution and also can be an effective tool in detecting the surface movement of the landslide area. The aim of this research is to determine the optimal level of scanning resolution for landslide monitoring using TLS. The Topcon Geodetic Laser Scanner (GLS) 2000 was used in this research to obtain the three dimensional (3D) point cloud data of the landslide area. Four types of resolution were used during scanning operation which were consist of very high, high, medium and low resolutions. After done with the data collection, the point clouds datasets were undergone the process of registration and filtering using ScanMaster software. After that, the registered point clouds datasets were analyzed using CloudCompare software. Based on the results obtained, the accuracy of TLS point cloud data between picking point manually and computed automatically by ScanMaster software shows the maximum Root Mean Square (RMS) value of coordinate differences were 0.013m in very high resolution, 0.017m in high resolution, 0.031m in medium resolution and 0.052m in low resolution respectively. Meanwhile, the accuracy of TLS point cloud data between picking point manually and total station data using intersection method shows the maximum RMS values of coordinate differences were 0.013m in very high resolution, 0.018m in high resolution, 0.033m in medium resolution and 0.054m in low resolution respectively. Hence, it can be concluded that the high or very high resolution is needed for landslide monitoring using Topcon GLS-2000 which can provide more accurate data in slope result, while the low and medium resolutions is not suitable for landslide monitoring due to the accuracy of TLS point cloud data that will decreased when the resolution value is increased. © 2019 Elsevier B.V., All rights reserved.",
+    "tools": [
+    ]
+  },
+  {
+    "source": "random",
+    "id": 425,
+    "title": "Transport Infrastructure Management Based on LiDAR Synthetic Data: A Deep Learning Approach with a ROADSENSE Simulator",
+    "abstract": "In the realm of transportation system management, various remote sensing techniques have proven instrumental in enhancing safety, mobility, and overall resilience. Among these techniques, Light Detection and Ranging (LiDAR) has emerged as a prevalent method for object detection, facilitating the comprehensive monitoring of environmental and infrastructure assets in transportation environments. Currently, the application of Artificial Intelligence (AI)-based methods, particularly in the domain of semantic segmentation of 3D LiDAR point clouds by Deep Learning (DL) models, is a powerful method for supporting the management of both infrastructure and vegetation in road environments. In this context, there is a lack of open labeled datasets that are suitable for training Deep Neural Networks (DNNs) in transportation scenarios, so, to fill this gap, we introduce ROADSENSE (Road and Scenic Environment Simulation), an open-access 3D scene simulator that generates synthetic datasets with labeled point clouds. We assess its functionality by adapting and training a state-of-the-art DL-based semantic classifier, PointNet++, with synthetic data generated by both ROADSENSE and the well-known HELIOS++ (HEildelberg LiDAR Operations Simulator). To evaluate the resulting trained models, we apply both DNNs on real point clouds and demonstrate their effectiveness in both roadway and forest environments. While the differences are minor, the best mean intersection over union (MIoU) values for highway and national roads are over 77%, which are obtained with the DNN trained on HELIOS++ point clouds, and the best classification performance in forested areas is over 92%, which is obtained with the model trained on ROADSENSE point clouds. This work contributes information on a valuable tool for advancing DL applications in transportation scenarios, offering insights and solutions for improved road and roadside management. © 2024 Elsevier B.V., All rights reserved.",
+    "tools": [
+    ]
+  }
+]

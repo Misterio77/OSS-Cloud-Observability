@@ -1,0 +1,416 @@
+{
+  "cacti": {
+    "kafka": 28,
+    "nagios": 1,
+    "net-snmp": 263
+  },
+  "cadvisor": {
+    "elasticsearch": 25,
+    "grafana": 3,
+    "influxdb": 81,
+    "jaeger": 4,
+    "kafka": 31,
+    "opentelemetry": 53,
+    "prometheus": 294
+  },
+  "ceilometer": {
+    "jaeger": 14,
+    "kafka": 16,
+    "monasca": 15,
+    "opentelemetry": 3,
+    "prometheus": 31
+  },
+  "chronograf": {
+    "elasticsearch": 26,
+    "influxdb": 576,
+    "jaeger": 3,
+    "kafka": 52,
+    "kapacitor": 1435,
+    "prometheus": 73,
+    "telegraf": 854,
+    "zenoss": 45,
+    "zipkin": 4
+  },
+  "collectd": {
+    "ganglia": 18,
+    "grafana": 2,
+    "influxdb": 10,
+    "kafka": 48,
+    "logstash": 13,
+    "nagios": 68,
+    "net-snmp": 46,
+    "opentelemetry": 2,
+    "opentsdb": 5,
+    "prometheus": 47,
+    "snort": 9,
+    "syslog-ng": 1
+  },
+  "collectl": {
+    "ganglia": 36
+  },
+  "elasticsearch": {
+    "cacti": 6,
+    "ganglia": 6,
+    "jaeger": 21,
+    "kafka": 125,
+    "kepler": 7,
+    "kibana": 1099,
+    "logstash": 551,
+    "nagios": 85,
+    "opentelemetry": 263,
+    "prometheus": 17,
+    "skydive": 3,
+    "snort": 8,
+    "zabbix": 3
+  },
+  "elastic beats": {
+    "cadvisor": 6,
+    "elasticsearch": 21191,
+    "fluentd": 326,
+    "grafana": 11,
+    "influxdb": 3,
+    "jaeger": 79,
+    "kafka": 3315,
+    "kibana": 6412,
+    "logstash": 2356,
+    "nagios": 6,
+    "net-snmp": 3,
+    "opentelemetry": 525,
+    "prometheus": 2809,
+    "snort": 15,
+    "telegraf": 4,
+    "zabbix": 1,
+    "zipkin": 4
+  },
+  "fluentd": {
+    "prometheus": 1
+  },
+  "ganglia": {
+    "nagios": 81
+  },
+  "grafana": {
+    "chronograf": 4,
+    "collectd": 30,
+    "elasticsearch": 1483,
+    "fluentd": 7,
+    "influxdb": 1045,
+    "jaeger": 527,
+    "kafka": 90,
+    "kapacitor": 1,
+    "kibana": 27,
+    "logstash": 31,
+    "monasca": 2,
+    "net-snmp": 2,
+    "ntopng": 3,
+    "opentelemetry": 1557,
+    "opentsdb": 229,
+    "prometheus": 8623,
+    "skydive": 2,
+    "telegraf": 80,
+    "zabbix": 116,
+    "zipkin": 202
+  },
+  "influxdb": {
+    "jaeger": 11,
+    "prometheus": 5
+  },
+  "jaeger": {
+    "elasticsearch": 619,
+    "grafana": 61,
+    "kafka": 389,
+    "kibana": 4,
+    "opentelemetry": 1174,
+    "prometheus": 415,
+    "zipkin": 198
+  },
+  "joularjx": {
+    "powerjoular": 12
+  },
+  "kafka": {
+    "opentelemetry": 49
+  },
+  "kapacitor": {
+    "chronograf": 5,
+    "collectd": 21,
+    "grafana": 3,
+    "influxdb": 610,
+    "jaeger": 12,
+    "kafka": 195,
+    "nagios": 2,
+    "opentelemetry": 18,
+    "opentsdb": 16,
+    "prometheus": 317,
+    "telegraf": 216,
+    "zenoss": 113,
+    "zipkin": 4
+  },
+  "kepler": {
+    "cadvisor": 1,
+    "elasticsearch": 5,
+    "fluentd": 5,
+    "grafana": 149,
+    "influxdb": 7,
+    "kafka": 1,
+    "logstash": 6,
+    "opentelemetry": 2,
+    "prometheus": 1596,
+    "scaphandre": 18,
+    "systemtap": 1,
+    "telegraf": 1
+  },
+  "kibana": {
+    "elasticsearch": 193408,
+    "fluentd": 10,
+    "jaeger": 18,
+    "kafka": 900,
+    "kepler": 1,
+    "logstash": 6779,
+    "nagios": 144,
+    "opentelemetry": 1538,
+    "prometheus": 307,
+    "snort": 18,
+    "sysdig": 5,
+    "syslog-ng": 3,
+    "telegraf": 4,
+    "wazuh": 7,
+    "zipkin": 4
+  },
+  "logstash": {
+    "cacti": 6,
+    "collectd": 38,
+    "elasticsearch": 3295,
+    "elastic beats": 1,
+    "fluentd": 3,
+    "ganglia": 1,
+    "kafka": 101,
+    "kibana": 71,
+    "nagios": 6,
+    "snort": 10,
+    "syslog-ng": 1
+  },
+  "monasca": {
+    "collectd": 7,
+    "elasticsearch": 75,
+    "grafana": 93,
+    "influxdb": 261,
+    "kafka": 269,
+    "kibana": 93,
+    "logstash": 27,
+    "opentsdb": 4
+  },
+  "nagios": {
+    "kafka": 24,
+    "systemtap": 1
+  },
+  "netdata": {
+    "cacti": 1,
+    "cadvisor": 20,
+    "collectd": 15,
+    "elasticsearch": 435,
+    "fluentd": 64,
+    "grafana": 53,
+    "influxdb": 19,
+    "jaeger": 9,
+    "kafka": 87,
+    "kepler": 5,
+    "logstash": 88,
+    "nagios": 26,
+    "net-snmp": 17,
+    "opentelemetry": 299,
+    "opentsdb": 100,
+    "prometheus": 6473,
+    "snort": 1,
+    "telegraf": 1,
+    "zabbix": 1
+  },
+  "net-snmp": {
+    "cacti": 3,
+    "jaeger": 9,
+    "nagios": 35,
+    "zabbix": 3
+  },
+  "ntopng": {
+    "cacti": 1,
+    "chronograf": 3,
+    "collectd": 2,
+    "elasticsearch": 184,
+    "ganglia": 1,
+    "grafana": 43,
+    "influxdb": 784,
+    "jaeger": 1,
+    "kafka": 95,
+    "kepler": 7,
+    "kibana": 22,
+    "logstash": 13,
+    "nagios": 27,
+    "net-snmp": 93,
+    "prometheus": 25,
+    "snort": 2,
+    "telegraf": 30
+  },
+  "opentelemetry": {
+    "cadvisor": 174,
+    "collectd": 80,
+    "elasticsearch": 2492,
+    "elastic beats": 3,
+    "fluentd": 37,
+    "grafana": 429,
+    "influxdb": 193,
+    "jaeger": 1542,
+    "kafka": 1722,
+    "kibana": 6,
+    "logstash": 18,
+    "prometheus": 4603,
+    "sysdig": 2,
+    "telegraf": 51,
+    "zipkin": 917
+  },
+  "opentsdb": {
+    "collectd": 1,
+    "elasticsearch": 4,
+    "nagios": 12,
+    "zenoss": 1
+  },
+  "powerjoular": {
+    "joularjx": 3
+  },
+  "prometheus": {
+    "cadvisor": 83,
+    "elasticsearch": 8,
+    "fluentd": 5,
+    "grafana": 198,
+    "influxdb": 42,
+    "jaeger": 3,
+    "kafka": 14,
+    "opentelemetry": 267,
+    "opentsdb": 31
+  },
+  "scaphandre": {
+    "grafana": 92,
+    "prometheus": 220
+  },
+  "skydive": {
+    "elasticsearch": 210,
+    "fluentd": 5,
+    "grafana": 2,
+    "kafka": 1,
+    "kibana": 9,
+    "opentelemetry": 76,
+    "prometheus": 74,
+    "snort": 21
+  },
+  "snort": {},
+  "sysdig": {
+    "elasticsearch": 1,
+    "fluentd": 1,
+    "kafka": 1
+  },
+  "syslog-ng": {
+    "collectd": 5,
+    "elasticsearch": 12,
+    "grafana": 8,
+    "kafka": 227,
+    "kibana": 1,
+    "logstash": 3,
+    "nagios": 2,
+    "net-snmp": 35,
+    "opentelemetry": 254,
+    "prometheus": 41
+  },
+  "systemtap": {
+    "prometheus": 199
+  },
+  "telegraf": {
+    "cadvisor": 16,
+    "chronograf": 82,
+    "collectd": 37,
+    "elasticsearch": 324,
+    "fluentd": 45,
+    "grafana": 13,
+    "influxdb": 1401,
+    "jaeger": 17,
+    "kafka": 337,
+    "kapacitor": 302,
+    "kibana": 66,
+    "logstash": 116,
+    "nagios": 38,
+    "netdata": 4,
+    "net-snmp": 6,
+    "opentelemetry": 247,
+    "opentsdb": 93,
+    "prometheus": 949,
+    "zabbix": 318,
+    "zipkin": 171
+  },
+  "tetragon": {
+    "cacti": 2,
+    "elasticsearch": 173,
+    "fluentd": 15,
+    "ganglia": 2,
+    "grafana": 22,
+    "influxdb": 6,
+    "jaeger": 77,
+    "kafka": 66,
+    "logstash": 13,
+    "opentelemetry": 2090,
+    "prometheus": 1908,
+    "systemtap": 1,
+    "zipkin": 42
+  },
+  "thingsboard": {
+    "elasticsearch": 21,
+    "grafana": 29,
+    "kafka": 663,
+    "prometheus": 95
+  },
+  "thingspeak": {},
+  "tracecompass": {
+    "kepler": 1
+  },
+  "wazuh": {
+    "cadvisor": 10,
+    "collectd": 3,
+    "elasticsearch": 390,
+    "fluentd": 6,
+    "grafana": 34,
+    "kafka": 4,
+    "kibana": 817,
+    "logstash": 49,
+    "net-snmp": 237,
+    "opentelemetry": 40,
+    "prometheus": 59,
+    "snort": 69,
+    "sysdig": 6,
+    "syslog-ng": 449,
+    "systemtap": 1
+  },
+  "xdmod": {
+    "grafana": 24,
+    "kafka": 24,
+    "prometheus": 131
+  },
+  "zabbix": {
+    "cadvisor": 39,
+    "elasticsearch": 645,
+    "influxdb": 254,
+    "kafka": 776,
+    "kepler": 42,
+    "net-snmp": 111,
+    "prometheus": 1532,
+    "telegraf": 148
+  },
+  "zenoss": {
+    "nagios": 14,
+    "net-snmp": 72,
+    "syslog-ng": 5
+  },
+  "zipkin": {
+    "elasticsearch": 589,
+    "grafana": 28,
+    "jaeger": 2,
+    "kafka": 354,
+    "kibana": 3,
+    "opentelemetry": 2,
+    "prometheus": 109
+  }
+}

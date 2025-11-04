@@ -1,0 +1,527 @@
+- name: cacti
+  repositories:
+    - rev: 6c59388db40b3f209063a52361a78c06b07a78a3
+      url: https://github.com/Cacti/cacti
+  roles:
+    - collection
+    - visualization
+  sources:
+    - 2776
+- name: cadvisor
+  repositories:
+    - rev: 5adb1c3bb38b4c5d50b31f39faf3214a44ae479b
+      url: https://github.com/google/cadvisor
+  roles:
+    - collection
+  sources:
+    - 375
+- name: ceilometer
+  repositories:
+    - rev: a203292c5414c365a15992ae893ee7333a90766f
+      url: https://opendev.org/openstack/ceilometer
+  roles:
+    - collection
+  sources:
+    - 2290
+    - 2331
+    - 2356
+    - 2423
+- name: chronograf
+  repositories:
+    - rev: abeb12762cddf1cbc03039628e891b273da81dd0
+      url: https://github.com/influxdata/chronograf
+  roles:
+    - visualization
+  sources:
+    - 1408
+- name: collectd
+  repositories:
+    - rev: a586d56022a56692ddfd9dcaf8388d1a8bd7fe81
+      url: https://github.com/collectd/collectd
+  roles:
+    - instrumentation
+    - collection
+  sources:
+    - 2243
+- name: collectl
+  repositories:
+    - rev: d3dab6819dc92fa12da4616207c48fdbb1b86f21
+      url: https://github.com/sharkcz/collectl
+  roles:
+    - collection
+  sources:
+    - 2365
+- name: elasticsearch
+  repositories:
+    - rev: b6e518f01a58e7e86b9d3328858c0971f6c96105
+      url: https://github.com/elastic/elasticsearch
+  roles:
+    - storage
+  sources:
+    - 343
+    - 668
+    - 1318
+    - 1913
+    - 2034
+    - 2159
+    - 2419
+- name: elastic beats
+  repositories:
+    - rev: 9866af4004b775e7d58d022b9d172db44c5808e5
+      url: https://github.com/elastic/beats
+  roles:
+    - instrumentation
+  sources:
+    - 343
+- name: fluentd
+  repositories:
+    - rev: 9ed462500a222838e9b5ae47a2ed39eec6a9784b
+      url: https://github.com/fluent/fluentd
+  roles:
+    - collection
+  sources:
+    - 436
+    - 2159
+- name: flume
+  repositories:
+    - rev: ff739dbe659ec5fa3fa92dcf2e4339c115673e7c
+      url: https://github.com/apache/logging-flume
+  roles:
+    - collection
+    - processing
+  sources:
+    - 2686
+- name: ganglia
+  repositories:
+    - rev: 185ab6b3425d391727a19c380691c4ee42fdff69
+      url: https://github.com/ganglia/monitor-core
+    - rev: 67c1c20f74f18fe032bdca54444c525564a7290d
+      url: https://github.com/ganglia/ganglia-nagios-bridge
+    - rev: bd2a339a510f0da021d3adededdfa98006f03001
+      url: https://github.com/ganglia/ganglia-web
+  roles:
+    - collection
+    - processing
+    - visualization
+  sources:
+    - 2192
+    - 2333
+    - 2809
+    - 2844
+- name: grafana
+  repositories:
+    - rev: dd5c545df93bd854e378a3f37d45469e9c6acceb
+      url: https://github.com/grafana/grafana
+  roles:
+    - visualization
+    - alerting
+  sources:
+    - 43
+    - 175
+    - 314
+    - 375
+    - 443
+    - 458
+    - 493
+    - 725
+    - 911
+    - 1030
+    - 1408
+    - 1584
+    - 1667
+    - 2159
+    - 2174
+- name: influxdb
+  repositories:
+    - rev: d396921aa039c873351a638219e991701ce049e9
+      url: https://github.com/influxdata/influxdb
+  roles:
+    - storage
+    - processing
+  sources:
+    - 43
+    - 1408
+    - 2174
+- name: jaeger
+  repositories:
+    - rev: f887e133cce1ffcbb4015868025f6bfd4c035764
+      url: https://github.com/jaegertracing/jaeger
+  roles:
+    - collection
+    - visualization
+  sources:
+    - 827
+- name: joularjx
+  repositories:
+    - rev: ff55f299c190649f260ce2e291760d90b9b42e64
+      url: https://github.com/joular/joularjx
+  roles:
+    - instrumentation
+    - collection
+  sources:
+    - 1269
+- name: kafka
+  repositories:
+    - rev: 64aebb5621bd27ee9f2c4ab4506f32dcff267963
+      url: https://github.com/apache/kafka
+  roles:
+    - processing
+  sources:
+    - 300
+    - 300
+    - 343
+    - 1183
+    - 1633
+    - 2135
+- name: kapacitor
+  repositories:
+    - rev: c5848b64d04a1dc4039611491891dd06872ef348
+      url: https://github.com/influxdata/kapacitor
+  roles:
+    - processing
+    - alerting
+  sources:
+    - 1408
+- name: kepler
+  repositories:
+    - rev: 86808c774804ce1aade11d1dbc5346f87a604c49
+      url: https://github.com/sustainable-computing-io/kepler
+  roles:
+    - instrumentation
+  sources:
+    - 135
+    - 243
+    - 579
+    - 614
+- name: kibana
+  repositories:
+    - rev: 55b1ef515f12f5bc9516143ce51ec07e4ad679dd
+      url: https://github.com/elastic/kibana
+  roles:
+    - visualization
+  sources:
+    - 221
+    - 343
+    - 1913
+    - 2159
+- name: logstash
+  repositories:
+    - rev: 5f54c0cc0ff06dde13fff4b209fdd4eefcd5d432
+      url: https://github.com/elastic/logstash
+  roles:
+    - collection
+    - processing
+  sources:
+    - 1913
+- name: monasca
+  repositories:
+    - rev: 7811ac8c4758505aa6bf30dd83249583d87b2f8a
+      url: https://github.com/openstack/monasca-api
+  roles:
+    - storage
+    - processing
+  sources:
+    - 2356
+- name: nagios
+  repositories:
+    - rev: 2706fa7a451afe48bd4dc240d72d23fdcec0d9ef
+      url: https://github.com/NagiosEnterprises/nagioscore
+    - rev: d13b3fedb5fa6b76247ca750c7a371c48c36612b
+      url: https://github.com/NagiosEnterprises/ncpa
+  roles:
+    - collection
+    - alerting
+  sources:
+    - 639
+    - 1419
+    - 1616
+    - 2391
+    - 2450
+    - 2485
+    - 2510
+    - 2665
+    - 2936
+    - 2973
+- name: netdata
+  repositories:
+    - rev: 328981529ccad76bbf7f293b420d6a500a8e0022
+      url: https://github.com/netdata/netdata
+  roles:
+    - collection
+    - alerting
+  sources:
+    - 374
+- name: net-snmp
+  repositories:
+    - rev: 02bee0fe32a4136ade3de137eef6c5acdfeed508
+      url: https://github.com/net-snmp/net-snmp
+  roles:
+    - collection
+  sources:
+    - 2877
+- name: ntopng
+  repositories:
+    - rev: 9f410536508592ae98ae44a00ae72eeac3401969
+      url: https://github.com/ntop/ntopng
+  roles:
+    - instrumentation
+    - collection
+  sources:
+    - 2045
+- name: opentelemetry
+  repositories:
+    - rev: 1ab60d09115018dbc1d189735454c1f1db2252a1
+      url: https://github.com/open-telemetry/opentelemetry-go
+    - rev: ac137b349b006dc926da91c6a6619217737921cc
+      url: https://github.com/open-telemetry/opentelemetry-specification
+    - rev: 8a5b880c16d49257a147c2c3ec4a6ef6fcee8e20
+      url: https://github.com/open-telemetry/opentelemetry.io
+    - rev: 5079823857ed53c2b45d84fc7ee486dee5a8bb2c
+      url: https://github.com/open-telemetry/opentelemetry-collector
+    - rev: 7592debad2e93652412f2cd9eb299e9ac8d169f3
+      url: https://github.com/open-telemetry/opentelemetry-collector-contrib
+  roles:
+    - instrumentation
+    - collection
+  sources:
+    - 368
+    - 671
+- name: opentsdb
+  repositories:
+    - rev: 0f681b7545d9999506900da5f1c4dbe433dbfb43
+      url: https://github.com/OpenTSDB/opentsdb
+  roles:
+    - storage
+  sources:
+    - 2786
+- name: powerjoular
+  repositories:
+    - rev: 97573f543b49f5b8caed0cb53b9e8bf57c40c1d5
+      url: https://github.com/joular/powerjoular
+  roles:
+    - collection
+  sources:
+    - 1269
+- name: prometheus
+  repositories:
+    - rev: 2a88f562d12f309944cd5d0c462e3f6f5694dd15
+      url: https://github.com/prometheus/prometheus
+    - rev: c653800ffe4af31f4c3f9d81708301f3dd5600fa
+      url: https://github.com/prometheus/alertmanager
+    - rev: 581a9090e409d17ee3757e15225b00e7abc3eccf
+      url: https://github.com/prometheus/node_exporter
+  roles:
+    - instrumentation
+    - collection
+    - alerting
+  sources:
+    - 225
+    - 314
+    - 375
+    - 458
+    - 493
+    - 573
+    - 587
+    - 911
+    - 955
+    - 1049
+    - 1408
+    - 1419
+    - 1584
+    - 1667
+    - 1722
+    - 1773
+    - 1981
+    - 2159
+- name: scaphandre
+  repositories:
+    - rev: e09dfcc7abd28291e783643e366393325fad3f6d
+      url: https://github.com/hubblo-org/scaphandre
+  roles:
+    - instrumentation
+    - collection
+  sources:
+    - 579
+    - 614
+- name: skydive
+  repositories:
+    - rev: a4452f21475423ba507db191901357fec8ac98fe
+      url: https://github.com/skydive-project/skydive
+  roles:
+    - collection
+  sources:
+    - 2291
+    - 2294
+- name: snort
+  repositories:
+    - rev: 614a3fbc7c80a873bca9e7ee131b1e297f014f16
+      url: https://github.com/snort3/snort3
+  roles:
+    - collection
+  sources:
+    - 132
+    - 145
+    - 1962
+    - 2191
+- name: sysdig
+  repositories:
+    - rev: 034681784d1e8ff2b7b71d8a1d8a314f40f044f2
+      url: https://github.com/draios/sysdig
+  roles:
+    - instrumentation
+  sources:
+    - 2056
+- name: syslog-ng
+  repositories:
+    - rev: aa1fcacda383660d13842350185d90179cc3fea6
+      url: https://github.com/syslog-ng/syslog-ng
+  roles:
+    - collection
+  sources:
+    - 2912
+- name: systemtap
+  repositories:
+    - rev: 478df9dce86e9932c545ef0f8947e8209bbe8020
+      url: https://sourceware.org/git/systemtap.git
+  roles:
+    - instrumentation
+  sources:
+    - 2971
+- name: telegraf
+  repositories:
+    - rev: e113d884ecb53da71bf436f86e67414a2d4e5629
+      url: https://github.com/influxdata/telegraf
+  roles:
+    - processing
+    - collection
+  sources:
+    - 1408
+- name: tetragon
+  repositories:
+    - rev: 6ba18d36c839a76c7d362a929825c6a711e49624
+      url: https://github.com/cilium/tetragon
+  roles:
+    - collection
+    - analysis
+  sources:
+    - 97
+- name: thingsboard
+  repositories:
+    - rev: fd4f60992ff9fa0f090f378e75ac16dc9054c50c
+      url: https://github.com/thingsboard/thingsboard
+  roles:
+    - collection
+    - processing
+    - visualization
+    - analysis
+  sources:
+    - 57
+    - 68
+    - 1398
+    - 1882
+- name: thingspeak
+  repositories:
+    - rev: 9d4b74d3daea413f37f3b92f09a5c14621a6fc9b
+      url: https://github.com/iobridge/thingspeak
+  roles:
+    - collection
+    - storage
+  sources:
+    - 11
+    - 268
+    - 297
+    - 541
+    - 707
+    - 733
+    - 746
+    - 760
+    - 868
+    - 930
+    - 954
+    - 1003
+    - 1116
+    - 1181
+    - 1319
+    - 1354
+    - 1397
+    - 1436
+    - 1526
+    - 1964
+    - 2020
+- name: tracecompass
+  repositories:
+    - rev: 2df4e83747960c5a255266d03807753de09d503b
+      url: https://github.com/eclipse-tracecompass/org.eclipse.tracecompass
+  roles:
+    - visualization
+    - analysis
+  sources:
+    - 1676
+- name: wazuh
+  repositories:
+    - rev: 36722e76585b4278eafca55fc8297f0d7cb7be75
+      url: https://github.com/wazuh/wazuh
+    - rev: 927df483dbb2030a32fa39083921d02bd95c67fe
+      url: https://github.com/wazuh/wazuh-agent
+    - rev: 74caec28c680fd790a5e9362c34eb666cfcea4b5
+      url: https://github.com/wazuh/wazuh-dashboard-plugins
+  roles:
+    - instrumentation
+    - alerting
+    - visualization
+    - collection
+    - analysis
+  sources:
+    - 234
+    - 672
+    - 672
+- name: xdmod
+  repositories:
+    - rev: b5eee532c401d4d0530d8454d7fce126a67bb31d
+      url: https://github.com/ubccr/xdmod
+    - rev: fc52d210439ef0e8a0ce1172d21869e8d391422f
+      url: https://github.com/ubccr/xdmod-supremm
+    - rev: 7960687b7c71e3f151e408508d470c1862b4208e
+      url: https://github.com/ubccr/xdmod-data
+  roles:
+    - instrumentation
+    - collection
+    - analysis
+  sources:
+    - 396
+    - 1652
+    - 1652
+- name: zabbix
+  repositories:
+    - rev: 7180640c71d04cd0d317234eccdd0c7d2a9a88da
+      url: https://git.zabbix.com/scm/zbx/zabbix.git
+  roles:
+    - collection
+    - alerting
+    - visualization
+  sources:
+    - 265
+    - 683
+    - 1419
+    - 2045
+    - 2365
+    - 2776
+- name: zenoss
+  repositories:
+    - rev: '7979'
+      url: svn://svn.code.sf.net/p/zenoss/code
+  roles:
+    - collection
+    - visualization
+  sources:
+    - 2776
+- name: zipkin
+  repositories:
+    - rev: 3c7605dfdfab2dd341cf0ea121a56cefcd580d9e
+      url: https://github.com/openzipkin/zipkin
+  roles:
+    - storage
+    - visualization
+    - analysis
+  sources:
+    - 2159
