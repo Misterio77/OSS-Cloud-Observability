@@ -254,7 +254,7 @@ As IT operations shift into an Engineering activity, Observability also grows as
 Our methodology is very automated and can be helpful for any exploratory study of a Software Ecosystem where source code is available for analysis. This sort of overview can be helpful for practitioners to locate additional components their observability stack might be missing, as well as to discover alternatives for tools they are using.
 
 = Acknowledgments
-This study was financed by São Paulo Research Foundation (FAPESP) (2023/00488-5) and National Council for Scientific and Technological (CNPq) (313245/2021-5). This work was also supported by ITEA4 and RVO under grant agreement No.~22035 MAST (https://itea4.org/project/mast.html).
+This study was financed by São Paulo Research Foundation (FAPESP) (2023/00488-5), National Council for Scientific and Technological (CNPq) (313245/2021-5), Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES) (001), and by ITEA4 and RVO under grant agreement No.~22035 MAST (https://itea4.org/project/mast.html).
 
 #bibliography(title: "References", "references.bib", full: true)
 
