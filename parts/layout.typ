@@ -115,7 +115,7 @@
     must be honored. For all other uses, contact the
     owner/author(s).
   ] else if mode == "cc" [
-    #image("cc-by.svg", width: 25%)
+    #image("cc-by.svg", width: 18%)
     This work is licensed under a
     #link("https://creativecommons.org/licenses/by/4.0/")[
       Creative Commons Attribution International 4.0
@@ -153,17 +153,15 @@
 // )
 #let acmart-ccs(ccs-concepts) = [
   #set par(first-line-indent: 0em)
-  *
-  _CCS Concepts:_ 
+  = CCS Concepts
   #ccs-concepts.map(concept => 
-    [ #sym.bullet #concept.generic #sym.arrow.r #concept.specific.join("; ")]
+    [ #sym.bullet #concept.generic #sym.arrow.r #concept.specific.join("; ") ]
   ).join("; ").
-  *
 ]
 
 #let acmart-keywords(keywords) = [
   #set par(first-line-indent: 0em)
-  *_Keywords:_* 
+  = Keywords 
   #keywords.join(", ")
 ]
 
@@ -172,6 +170,7 @@
   #set par(first-line-indent: 0em)
   #set text(size: 0.9em)
   *ACM Reference Format:*
+  #linebreak()
   #let names = authors.map(author => author.name)
   #if names.len() > 1 {
     names.push(" and " + names.pop())
@@ -271,7 +270,6 @@
 
   doi: "https://doi.org/10.1145/0000000000",
   isbn: "979-8-0000-0000-0/00/00",
-  price: "$15.00",
   copyright: "cc",
 
   // Whether we are submitting as an anonymous version
@@ -313,8 +311,6 @@
 
   // Allow table figures to break pages
   show figure.where(kind: table): set block(breakable: true)
-
-  set par.line(numbering: n => text(red, size: 0.7em)[#n]) // Add red line numbers
 
   // Add some padding to column-scoped figures
   // (We avoid wrapping parent-scopes figures, or their scope will break)
@@ -412,14 +408,14 @@
   // Configure headings.
   set heading(numbering: "1.1.1")
   show heading: it => if it.numbering == none { it } else {
-    let numbering = if it.body in ([Abstract], [Acknowledgements]) {
+    let numbering = if it.body in ([Abstract], [Keywords], [CCS Concepts], [Acknowledgements]) {
       none
     } else {
       counter(heading).display(it.numbering) + h(calc.max(.25em, 1em / it.level))
     }
-    let reset = it.body in ([Abstract], [Acknowledgements])
+    let reset = it.body in ([Abstract], [Keywords], [CCS Concepts], [Acknowledgements])
     block(numbering + it.body)
-    if it.body in ([Abstract], [Acknowledgements]) {
+    if it.body in ([Abstract], [Keywords], [CCS Concepts], [Acknowledgements]) {
       counter(heading).update(0) 
     }
   }
@@ -436,7 +432,7 @@
 
   place(top + center, scope: "parent", float: true, {
     // Display the paper's title.
-    align(center, text(font: "Linux Biolinum", size: 1.5em, [* #title *]))
+    align(center, text(font: "Linux Biolinum", size: 1.9em, [* #title *]))
     if review != none {
       // Display submission id if specified via review
       v(.5em) + text(size: 1.2em, [Submission: #review])
@@ -449,6 +445,7 @@
   
   if copyright != none {
     place(bottom, float: true, scope: "column", [
+      #set text(size: .65em)
       #set par(first-line-indent: 0em)
       #line(length: 100%, stroke: .5pt)
       #copyright-permission(mode: copyright)
@@ -457,7 +454,7 @@
       
       #sym.copyright #conference.year #copyright-owner(mode: copyright)
       
-      ACM ISBN #isbn...#price
+      ACM ISBN #isbn
       
       #link(doi)
     ])

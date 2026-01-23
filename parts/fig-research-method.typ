@@ -40,7 +40,7 @@
     ..args)
   }
 
-  scale(67%, reflow: true, diagram(
+  scale(61%, reflow: true, diagram(
     spacing: (1.6mm, 2.2mm),
     node-stroke: 1pt,
 

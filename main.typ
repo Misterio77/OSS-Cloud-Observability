@@ -1,7 +1,6 @@
 #import "parts/data.typ"
 
-#let title = [Open Source Software Ecosystem for Cloud Observability: \ 
-An Overview and Trends]
+#let title = [Open Source Software Ecosystem for Cloud Observability: An Overview and Trends]
 
 #let authors = (
   (
@@ -24,20 +23,25 @@ An Overview and Trends]
   ),
 )
 
+#let doi = "https://doi.org/10.1145/3786163.3788453"
+#let isbn = "979-8-4007-2395-7/2026/04"
+
 #let conference = (
   name: [14th IEEE/ACM International Workshop on Software Engineering for Systems-of-Systems and Software Ecosystems],
-  short: [SESoS 2026],
-  date: [April 12],
+  short: [SESoS '26],
+  date: [April 12--18],
   year: [2026],
   venue: [Rio de Janeiro, Brazil],
 )
 
-#import "parts/layout.typ": acmart, acmart-ref, acmart-keywords
+#import "parts/layout.typ": acmart, acmart-ref, acmart-keywords, acmart-ccs
 #show: acmart.with(
   title: title,
   authors: authors,
   conference: conference,
-  copyright: none,
+  copyright: "cc",
+  doi: doi,
+  isbn: isbn,
 )
 
 = Abstract
@@ -53,8 +57,16 @@ As a result, we found #data.tools_selected.len() OSS observability tools and der
 *Conclusion*:
 We present an overview of different tools, how frequently they appear, their functionality, and a visualization of their relations. Some trends are identified, such as the centrality of some tools (e.g. _Prometheus_), common stacks (e.g. _ELK_, _TICK_), and outliers (_Thingspeak_). We discuss topics such as measuring relations, standardization, proprietary lock-in, among others.
 
+#acmart-ccs(
+(
+  (
+    generic: [*Software and its engineering*], 
+    specific: ([*Cloud computing*],),
+  ),
+)
+)
 #acmart-keywords(("Open Source Software", "Cloud", "Observability", "Mining Software Repository"))
-#acmart-ref(title, authors, conference, "https://doi.org/XXXX")
+#acmart-ref(title, authors, conference, doi)
 
 = Introduction <introduction>
 
