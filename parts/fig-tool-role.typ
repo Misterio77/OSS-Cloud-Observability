@@ -1,9 +1,7 @@
 #import "data.typ"
 #import "colors.typ": colors
 
-#figure(caption:
-[Number of tools per role \ (Some tools have multiple)], 
-{
+#{
   import "@preview/cetz:0.3.4": canvas, draw, palette
   import "@preview/cetz-plot:0.1.1": chart
 
@@ -38,4 +36,4 @@
       draw.content((count*width/x-max + 0.24, idx * (height/data.len() - 0.055) + 0.38), [#count])
     }
   })
-}) <fig-tool-role>
+}

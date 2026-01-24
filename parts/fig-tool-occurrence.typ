@@ -1,9 +1,7 @@
 #import "data.typ"
 #import "colors.typ": colors
 
-#figure(caption:
-[Number of studies mentioning each tool \ (Tools appearing on a single study were omitted)], 
-{
+#{
   import "@preview/cetz:0.3.4": canvas, draw, palette
   import "@preview/cetz-plot:0.1.1": chart
 
@@ -32,4 +30,4 @@
       draw.content((count*width/x-max + 0.23, idx * (height/data.len() - 0.017) + 0.36), [#count])
     }
   })
-}) <fig-tool-occurrence>
+}

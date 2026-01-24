@@ -1,7 +1,7 @@
 #import "data.typ"
 #import "colors.typ": colors
 
-#figure(caption: [Overview of research method], {
+#{
   import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge, shapes
   let r = data.reprod_files.pairs().map(((n, v)) => (n, raw(lang: "yml", v.id + "." + v.ext))).to-dict()
 
@@ -106,4 +106,4 @@
 
     end(<end>, (1,6))
   ))
-}) <fig-research-method>
+}

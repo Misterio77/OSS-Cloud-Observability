@@ -333,12 +333,15 @@
   // Text block: 178 x 229 mm (7 x 9 in)
   // US letter: 8½″ × 11″ (216 mm × 279 mm)
   // A4: 210 mm × 297 mm (8.3″ × 11.7″)
-  set page(
-    paper: "us-letter",
-    margin: (x: (8.5 - 7) / 2 * 1in, y: (11 - 9) / 2 * 1in),
-    numbering: "1",
-    columns: 2,
-  )
+  show: it => context {
+    set page(
+      paper: "us-letter",
+      margin: (x: (8.5 - 7) / 2 * 1in, y: (11 - 9) / 2 * 1in),
+      numbering: "1",
+      columns: 2,
+    ) if target() == "paged"
+    it
+  }
   set columns(gutter: 8mm)
   
   // Set the body font. (rule 3)

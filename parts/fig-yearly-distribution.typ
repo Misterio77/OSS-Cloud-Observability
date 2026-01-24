@@ -1,7 +1,7 @@
 #import "data.typ"
 #import "colors.typ": colors
 
-#figure(caption: [Yearly study distribution], {
+#{
   import "@preview/cetz:0.3.4": canvas, draw, palette
   import "@preview/cetz-plot:0.1.1": chart
 
@@ -26,5 +26,5 @@
       draw.content((idx * (width/data.len() - 0.025) + 0.4, count*height/y-max + 0.2), [#count])
     }
   })
-}) <fig-yearly-distribution>
+}
 

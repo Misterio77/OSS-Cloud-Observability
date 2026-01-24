@@ -23,6 +23,7 @@
         src = ./.;
         buildInputs = [
           pkgs.typst
+          pkgs.pandoc
           # Tooling
           pkgs.tinymist
           pkgs.typstyle
@@ -37,14 +38,19 @@
             p.ruff
           ]))
         ];
+        TYPST_FEATURES = "html";
         TYPST_PACKAGE_PATH = "${typst-packages}/packages";
         TYPST_FONT_PATHS = pkgs.inconsolata + ":" + pkgs.libertine;
         buildPhase = ''
-          typst compile main.typ
+          typst compile main.typ main.pdf
+          typst compile main.typ main.html
+          pandoc main.html -o main.tex
         '';
         installPhase = ''
           mkdir -p $out
           mv main.pdf $out/
+          mv main.html $out/
+          mv main.tex $out/
         '';
       };
     });

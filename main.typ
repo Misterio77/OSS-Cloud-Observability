@@ -44,6 +44,12 @@
   isbn: isbn,
 )
 
+#context{
+  if target() == "html" {
+    show figure: html.frame
+  }  
+}
+
 = Abstract
 
 *Context*:
@@ -87,7 +93,7 @@ The remainder of this paper is structured as follows: Section @research-method o
 
 = Research Method <research-method>
 
-#include "parts/fig-research-method.typ"
+#figure(caption: [Overview of research method], include "parts/fig-research-method.typ") <fig-research-method>
 
 @fig-research-method provides an overview of the research method and the reproduction package files that correspond to each step. The reproduction package is made available#footnote[https://github.com/Misterio77/OSS-Cloud-Observability] to replicate the entirety of this research.
 
@@ -179,15 +185,15 @@ This section focuses on answering the two RQs defined in Section @introduction.
 
 We selected *#data.tools_selected.len()* tools, originating from *#data.papers_selected.len()* studies (*#percent_selected%* of *#data.scopus_results.len()* total studies). @tools-table, in the Appendix, contains the full set of selected tools, the amount of studies from which they were extracted, and our annotations on the main functions each of them provide in an observability stack. As it can be seen from the table, there is a long list of tools with singular presence in studies, while a few tools like _Thingspeak_ and _Prometheus_ dominate the discourse.
 
-#include "parts/fig-tool-occurrence.typ"
+#figure(caption: [Number of studies mentioning each tool \ (Tools appearing on a single study were omitted)], include "parts/fig-tool-occurrence.typ") <fig-tool-occurrence>
 
 @fig-tool-occurrence visualizes how frequently each tool appears, in number of studies. Notoriously, _Prometheus_ and _Grafana_ are very frequently mentioned in the studies, which correspond to our expectations and industry experience, where the two are frequently combined for a basic metric+visualization stack. _Thingspeak_ being highly mentioned, while unexpected, is possibly an indicator that IoT research frequently intersects with cloud computing.
 
-#include "parts/fig-tool-role.typ"
+#figure(caption: [Number of tools per role \ (Some tools have multiple)], include "parts/fig-tool-role.typ") <fig-tool-role>
 
 @fig-tool-role shows how frequent each role (as defined in @tool-selection) is. Some tools have multiple roles (e.g. _Grafana_ has both `visualization` and `alerting`). We can see a very high frequency in the collection role; besides dedicated collectors, most instrumentation and processing tools seem to have some sort of collection/aggregation mechanism built-in.
 
-#include "parts/fig-yearly-distribution.typ"
+#figure(caption: [Yearly study distribution], include "parts/fig-yearly-distribution.typ") <fig-yearly-distribution>
 
 @fig-yearly-distribution shows the yearly distribution of studies with at least one selected tool. We can see that there is a growing trend, possibly indicating the increased interest in the area. Our data contains studies from up until October 2025, thus 2024 studies are slightly more present than 2025 in the graph.
 
