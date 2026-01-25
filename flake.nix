@@ -45,13 +45,12 @@
           typst compile main.typ main.pdf
 
           typst compile main.typ main.html
-          pandoc main.html --biblatex --shift-heading-level-by=-1 -o main.tex
+          pandoc main.html --biblatex --shift-heading-level-by=-1 --lua-filter=pandoc-filter.lua -o main.tex
           sed -i 's/autocite/cite/g' main.tex
         '';
         installPhase = ''
           mkdir -p $out
           mv main.pdf $out/
-          mv main.html $out/
           mv main.tex $out/
         '';
       };
