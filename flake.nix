@@ -43,8 +43,10 @@
         TYPST_FONT_PATHS = pkgs.inconsolata + ":" + pkgs.libertine;
         buildPhase = ''
           typst compile main.typ main.pdf
+
           typst compile main.typ main.html
-          pandoc main.html -o main.tex
+          pandoc main.html --biblatex --shift-heading-level-by=-1 -o main.tex
+          sed -i 's/autocite/cite/g' main.tex
         '';
         installPhase = ''
           mkdir -p $out

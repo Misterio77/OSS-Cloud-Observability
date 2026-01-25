@@ -35,19 +35,24 @@
 )
 
 #import "parts/layout.typ": acmart, acmart-ref, acmart-keywords, acmart-ccs
-#show: acmart.with(
-  title: title,
-  authors: authors,
-  conference: conference,
-  copyright: "cc",
-  doi: doi,
-  isbn: isbn,
-)
 
-#context{
+#show: it => context {
   if target() == "html" {
+    set heading(numbering: "1.")
+    show cite: it => html.elem("span", attrs: (role: "cite", data-bibkey: str(it.key)), it)
     show figure: html.frame
-  }  
+    it
+  } else {
+    show: acmart.with(
+      title: title,
+      authors: authors,
+      conference: conference,
+      copyright: "cc",
+      doi: doi,
+      isbn: isbn,
+    )
+    it
+  }
 }
 
 = Abstract
@@ -89,7 +94,7 @@ While there is some non-academic effort to better understand subsets of this eco
 
 Following this, we scrutinized the scientific literature and located #data.scopus_results.len() studies, from which we identified a total of #data.tools_selected.len() tools extracted from #data.papers_selected.len() final studies. As a main result, we observed the centrality of some tools, and tools that cluster together. We intend that the overview presented in this paper can bring implications for both practitioners and researchers.
 
-The remainder of this paper is structured as follows: Section @research-method outlines the research method; Section @results reports the main results; Section @discussion presents our main findings, threats to validity, and future work; Section @conclusions concludes our work.
+The remainder of this paper is structured as follows: @research-method outlines the research method; @results reports the main results; @discussion presents our main findings, threats to validity, and future work; @conclusions concludes our work.
 
 = Research Method <research-method>
 
@@ -104,7 +109,7 @@ To build our initial set of tools, we extracted them from a large population of 
 
 #raw(block: false, lang: "sql", data.scopus_search_query)
 
-Our goal includes, but is not limited to finding more niche tools, and thus it benefits from a large and diverse sample size. To avoid missing relevant tools, this search query intentionally did not try to exclude research software nor proprietary software, thus leaving this filtering for manual selection, as described in Section @tool-selection.
+Our goal includes, but is not limited to finding more niche tools, and thus it benefits from a large and diverse sample size. To avoid missing relevant tools, this search query intentionally did not try to exclude research software nor proprietary software, thus leaving this filtering for manual selection, as described in @tool-selection.
 
 The search resulted in a set of *#data.scopus_results.len()* studies, which were exported into a CSV in the following format: ```csv "Title","Year","DOI","Link","Abstract" ```. This data is available in the reproduction package as #raw(data.reprod_files.scopus_search_results.file).
 
@@ -177,7 +182,7 @@ To find the relations between OSS tools, we downloaded their source code, and, f
 
 = Results <results>
 
-This section focuses on answering the two RQs defined in Section @introduction.
+This section focuses on answering the two RQs defined in @introduction.
 
 == OSS tools in Cloud Observability Stacks
 

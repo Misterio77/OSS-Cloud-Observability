@@ -333,15 +333,12 @@
   // Text block: 178 x 229 mm (7 x 9 in)
   // US letter: 8½″ × 11″ (216 mm × 279 mm)
   // A4: 210 mm × 297 mm (8.3″ × 11.7″)
-  show: it => context {
-    set page(
-      paper: "us-letter",
-      margin: (x: (8.5 - 7) / 2 * 1in, y: (11 - 9) / 2 * 1in),
-      numbering: "1",
-      columns: 2,
-    ) if target() == "paged"
-    it
-  }
+  set page(
+    paper: "us-letter",
+    margin: (x: (8.5 - 7) / 2 * 1in, y: (11 - 9) / 2 * 1in),
+    numbering: "1",
+    columns: 2,
+  )
   set columns(gutter: 8mm)
   
   // Set the body font. (rule 3)
@@ -375,22 +372,6 @@
   // Color http/https hyperlink with blue
   show link: it => if type(it.dest) != str or not it.dest.starts-with("http") {it} else {
     text(fill: colors.blue, it)
-  }
-  // Color section/figure/table numbering with red
-  show ref: it => if it.element == none or it.element.func() not in (heading, figure, table) {it} else {
-    let e = it.element
-    let f = it.element.func()
-    let s = if it.supplement not in (auto, none) {it.supplement}
-            else if f == heading {sym.section}
-            else {e.supplement}
-    let sep = if s == sym.section [] else [ ]
-    link(
-      e.location(), 
-      s + sep + text(
-        fill: colors.red,
-        numbering(e.numbering, ..e.at("counter", default: counter(f)).at(e.location()))
-      ),
-    )
   }
   // Color only number inside citation groups with red
   show ref: it => if it.element != none or it.citation == none or it.supplement != auto {it} else {
