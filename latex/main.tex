@@ -6,9 +6,6 @@
 \usepackage{listings}
 \usepackage{framed}
 
-% Not sure if allowed, but nescessary for correctly breaking lines on \texttt
-\usepackage[htt]{hyphenat}
-
 \definecolor{blue}{RGB}{37, 70, 100}
 \definecolor{red}{RGB}{195, 43, 43}
 \definecolor{purple}{RGB}{138, 64, 146}
@@ -108,7 +105,7 @@
 
 \end{abstract}
 
-\keywords{Open Source Software, Cloud, Observability, Mining Software Repository}
+\keywords{Open Source Software, Cloud Computing, Observability, Mining Software Repository}
 
 \begin{CCSXML}
 <ccs2012>
@@ -219,18 +216,18 @@ our work.
 
 \section{Research Method}\label{research-method}
 
+Figure~\ref{fig-research-method} provides an overview of the
+research method and the reproduction package files that correspond to
+each step. The reproduction package is made available in the supplementary material
+to replicate the entirety of this research.
+
 \begin{figure}[!htbp]
   \centering
-  \includegraphics[width=0.95\linewidth]{assets/fig-research-method.pdf}
+  \includegraphics[width=0.90\linewidth]{assets/fig-research-method.pdf}
   \caption{Overview of research method}
   \Description{A flowchart for visualizing the phases and steps for the research method, which are textually explained in the subsections.}
   \label{fig-research-method}
 \end{figure}
-
-Figure~\ref{fig-research-method} provides an overview of the
-research method and the reproduction package files that correspond to
-each step. The reproduction package is made available\footnote{\url{https://github.com/Misterio77/OSS-Cloud-Observability}}
-to replicate the entirety of this research.
 
 \subsection{Search query}\label{search-query}
 
@@ -256,10 +253,7 @@ for manual selection, as described in
 Section~\ref{tool-selection}.
 
 The search resulted in a set of \textbf{3068} studies, which were
-exported into a CSV in the following format:
-
-{\texttt{"}}{\texttt{Title}}{\texttt{"}}\texttt{,}{\texttt{"}}{\texttt{Year}}{\texttt{"}}\texttt{,}{\texttt{"}}{\texttt{DOI}}{\texttt{"}}\texttt{,}{\texttt{"}}{\texttt{Link}}{\texttt{"}}\texttt{,}{\texttt{"}}{\texttt{Abstract}}{\texttt{"}}{\texttt{\ }}.
-This data is available in the reproduction package as \texttt{01-scopus-search-results.csv}.
+exported into a CSV in the following format: \texttt{"Title",\allowbreak "Year",\allowbreak "DOI",\allowbreak "Link",\allowbreak "Abstract"}. This data is available in the reproduction package as \texttt{01\allowbreak -scopus\allowbreak -search\allowbreak -results\allowbreak .csv}.
 
 \subsection{Tool extraction from
 abstracts}\label{tool-extraction-from-abstracts}
@@ -295,10 +289,10 @@ with a few known observability tools\footnote{grafana, prometheus,
 composed of \textbf{42} studies originating from keyword match and
 \textbf{8} from random sampling. The script that reproduces this step is
 available in the reproduction package as
-\texttt{02-validation-set-script.py}. The authors then manually
+\texttt{02-\allowbreak validation-\allowbreak set-\allowbreak script.\allowbreak py}. The authors then manually
 extracted tools from these abstracts, inserting the annotations into the
 dataset, which is available in the reproduction package as
-\texttt{03-validation-set-results.json}.
+\texttt{03-\allowbreak validation-\allowbreak set-\allowbreak results.\allowbreak json}.
 
 \subsubsection{LLM extraction}\label{llm-extraction}
 
@@ -323,8 +317,8 @@ crucial that false negatives are minimized.
 From the full set, the LLM extracted a total of \textbf{768} candidate
 tools, originating from \textbf{774} studies (\textbf{25\%} of
 \textbf{3068} total studies). This step can be fully reproduced via the
-script \texttt{04-llm-extraction-script.py}, and its results are
-available in \texttt{05-llm-extraction-results.json}. These tools were
+script \texttt{04-\allowbreak llm-\allowbreak extraction-\allowbreak script.\allowbreak py}, and its results are
+available in \texttt{05-\allowbreak llm-\allowbreak extraction-\allowbreak results.\allowbreak json}. These tools were
 then manually selected, as detailed in
 Section~\ref{tool-selection}.
 
@@ -388,19 +382,23 @@ each tool with:
 \end{enumerate}
 
 This data is available in the reproduction package as
-\texttt{06-tool-selection-manual.yaml}.
+\texttt{06-\allowbreak tool-\allowbreak selection-\allowbreak manual.\allowbreak yaml}.
 
 \subsection{Tool relations}\label{tool-relations}
 
-To find the relations between OSS tools, we downloaded their source
-code, and, for each tool, programmatically matched occurrences of every
-other tools' names. This step can be reproduced using
-\texttt{07-tool-code-occurrences-script.py} and its results are
-available as \texttt{08-tool-code-occurrences-results.json}. The number
-of occurrences thus represent how much a tool ``cares'' about other
-tools. A deeper study on the nature of each relation is out of scope for
-this study, but we briefly discuss this in
-Section~\ref{future-work}.
+To find the relations between the tools, we downloaded their source code,
+and, for each tool, programmatically matched occurrences of every other tools'
+names in its codebase. This step can be reproduced using \texttt{07-\allowbreak
+tool-\allowbreak code-\allowbreak occurrences-\allowbreak script.\allowbreak
+py} and its results are available as \texttt{08-\allowbreak tool-\allowbreak
+code-\allowbreak occurrences-\allowbreak results.\allowbreak json}.
+
+These numbers represent how much a tool's codebase is aware of and/or
+coupled to each other tool, and includes integration features, documentation,
+tests, dependencies, etc. This is part of RQ2 and is further explained in
+Section~\ref{combinations-of-oss-tools-in-cloud-observability-stacks}. A deeper
+study on the nature of each individual relation is out of scope for this study,
+but we briefly discuss this in Section~\ref{future-work}.
 
 \section{Results}\label{results}
 
@@ -412,20 +410,12 @@ Stacks}\label{oss-tools-in-cloud-observability-stacks}
 
 We selected \textbf{45} tools, originating from \textbf{111} studies
 (\textbf{4\%} of \textbf{3068} total studies).
-Table~\ref{tools-table}, in the Appendix, contains the full set
+Table~\ref{table-selected-tools}, in the Appendix, contains the full set
 of selected tools, the amount of studies from which they were extracted,
 and our annotations on the main functions each of them provide in an
 observability stack. As it can be seen from the table, there is a long
-list of tools with singular presence in studies, while a few tools like
+list of tools with singular presence in studies, while a few tools such as
 \emph{Thingspeak} and \emph{Prometheus} dominate the discourse.
-
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=0.90\linewidth]{assets/fig-tool-occurrence.pdf}
-  \caption{Number of studies mentioning each tool (Tools appearing on a single study were omitted)}
-  \Description[A bar chart showing how frequently each tool appears.]{Thingspeak appears first with 21 studies mentioning it; followed by prometheus with 18; grafana with 15; nagios with 10; elasticsearch with 7; zabbix and kafka with 6; thingsboard, snort, kibana, kepler, ganglia, ceilometer with 4; xdmod, wazuh, influxdb with 3; skydive, scaphandre, opentelemetry, fluentd with 2. All other tools that appear only on one study are omitted.}
-  \label{fig-tool-occurrence}
-\end{figure}
 
 Figure~\ref{fig-tool-occurrence} visualizes how frequently each
 tool appears, in number of studies. Notoriously, \emph{Prometheus} and
@@ -438,10 +428,10 @@ computing.
 
 \begin{figure}[!htbp]
   \centering
-  \includegraphics[width=0.90\linewidth]{assets/fig-tool-role.pdf}
-  \caption{Number of tools per role (Some tools have multiple)}
-  \Description[A bar chart showing which tool roles are more common.]{30 tools have collection role, 12 instrumentation, 12 visualization, 9 processing, 7 alerting, 6 analysis, and 6 storage.}
-  \label{fig-tool-role}
+  \includegraphics[width=0.85\linewidth]{assets/fig-tool-occurrence.pdf}
+  \caption{Number of studies mentioning each tool (Tools appearing on a single study were omitted)}
+  \Description[A bar chart showing how frequently each tool appears.]{Thingspeak appears first with 21 studies mentioning it; followed by prometheus with 18; grafana with 15; nagios with 10; elasticsearch with 7; zabbix and kafka with 6; thingsboard, snort, kibana, kepler, ganglia, ceilometer with 4; xdmod, wazuh, influxdb with 3; skydive, scaphandre, opentelemetry, fluentd with 2. All other tools that appear only on one study are omitted.}
+  \label{fig-tool-occurrence}
 \end{figure}
 
 Figure~\ref{fig-tool-role} shows how frequent each role (as
@@ -454,10 +444,10 @@ built-in.
 
 \begin{figure}[!htbp]
   \centering
-  \includegraphics[width=0.90\linewidth]{assets/fig-yearly-distribution.pdf}
-  \caption{Yearly study distribution}
-  \Description[A column chart showing how many studies per year were selected.]{2010-2015 has few studies (1-4 per year), with the pace increasing in 2016-2023 (6-11), peaking in 2024-2025 with 22 and 18. The data collection was conducted in october 2025, explaining why 2025 is slightly lower than 2024.}
-  \label{fig-yearly-distribution}
+  \includegraphics[width=0.85\linewidth]{assets/fig-tool-role.pdf}
+  \caption{Number of tools per role (Some tools have multiple)}
+  \Description[A bar chart showing which tool roles are more common.]{30 tools have collection role, 12 instrumentation, 12 visualization, 9 processing, 7 alerting, 6 analysis, and 6 storage.}
+  \label{fig-tool-role}
 \end{figure}
 
 Figure~\ref{fig-yearly-distribution} shows the yearly
@@ -466,12 +456,45 @@ there is a growing trend, possibly indicating the increased interest in
 the area. Our data contains studies from up until October 2025, thus
 2024 studies are slightly more present than 2025 in the graph.
 
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=0.85\linewidth]{assets/fig-yearly-distribution.pdf}
+  \caption{Yearly study distribution}
+  \Description[A column chart showing how many studies per year were selected.]{2010-2015 has few studies (1-4 per year), with the pace increasing in 2016-2023 (6-11), peaking in 2024-2025 with 22 and 18. The data collection was conducted in october 2025, explaining why 2025 is slightly lower than 2024.}
+  \label{fig-yearly-distribution}
+\end{figure}
+
+\begin{framed}
 Answering RQ1: \emph{Prometheus} is ubiquitous in the cloud
 observability ecosystem. \emph{Nagios}, \emph{Grafana} and
 \emph{ElasticSearch} are also frequent appearances. \emph{Thingspeak} is
 an interesting outlier, representing the IoT sub-ecosystem. Collection
 functionality is the most frequent, followed by instrumentation and
 visualization.
+\end{framed}
+
+\subsection{Combinations of OSS Tools in Cloud Observability
+Stacks}\label{combinations-of-oss-tools-in-cloud-observability-stacks}
+
+To better visualize the relation data, we conducted a network analysis in
+it, with the results shown in Figure~\ref{fig-relations}. For this figure,
+we represent each tool as a node.
+
+The graph edges are directed and weighted, serving as visualization of how
+much a tool X relates to another tool Y. This is obtained, as described by
+Section~\ref{tool-relations}, through matching Y's name on X's codebase,
+and represents relations such as integration features, comments mentioning
+a borrowed snippet, documentation (usually comparing an alternative tool or
+documenting integration), tests, and usage as libraries. As the codebase sizes
+vary, the edge weights are normalized with the other edges originating from the
+same node. Edges whose weights were lower than 0.05 (i.e. 5\% of all keyword
+matches that codebase has) were hidden from the visualization, for improved
+visibility.
+
+The node size is derived from the sum of the weights of connections with that
+node as destination, interpreted as how much important that the tool is to the
+ecosystem. The node colors are a visualization of community clustering, that
+groups tightly connected nodes together.
 
 \begin{figure*}[!htbp]
   \centering
@@ -481,25 +504,7 @@ visualization.
   \label{fig-relations}
 \end{figure*}
 
-\subsection{Combinations of OSS Tools in Cloud Observability
-Stacks}\label{combinations-of-oss-tools-in-cloud-observability-stacks}
-
-To better visualize the relation data, we conducted a network analysis
-in it, with the results shown in Figure~\ref{fig-relations}. For
-this figure, we represent each tool as a node. The relation between
-tools, from Section~\ref{tool-relations}, is represented as
-graph edges, whose weight is a normalized form of the number of
-occurrences the destination node's name has in the origin node's
-codebase (i.e. how much a tool ``cares'' about the other tool, relative
-to all other tools it cares about). The node size is derived from the
-sum of the weights of connections pointing at that node, interpreted as
-the tool's ``connectedness'' (i.e. centrality in the ecosystem). Each
-node's color is a visualization of community clustering, that groups
-tightly connected nodes together. Edges whose weights were lower than
-0.05 (i.e. 5\% of all keyword matches that codebase has) were hidden
-from the visualization, for improved visibility.
-
-We can easily see in the figure how many tools relate to
+We can see in the figure how many tools relate to
 \emph{Prometheus}; due to its format being the dominant one for metrics,
 most other tools export metrics that are compatible with
 \emph{Prometheus}. \emph{Thingspeak} is very disconnected from the other
@@ -517,10 +522,12 @@ built-in \cite{grafana-prometheus-docs}), but not the other way
 around (i.e. \emph{Prometheus} knows almost nothing about
 \emph{Grafana}).
 
+\begin{framed}
 Answering RQ2: some common stacks appear in this research, such as ELK
 and TICK. Some tools are highly integrated in the ecosystem, with
 \emph{Prometheus} being a central piece. \emph{Thingspeak} is an outlier
 and shows that IoT tends toward standalone solutions.
+\end{framed}
 
 \section{Discussion}\label{discussion}
 
@@ -720,7 +727,7 @@ No.~22035 MAST (\url{https://itea4.org/project/mast.html}).
 \section{Selected Tools}
 \begin{table*}[!htbp]
   \caption{Selected Tools}
-  \label{selected-tools}
+  \label{table-selected-tools}
   \centering
 
   \begin{tabular}{c c c}
@@ -776,7 +783,6 @@ No.~22035 MAST (\url{https://itea4.org/project/mast.html}).
   \hline
   \end{tabular}
   \smallskip
-  \label{tools-table}
 \end{table*}
 
 \end{document}
