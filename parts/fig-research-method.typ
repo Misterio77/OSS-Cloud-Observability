@@ -114,7 +114,7 @@
     group(<validation-phase>, [Validation], color: colors.at(1), enclose: ((3.2,-0.73), <sampling>, <labeling>, <validation-set>, <validate-llm>, (3.2, 4.73))),
     edge(<reporting>, "-|>"),
 
-    edge(<validation-phase.north>, <build-search-query>, "-|>", bend: -30deg, stroke: colors.at(1).darken(30%)),
+    edge(<validation-phase.north>, <start>, "-|>", bend: -10deg, stroke: colors.at(1).darken(30%)),
 
     group(<artifacts>, [Artifacts], color: colors.at(3), transparentize: 60%, enclose: (<query-string>, <tool-relations>)),
     edge(<artifacts>, <reporting>, "-|>", stroke: colors.at(3).darken(20%)),
