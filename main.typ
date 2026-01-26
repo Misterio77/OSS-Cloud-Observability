@@ -76,7 +76,7 @@ We present an overview of different tools, how frequently they appear, their fun
   ),
 )
 )
-#acmart-keywords(("Open Source Software", "Cloud", "Observability", "Mining Software Repository"))
+#acmart-keywords(("Open Source Software", "Cloud Computing", "Observability", "Mining Software Repository"))
 #acmart-ref(title, authors, conference, doi)
 
 = Introduction <introduction>
