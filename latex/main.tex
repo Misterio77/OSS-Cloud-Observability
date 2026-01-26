@@ -220,6 +220,7 @@ our work.
   \centering
   \includegraphics[width=0.95\linewidth]{assets/fig-research-method.pdf}
   \caption{Overview of research method}
+  \Description{A flowchart for visualizing the phases and steps for the research method, which are textually explained in the subsections.}
   \label{fig-research-method}
 \end{figure}
 
@@ -419,6 +420,7 @@ list of tools with singular presence in studies, while a few tools like
   \centering
   \includegraphics[width=0.85\linewidth]{assets/fig-tool-occurrence.pdf}
   \caption{Number of studies mentioning each tool (Tools appearing on a single study were omitted)}
+  \Description[A bar chart showing how frequently each tool appears.]{Thingspeak appears first with 21 studies mentioning it; followed by prometheus with 18; grafana with 15; nagios with 10; elasticsearch with 7; zabbix and kafka with 6; thingsboard, snort, kibana, kepler, ganglia, ceilometer with 4; xdmod, wazuh, influxdb with 3; skydive, scaphandre, opentelemetry, fluentd with 2. All other tools that appear only on one study are omitted.}
   \label{fig-tool-occurrence}
 \end{figure}
 
@@ -435,6 +437,7 @@ computing.
   \centering
   \includegraphics[width=0.85\linewidth]{assets/fig-tool-role.pdf}
   \caption{Number of tools per role (Some tools have multiple)}
+  \Description[A bar chart showing which tool roles are more common.]{30 tools have collection role, 12 instrumentation, 12 visualization, 9 processing, 7 alerting, 6 analysis, and 6 storage.}
   \label{fig-tool-role}
 \end{figure}
 
@@ -450,6 +453,7 @@ built-in.
   \centering
   \includegraphics[width=0.85\linewidth]{assets/fig-yearly-distribution.pdf}
   \caption{Yearly study distribution}
+  \Description[A column chart showing how many studies per year were selected.]{2010-2015 has few studies (1-4 per year), with the pace increasing in 2016-2023 (6-11), peaking in 2024-2025 with 22 and 18. The data collection was conducted in october 2025, explaining why 2025 is slightly lower than 2024.}
   \label{fig-yearly-distribution}
 \end{figure}
 
@@ -470,6 +474,7 @@ visualization.
   \centering
   \includesvg[keepaspectratio, width=0.95\linewidth]{assets/fig-relations.svg}
   \caption{Relations between tools, clustered and weighted by relative code occurrence}
+  \Description[A directed graph of tools, their relations, centrality (visualized by size), and color coded based on community clustering.]{Some tools such as prometheus, elasticsearch, opentelemetry, and kafka are very well connected destinations (i.e. many other tools have mentions to it in their source code). Some common stacks are visible in the community clustering (e.g. influxdb, kapacitor, telegraf, have the same color, the same applies for elasticsearch, kibana, logstash, elastic beats.)}
   \label{fig-relations}
 \end{figure*}
 
