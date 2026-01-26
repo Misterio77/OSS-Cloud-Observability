@@ -22,6 +22,7 @@
           pkgs.typst
           pkgs.pandoc
           pkgs.texliveFull
+          pkgs.inkscape
           # Tooling
           pkgs.tinymist
           pkgs.typstyle
