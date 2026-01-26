@@ -64,10 +64,8 @@
         pname = "cloud-monitoring-oss-cr";
         version = self.lastModifiedDate;
         src = ./latex;
-        buildInputs = [pkgs.texliveFull];
+        buildInputs = [pkgs.texliveFull pkgs.inkscape];
         buildPhase = ''
-          find .
-          false
           latexmk
         '';
         installPhase = ''
