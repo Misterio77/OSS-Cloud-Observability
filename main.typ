@@ -92,42 +92,44 @@ While there is some non-academic effort to better understand subsets of this eco
 - *RQ1*: What are the most relevant OSS tools in cloud observability stacks?; and
 - *RQ2*: How are OSS tools combined to form cloud observability stacks?
 
-Following this, we scrutinized the scientific literature and located #data.scopus_results.len() studies, from which we identified a total of #data.tools_selected.len() tools extracted from #data.papers_selected.len() final studies. As a main result, we observed the centrality of some tools, and tools that cluster together. We intend that the overview presented in this paper can bring implications for both practitioners and researchers.
+Following this, we searched the scientific literature and located #data.scopus_results.len() studies, from which, through an automated and manual selection of candidate tools, we selected #data.tools_selected.len() tools. As a main result, we observed the centrality of some tools, and tools that cluster together. We intend that the overview presented in this paper can bring implications for both practitioners and researchers.
 
 The remainder of this paper is structured as follows: @research-method outlines the research method; @results reports the main results; @discussion presents our main findings, threats to validity, and future work; @conclusions concludes our work.
 
 = Research Method <research-method>
 
-@fig-research-method provides an overview of the research method and the reproduction package files that correspond to each step. The reproduction package is made available#footnote[https://github.com/Misterio77/OSS-Cloud-Observability] to replicate the entirety of this research.
+@fig-research-method provides an overview of the research method and the reproduction package files that correspond to each step. The reproduction package is made available both in the supplementary material and online#footnote[https://github.com/Misterio77/OSS-Cloud-Observability] to replicate the entirety of this research.
 
 #figure(caption: [Overview of research method], alt: "A flowchart for visualizing the phases and steps for the research method, which are textually explained in the subsections.", html.frame(include "parts/fig-research-method.typ")) <fig-research-method>
 
 
-== Search query
+== Search Phase
 
-To build our initial set of tools, we extracted them from a large population of research studies. For that, we searched Scopus #footnote[https://scopus.com] with the following query:
+To build our initial set of tools, we decided to use a large population of research studies as basis. For that, we searched Scopus #footnote[https://scopus.com] with the following query:
 
 #raw(block: false, lang: "sql", data.scopus_search_query)
 
-Our goal includes, but is not limited to finding more niche tools, and thus it benefits from a large and diverse sample size. To avoid missing relevant tools, this search query intentionally did not try to exclude research software nor proprietary software, thus leaving this filtering for manual selection, as described in @tool-selection.
+Our goal includes, but is not limited to, finding more niche tools and thus it benefits from a large and diverse sample size. To avoid missing relevant tools, this search query intentionally did not try to exclude research software nor proprietary software, thus leaving this filtering for manual selection, as described in @selection-phase.
 
-The search resulted in a set of *#data.scopus_results.len()* studies, which were exported into a CSV in the following format: ```csv "Title","Year","DOI","Link","Abstract" ```. This data is available in the reproduction package as #raw(data.reprod_files.scopus_search_results.file).
+The search resulted in a set of *#data.scopus_results.len()* studies, which were exported into a CSV file in the following format: ```csv "Title","Year","DOI","Link","Abstract" ```. This data is available in the reproduction package as #raw(data.reprod_files.scopus_search_results.file).
 
 
-== Tool extraction from abstracts <tool-extraction>
+== Extraction Phase <extraction-phase>
  
-This is a problem in the class of Named-entity Recognition (NER) @pakhale2023ner, albeit a single-class one. As the intent is to extract tool names from the studies, a method that can be aware of context, such as BERT or an LLM, is ideal. For this extraction, due to ease of access and previous experience, we decided to use an LLM to extract the tools from abstracts.
+This is a problem in the class of Named-entity Recognition (NER) @pakhale2023ner, albeit a single-class one. As the intent is to extract tool names mentioned in the studies, a method that can be aware of context, such as BERT or an LLM, is ideal. For this extraction, due to ease of access and previous experience, we decided to use an LLM to extract the tools from abstracts.
  
 The reason for using the abstracts alone, besides ease of automation and availability, is that an abstract can fit together with the LLM's prompt in most models' context windows, drastically reducing hallucinations and costs when compared to the full texts. The main risk from this strategy is missing tools that only appear in the full text; hence, we mitigated it in two ways: (i) by using a large amount of studies; and (ii) by calibrating the prompt using a validation set, as discussed next.
 
-=== Validation set <validation-set>
+=== Validation sampling and extraction <validation-set>
 
 #let predefined_keywords = ("grafana", "prometheus", "graphite", "opentelemetry", "elasticsearch", "fluentd", "kibana", "logstash", "jaeger", "influxdb", "ceilometer")
 #let validation_set = data.validation_set_results
 #let from_keyword = validation_set.filter(((source,)) => source == "keyword")
 #let from_random = validation_set.filter(((source,)) => source == "random")
 
-A validation set of *#validation_set.len()* manually extracted abstracts was created. This set was used to estimate precision and recall of the overall dataset and to calibrate the LLM prompt used for extraction. The first attempt was by randomly sampling abstracts. After analysis, it was evident that the negatives (i.e., abstracts not containing any observability tool names) made up around 80-90% of the corpus, making the data very sparse. To get a set with a higher share of positives, we decided to use a combination of keyword spotting (by matching the text with a few known observability tools#footnote(predefined_keywords.join(", "))) and random sampling. The set is composed of *#from_keyword.len()* studies originating from keyword match and *#from_random.len()* from random sampling. The script that reproduces this step is available in the reproduction package as #raw(data.reprod_files.validation_set_script.file). The authors then manually extracted tools from these abstracts, inserting the annotations into the dataset, which is available in the reproduction package as #raw(data.reprod_files.validation_set_results.file).
+A validation set of *#validation_set.len()* manually extracted abstracts was created. This set was used to estimate precision and recall of the overall dataset and to calibrate the LLM prompt used for extraction. The first attempt was by randomly sampling abstracts. After analysis, it was evident that the negatives (i.e., abstracts not containing any observability tool names) made up around 80-90% of the corpus, making the data very sparse. To get a set with a higher share of positives, we decided to use a combination of keyword spotting (by matching the text with a few known observability tools#footnote(predefined_keywords.join(", "))) and random sampling.
+
+The set is composed of *#from_keyword.len()* studies originating from keyword match and *#from_random.len()* from random sampling. The script that reproduces this step is available in the reproduction package as #raw(data.reprod_files.validation_set_script.file). The authors then manually extracted tools from these abstracts, inserting the annotations into the dataset, which is available in the reproduction package as #raw(data.reprod_files.validation_set_results.file). The validation set was used to evaluate and refine the study, including the search query and LLM prompt, as discussed next.
 
 === LLM extraction <llm-extraction>
 
@@ -149,13 +151,12 @@ The extraction method consists of feeding each study's abstract to an LLM (in th
 #let precision = calc.round(true_positives.len() / retrieved.len() * 100)
 #let f_measure = 2 * calc.round((precision*recall)/(precision + recall))
 
-We used the validation set to evaluate and calibrate this prompt. By using the LLM to extract tools from that set, we achieved recall *#recall%*, precision *#precision%*, and $F_1$ *#f_measure%* (#true_positives.len() true positives, #false_positives.len() false positives, and only #false_negatives.len() false negatives) on the validation set. The key metric here is the recall, as this LLM extraction is then used for a manual selection, so it is crucial that false negatives are minimized.
+This prompt was the result of several rounds of evaluation and calibration. By using the LLM to extract tools from the validation set, we achieved recall *#recall%*, precision *#precision%*, and $F_1$ *#f_measure%* (#true_positives.len() true positives, #false_positives.len() false positives, and only #false_negatives.len() false negatives). The key metric here is the recall, as this LLM extraction is then used for a manual selection, so it is crucial that false negatives are minimized, even if this leads to more false positives.
 #let percent_extracted = calc.round(data.llm_extracted_papers.len() / data.scopus_results.len() * 100)
 
-From the full set, the LLM extracted a total of *#data.llm_extracted_tools.len()* candidate tools, originating from *#data.llm_extracted_papers.len()* studies (*#percent_extracted%* of *#data.scopus_results.len()* total studies).
-This step can be fully reproduced via the script #raw(data.reprod_files.llm_extraction_script.file), and its results are available in #raw(data.reprod_files.llm_extraction_results.file). These tools were then manually selected, as detailed in @tool-selection.
+From the full set, the LLM extracted a total of *#data.llm_extracted_tools.len()* candidate tools, originating from *#data.llm_extracted_papers.len()* studies (*#percent_extracted%* of *#data.scopus_results.len()* total studies). This step can be fully reproduced via the script #raw(data.reprod_files.llm_extraction_script.file), and its results are available in #raw(data.reprod_files.llm_extraction_results.file). These tools were then manually selected, as detailed in @selection-phase.
 
-== Manual tool selection <tool-selection>
+== Selection Phase <selection-phase>
 
 We manually examined the #data.llm_extracted_tools.len() candidate tools and the studies they appeared on and selected the tools according to the following selection criteria:
 
@@ -165,7 +166,7 @@ We manually examined the #data.llm_extracted_tools.len() candidate tools and the
 - Exclusion Criterion (EC):
   - *EC1*: The tool is a piece of research software and not otherwise available as an actual FOSS project on the web or mentioned anywhere else on the web besides the studies that introduce it.
 
-Besides the tool name and studies it originates from, we also annotated each tool with:
+By applying this criteria, we selected a total of *#data.tools_selected.len()* tools. Besides the tool name and studies it originates from, we also annotated each tool with:
 
 1. A list of its relevant software repositories (e.g., Git, SVN), located via web searches.
 2. Its main functions/roles, also located via web searches, and organized roughly based on @kosinska2023observability:
@@ -174,11 +175,11 @@ Besides the tool name and studies it originates from, we also annotated each too
   3. `storage` (Data Backends): long-term storage, querying.
   4. `visualization`/`alerting`/`analysis` (Analysis/Visualization): understanding of the system, root cause analysis, discovering "unknowns".
 
-This data is available in the reproduction package as #raw(data.reprod_files.tool_selection_manual.file).
+This data is available in the reproduction package as #raw(data.reprod_files.tool_selection_manual.file). This is part of RQ1 and further explored in @oss-tools-in-cloud-observability.
 
-== Tool relations <tool-relations>
+== Analysis Phase <analysis-phase>
 
-To find the relations between the tools, we downloaded their source code, and, for each tool, programmatically matched occurrences of every other tools' names in its codebase. This step can be reproduced using #raw(data.reprod_files.tool_code_ocurrences_script.file) and its results are available as #raw(data.reprod_files.tool_code_ocurrences_result.file).
+Our main goal in this phase is to find the relations between the tools, to answer the RQ2. For that, we downloaded their source code, and, for each tool, programmatically matched occurrences of every other tools' names in its codebase. This step can be reproduced using #raw(data.reprod_files.tool_code_ocurrences_script.file) and its results are available as #raw(data.reprod_files.tool_code_ocurrences_result.file).
 
 These numbers represent how much a tool's codebase is aware of and/or coupled to each other tool, and includes integration features, documentation, tests, dependencies, etc. This is part of RQ2 and is further explained in @combination-of-oss-tools. A deeper study on the nature of each individual relation is out of scope for this study, but we briefly discuss this in @future-work.
 
@@ -186,17 +187,17 @@ These numbers represent how much a tool's codebase is aware of and/or coupled to
 
 This section focuses on answering the two RQs defined in @introduction.
 
-== OSS tools in Cloud Observability Stacks
+== OSS tools in Cloud Observability Stacks <oss-tools-in-cloud-observability>
 
 #let percent_selected = calc.round(data.papers_selected.len() / data.scopus_results.len() * 100)
 
-We selected *#data.tools_selected.len()* tools, originating from *#data.papers_selected.len()* studies (*#percent_selected%* of *#data.scopus_results.len()* total studies). @table-selected-tools, in the Appendix, contains the full set of selected tools, the amount of studies from which they were extracted, and our annotations on the main functions each of them provide in an observability stack. As it can be seen from the table, there is a long list of tools with singular presence in studies, while a few tools such as _Thingspeak_ and _Prometheus_ dominate the discourse.
+We selected *#data.tools_selected.len()* tools, which can be tracked back to the abstracts of *#data.papers_selected.len()* studies in our set (*#percent_selected%* of *#data.scopus_results.len()* from the initial search). @table-selected-tools, in the Appendix, contains the full set of selected tools, the amount of abstracts they appear on, and our annotations on the main functions each of them provide in an observability stack (as per @kosinska2023observability). As it can be seen from the table, there is a long tail of tools with presence in a single study each, while a few tools such as _Thingspeak_ and _Prometheus_ dominate the discourse.
 
 @fig-tool-occurrence visualizes how frequently each tool appears, in number of studies. Notoriously, _Prometheus_ and _Grafana_ are very frequently mentioned in the studies, which correspond to our expectations and industry experience, where the two are frequently combined for a basic metric+visualization stack. _Thingspeak_ being highly mentioned, while unexpected, is possibly an indicator that IoT research frequently intersects with cloud computing.
 
 #figure(caption: [Number of studies mentioning each tool \ (Tools appearing on a single study were omitted)], alt: "A bar chart showing how frequently each tool appears. Thingspeak appears first with 21 studies mentioning it; followed by prometheus with 18; grafana with 15; nagios with 10; elasticsearch with 7; zabbix and kafka with 6; thingsboard, snort, kibana, kepler, ganglia, ceilometer with 4; xdmod, wazuh, influxdb with 3; skydive, scaphandre, opentelemetry, fluentd with 2. All other tools that appear only on one study are omitted.", html.frame(include "parts/fig-tool-occurrence.typ")) <fig-tool-occurrence>
 
-@fig-tool-role shows how frequent each role (as defined in @tool-selection) is. Some tools have multiple roles (e.g. _Grafana_ has both `visualization` and `alerting`). We can see a very high frequency in the collection role; besides dedicated collectors, most instrumentation and processing tools seem to have some sort of collection/aggregation mechanism built-in.
+@fig-tool-role shows how frequent each role (as defined in @selection-phase) is. Some tools have multiple roles (e.g. _Grafana_ has both `visualization` and `alerting`). We can see a very high frequency in the collection role; besides dedicated collectors, most instrumentation and processing tools seem to have some sort of collection/aggregation mechanism built-in.
 
 #figure(caption: [Number of tools per role \ (Some tools have multiple)], alt: "A bar chart showing which tool roles are more common. 30 tools have collection role, 12 instrumentation, 12 visualization, 9 processing, 7 alerting, 6 analysis, and 6 storage.", html.frame(include "parts/fig-tool-role.typ")) <fig-tool-role>
 
@@ -212,7 +213,7 @@ We selected *#data.tools_selected.len()* tools, originating from *#data.papers_s
 
 To better visualize the relation data, we conducted a network analysis in it, with the results shown in @fig-relations. For this figure, we represent each tool as a node.
 
-The graph edges are directed and weighted, serving as visualization of how much a tool X relates to another tool Y. This is obtained, as described by @tool-relations, through matching Y's name on X's codebase, and represents relations such as integration features, comments mentioning a borrowed snippet, documentation (usually comparing an alternative tool or documenting integration), tests, and usage as libraries. As the codebase sizes vary, the edge weights are normalized with the other edges originating from the same node. Edges whose weights were lower than 0.05 (i.e. 5% of all keyword matches that codebase has) were hidden from the visualization, for improved visibility.
+The graph edges are directed and weighted, serving as visualization of how much a tool X relates to another tool Y. This is obtained, as described by @analysis-phase, through matching Y's name on X's codebase, and represents relations such as integration features, comments mentioning a borrowed snippet, documentation (usually comparing an alternative tool or documenting integration), tests, and usage as libraries. As the codebase sizes vary, the edge weights are normalized with the other edges originating from the same node. Edges whose weights were lower than 0.05 (i.e. 5% of all keyword matches that codebase has) were hidden from the visualization, for improved visibility.
 
 The node size is derived from the sum of the weights of connections with that node as destination, interpreted as how much important that the tool is to the ecosystem. The node colors are a visualization of community clustering, that groups tightly connected nodes together.
 
@@ -239,7 +240,7 @@ The main findings resulting from our investigation of OSS tools for cloud observ
 
 - *Some tools are de-facto standards, bringing interoperability but risking over-reliance*. It is interesting to see how _Prometheus_ has become so ubiquitous that there are references to it in the code of basically every single cloud observability tool that exists. If a software exports metrics, it is probably in the _Prometheus_ exposition format. Although _Prometheus_'s community-based governance brings some safety, over-reliance on a single implementation can be problematic, thus bringing the need of standardization. _OpenTelemetry_ has recently emerged as a more standardized framework for different aspects of observability (including compatibility with the _Prometheus_ exposition format) @prometheusotel, and it is interesting to see adoption grow. The connection graph we built can be a helpful metric to determine which OSS tools are becoming critical, thus should be prioritized for standardization and/or alternative implementations by OSS communities and funding agencies.
 
-- *The line between an _observability tool_ and a tool that _can be used for observability_ can be thin*. During our manual selection step, some tools were difficult to classify. For example, _Kafka_ is not necessarily built for observability solutions, but its usage is so frequent that it becomes clear that it should be labeled as such. But what about other message queues? Or storage systems? Some more research is required to effectively draw this line.
+- *The line between an _observability tool_ and a tool that _can be used for observability_ can be thin*. During our manual selection step, some tools were difficult to classify. For example, _Kafka_ is not necessarily built for observability solutions, but its usage is so frequent that it becomes clear that it should be labeled as such. But what about other message queues? Or storage systems? Further research is required to effectively draw this line.
 
 == Threats to Validity
 
@@ -250,7 +251,7 @@ As with any secondary studies, threats to validity must be considered as well as
 
 - *Sparsity of dataset*. The abstract dataset is very sparse, making validation harder. Only *#percent_selected%* of the total corpus includes at least one tool from the final selection. We mitigated this by building a validation set that included both known tools as well as randomly sampled studies.
 
-- *LLM bias*. Although we calibrated the prompt to minimize false negatives, the LLM can be biased towards more well-known tools. We mitigated this by inspecting the abstracts of extracted studies (#data.llm_extracted_papers.len()), this same inspection is, however, not possible in the negative population, as it is very large. The mitigation provided by the validation set (@validation-set), with a high recall value, is considered sufficient.
+- *LLM bias*. Although we calibrated the prompt to minimize false negatives, the LLM can be biased towards more well-known tools. We mitigated this by inspecting the abstracts of all #data.llm_extracted_papers.len() extracted studies (i.e. studies from which the LLM extracted at least one tool), this same inspection is, however, not possible in the negative population, as it is very large. The mitigation provided by the validation set (@validation-set), with a high recall value, is considered sufficient.
 
 - *Abstracts may not contain every tool relevant to the work*. Using only the abstracts (as opposed to the fulltexts) can leave out relevant tools. This is somewhat mitigated by the large corpus of studies we used, and is a tradeoff we accepted to build a more automated research method.
 

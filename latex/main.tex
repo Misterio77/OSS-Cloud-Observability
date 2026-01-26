@@ -200,12 +200,11 @@ and identify trends in this field, we defined two research questions
   stacks?
 \end{itemize}
 
-Following this, we scrutinized the scientific literature and located
-3068 studies, from which we identified a total of 45 tools extracted
-from 111 final studies. As a main result, we observed the centrality of
-some tools, and tools that cluster together. We intend that the overview
-presented in this paper can bring implications for both practitioners
-and researchers.
+Following this, we searched the scientific literature and located 3068 studies,
+from which, through an automated and manual selection of candidate tools, we
+selected 45 tools. As a main result, we observed the centrality of some tools,
+and tools that cluster together. We intend that the overview presented in this
+paper can bring implications for both practitioners and researchers.
 
 The remainder of this paper is structured as follows:
 Section~\ref{research-method} outlines the research method;
@@ -216,10 +215,11 @@ our work.
 
 \section{Research Method}\label{research-method}
 
-Figure~\ref{fig-research-method} provides an overview of the
-research method and the reproduction package files that correspond to
-each step. The reproduction package is made available in the supplementary material
-to replicate the entirety of this research.
+Figure~\ref{fig-research-method} provides an overview of the research
+method and the reproduction package files that correspond to each step. The
+reproduction package is made available both in the supplementary material and
+online\footnote{\url{https://github.com/Misterio77/OSS-Cloud-Observability}} to
+replicate the entirety of this research.
 
 \begin{figure}[!htbp]
   \centering
@@ -229,11 +229,11 @@ to replicate the entirety of this research.
   \label{fig-research-method}
 \end{figure}
 
-\subsection{Search query}\label{search-query}
+\subsection{Search Phase}\label{search-phase}
 
-To build our initial set of tools, we extracted them from a large
-population of research studies. For that, we searched Scopus\footnote{\url{https://scopus.com}}
-with the following query:
+To build our initial set of tools, we decided to use a large
+population of research studies as basis. For that, we searched
+Scopus\footnote{\url{https://scopus.com}} with the following query:
 
 \begin{snugshade}
 \begin{lstlisting}[language=SQL]
@@ -245,25 +245,26 @@ with the following query:
 \end{lstlisting}
 \end{snugshade}
 
-Our goal includes, but is not limited to finding more niche tools, and
-thus it benefits from a large and diverse sample size. To avoid missing
-relevant tools, this search query intentionally did not try to exclude
-research software nor proprietary software, thus leaving this filtering
-for manual selection, as described in
-Section~\ref{tool-selection}.
+Our goal includes, but is not limited to, finding more niche tools and thus
+it benefits from a large and diverse sample size. To avoid missing relevant
+tools, this search query intentionally did not try to exclude research software
+nor proprietary software, thus leaving this filtering for manual selection, as
+described in Section~\ref{selection-phase}.
 
-The search resulted in a set of \textbf{3068} studies, which were
-exported into a CSV in the following format: \texttt{"Title",\allowbreak "Year",\allowbreak "DOI",\allowbreak "Link",\allowbreak "Abstract"}. This data is available in the reproduction package as \texttt{01\allowbreak -scopus\allowbreak -search\allowbreak -results\allowbreak .csv}.
+The search resulted in a set of \textbf{3068} studies, which were exported
+into a CSV file in the following format: \texttt{"Title",\allowbreak
+"Year",\allowbreak "DOI",\allowbreak "Link",\allowbreak "Abstract"}. This
+data is available in the reproduction package as \texttt{01\allowbreak
+-scopus\allowbreak -search\allowbreak -results\allowbreak .csv}.
 
-\subsection{Tool extraction from
-abstracts}\label{tool-extraction-from-abstracts}
+\subsection{Extraction Phase}\label{extraction-phase}
 
 This is a problem in the class of Named-entity Recognition (NER)
-\cite{pakhale2023ner}, albeit a single-class one. As the intent is
-to extract tool names from the studies, a method that can be aware of
-context, such as BERT or an LLM, is ideal. For this extraction, due to
-ease of access and previous experience, we decided to use an LLM to
-extract the tools from abstracts.
+\cite{pakhale2023ner}, albeit a single-class one. As the intent is to extract
+tool names mentioned in the studies, a method that can be aware of context,
+such as BERT or an LLM, is ideal. For this extraction, due to ease of access
+and previous experience, we decided to use an LLM to extract the tools from
+abstracts.
 
 The reason for using the abstracts alone, besides ease of automation and
 availability, is that an abstract can fit together with the LLM's prompt
@@ -273,26 +274,26 @@ is missing tools that only appear in the full text; hence, we mitigated
 it in two ways: (i) by using a large amount of studies; and (ii) by
 calibrating the prompt using a validation set, as discussed next.
 
-\subsubsection{Validation set}\label{validation-set}
+\subsubsection{Validation sampling and extraction}\label{validation-set}
 
-A validation set of \textbf{50} manually extracted abstracts was
-created. This set was used to estimate precision and recall of the
-overall dataset and to calibrate the LLM prompt used for extraction. The
-first attempt was by randomly sampling abstracts. After analysis, it was
-evident that the negatives (i.e., abstracts not containing any
-observability tool names) made up around 80-90\% of the corpus, making
-the data very sparse. To get a set with a higher share of positives, we
-decided to use a combination of keyword spotting (by matching the text
-with a few known observability tools\footnote{grafana, prometheus,
-  graphite, opentelemetry, elasticsearch, fluentd, kibana, logstash,
-  jaeger, influxdb, ceilometer}) and random sampling. The set is
-composed of \textbf{42} studies originating from keyword match and
-\textbf{8} from random sampling. The script that reproduces this step is
-available in the reproduction package as
-\texttt{02-\allowbreak validation-\allowbreak set-\allowbreak script.\allowbreak py}. The authors then manually
-extracted tools from these abstracts, inserting the annotations into the
-dataset, which is available in the reproduction package as
-\texttt{03-\allowbreak validation-\allowbreak set-\allowbreak results.\allowbreak json}.
+A validation set of \textbf{50} manually extracted abstracts was created. This
+set was used to estimate precision and recall of the overall dataset and to
+calibrate the LLM prompt used for extraction. The first attempt was by randomly
+sampling abstracts. After analysis, it was evident that the negatives (i.e.,
+abstracts not containing any observability tool names) made up around 80-90\%
+of the corpus, making the data very sparse. To get a set with a higher share
+of positives, we decided to use a combination of keyword spotting (by matching
+the text with a few known observability tools\footnote{grafana, prometheus,
+graphite, opentelemetry, elasticsearch, fluentd, kibana, logstash,   jaeger,
+influxdb, ceilometer}) and random sampling. The set is composed of \textbf{42}
+studies originating from keyword match and \textbf{8} from random sampling. The
+script that reproduces this step is available in the reproduction package as
+\texttt{02-\allowbreak validation-\allowbreak set-\allowbreak script.\allowbreak
+py}. The authors then manually extracted tools from these abstracts, inserting
+the annotations into the dataset, which is available in the reproduction
+package as \texttt{03-\allowbreak validation-\allowbreak set-\allowbreak
+results.\allowbreak json}. The validation set was used to evaluate and refine
+the study, including the search query and LLM prompt, as discussed next.
 
 \subsubsection{LLM extraction}\label{llm-extraction}
 
@@ -306,13 +307,13 @@ observability/monitoring/logging/tracing tools mentioned in it. Respond
 with the names separated by comma: \texttt{tool1,tool2,tool3}. If there
 are no relevant tools, reply with an empty string.} ''
 
-We used the validation set to evaluate and calibrate this prompt. By
-using the LLM to extract tools from that set, we achieved recall
-\textbf{97\%}, precision \textbf{69\%}, and $F_1$ \textbf{80\%}
-(66 true positives, 30 false positives, and only 2 false
-negatives) on the validation set. The key metric here is the recall, as
-this LLM extraction is then used for a manual selection, so it is
-crucial that false negatives are minimized.
+This prompt was the result of several rounds of evaluation and calibration.
+By using the LLM to extract tools from the validation set, we achieved recall
+\textbf{97\%}, precision \textbf{69\%}, and $F_1$ \textbf{80\%} (66 true
+positives, 30 false positives, and only 2 false negatives) on the validation
+set. The key metric here is the recall, as this LLM extraction is then used for
+a manual selection, so it is crucial that false negatives are minimized, even if
+this leads to more false positives.
 
 From the full set, the LLM extracted a total of \textbf{768} candidate
 tools, originating from \textbf{774} studies (\textbf{25\%} of
@@ -320,9 +321,9 @@ tools, originating from \textbf{774} studies (\textbf{25\%} of
 script \texttt{04-\allowbreak llm-\allowbreak extraction-\allowbreak script.\allowbreak py}, and its results are
 available in \texttt{05-\allowbreak llm-\allowbreak extraction-\allowbreak results.\allowbreak json}. These tools were
 then manually selected, as detailed in
-Section~\ref{tool-selection}.
+Section~\ref{selection-phase}.
 
-\subsection{Manual tool selection}\label{tool-selection}
+\subsection{Selection Phase}\label{selection-phase}
 
 We manually examined the 768 candidate tools and the studies they
 appeared on and selected the tools according to the following selection
@@ -354,8 +355,8 @@ criteria:
   \end{itemize}
 \end{itemize}
 
-Besides the tool name and studies it originates from, we also annotated
-each tool with:
+By applying this criteria, we selected a total of \textbf{45} tools. Besides the
+tool name and studies it originates from, we also annotated each tool with:
 
 \begin{enumerate}
 \item
@@ -381,14 +382,16 @@ each tool with:
   \end{enumerate}
 \end{enumerate}
 
-This data is available in the reproduction package as
-\texttt{06-\allowbreak tool-\allowbreak selection-\allowbreak manual.\allowbreak yaml}.
+This data is available in the reproduction package as \texttt{06-\allowbreak
+tool-\allowbreak selection-\allowbreak manual.\allowbreak yaml}. This is part of
+RQ1 and further explored in @oss-tools-in-cloud-observability.
 
-\subsection{Tool relations}\label{tool-relations}
+\subsection{Analysis Phase}\label{analysis-phase}
 
-To find the relations between the tools, we downloaded their source code,
-and, for each tool, programmatically matched occurrences of every other tools'
-names in its codebase. This step can be reproduced using \texttt{07-\allowbreak
+Our main goal in this phase is to find the relations between the tools, to
+answer the RQ2. For that, we downloaded their source code, and, for each
+tool, programmatically matched occurrences of every other tools' names
+in its codebase. This step can be reproduced using \texttt{07-\allowbreak
 tool-\allowbreak code-\allowbreak occurrences-\allowbreak script.\allowbreak
 py} and its results are available as \texttt{08-\allowbreak tool-\allowbreak
 code-\allowbreak occurrences-\allowbreak results.\allowbreak json}.
@@ -406,16 +409,16 @@ This section focuses on answering the two RQs defined in
 Section~\ref{introduction}.
 
 \subsection{OSS tools in Cloud Observability
-Stacks}\label{oss-tools-in-cloud-observability-stacks}
+Stacks}\label{oss-tools-in-cloud-observability}
 
-We selected \textbf{45} tools, originating from \textbf{111} studies
-(\textbf{4\%} of \textbf{3068} total studies).
-Table~\ref{table-selected-tools}, in the Appendix, contains the full set
-of selected tools, the amount of studies from which they were extracted,
-and our annotations on the main functions each of them provide in an
-observability stack. As it can be seen from the table, there is a long
-list of tools with singular presence in studies, while a few tools such as
-\emph{Thingspeak} and \emph{Prometheus} dominate the discourse.
+We selected \textbf{45} tools, which can be tracked back to the abstracts
+of \textbf{111} studies in our set (\textbf{4\%} of \textbf{3068} from the
+initial search). Table~\ref{table-selected-tools}, in the Appendix, contains
+the full set of selected tools, the amount of abstracts they appear on, and our
+annotations on the main functions each of them provide in an observability stack
+(as per \cite{kosinska2023observability}). As it can be seen from the table,
+there is a long tail of tools with presence in a single study each, while a few
+tools such as \emph{Thingspeak} and \emph{Prometheus} dominate the discourse.
 
 Figure~\ref{fig-tool-occurrence} visualizes how frequently each
 tool appears, in number of studies. Notoriously, \emph{Prometheus} and
@@ -435,7 +438,7 @@ computing.
 \end{figure}
 
 Figure~\ref{fig-tool-role} shows how frequent each role (as
-defined in Section~\ref{tool-selection}) is. Some tools have
+defined in Section~\ref{selection-phase}) is. Some tools have
 multiple roles (e.g. \emph{Grafana} has both \texttt{visualization} and
 \texttt{alerting}). We can see a very high frequency in the collection
 role; besides dedicated collectors, most instrumentation and processing
@@ -482,7 +485,7 @@ we represent each tool as a node.
 
 The graph edges are directed and weighted, serving as visualization of how
 much a tool X relates to another tool Y. This is obtained, as described by
-Section~\ref{tool-relations}, through matching Y's name on X's codebase,
+Section~\ref{analysis-phase}, through matching Y's name on X's codebase,
 and represents relations such as integration features, comments mentioning
 a borrowed snippet, documentation (usually comparing an alternative tool or
 documenting integration), tests, and usage as libraries. As the codebase sizes
@@ -591,7 +594,7 @@ cloud observability are:
   \emph{Kafka} is not necessarily built for observability solutions, but
   its usage is so frequent that it becomes clear that it should be
   labeled as such. But what about other message queues? Or storage
-  systems? Some more research is required to effectively draw this line.
+  systems? Further research is required to effectively draw this line.
 \end{itemize}
 
 \subsection{Threats to Validity}\label{threats-to-validity}
@@ -616,12 +619,12 @@ well as mitigation actions, as discussed below:
   randomly sampled studies.
 \item
   \textbf{LLM bias}. Although we calibrated the prompt to minimize false
-  negatives, the LLM can be biased towards more well-known tools. We
-  mitigated this by inspecting the abstracts of extracted studies (774),
-  this same inspection is, however, not possible in the negative
-  population, as it is very large. The mitigation provided by the
-  validation set (Section~\ref{validation-set}), with a high
-  recall value, is considered sufficient.
+  negatives, the LLM can be biased towards more well-known tools. We mitigated
+  this by inspecting the abstracts of all 774 extracted studies (i.e. studies
+  from which the LLM extracted at least one tool), this same inspection is,
+  however, not possible in the negative population, as it is very large. The
+  mitigation provided by the validation set (Section~\ref{validation-set}), with
+  a high recall value, is considered sufficient.
 \item
   \textbf{Abstracts may not contain every tool relevant to the work}.
   Using only the abstracts (as opposed to the fulltexts) can leave out
