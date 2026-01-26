@@ -279,7 +279,7 @@
   // 1.2em - 1em
   leading: .2em,
   // should be 54 lines of text
-  font-size: 10pt,
+  font-size: 9pt,
 
   colors: (
     blue: rgb(29, 75, 125),
@@ -343,7 +343,7 @@
   
   // Set the body font. (rule 3)
   set text(
-    font: "Linux Libertine",
+    font: "Linux Libertine O",
     size: font-size,
     top-edge: 1em,
     bottom-edge: 0em

@@ -1,6 +1,16 @@
 #import "data.typ"
 #import "colors.typ": colors
 
+#show: it => context {
+  if "standalone" in sys.inputs {
+    set page(height: auto, width: auto, margin: 0cm)
+    set text(font: "Linux Libertine O", size: 9pt)
+    it
+  } else {
+    it
+  }
+}
+
 #{
   import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge, shapes
   let r = data.reprod_files.pairs().map(((n, v)) => (n, raw(lang: "yml", v.id + "." + v.ext))).to-dict()
@@ -40,7 +50,7 @@
     ..args)
   }
 
-  scale(61%, reflow: true, diagram(
+  scale(70%, reflow: true, diagram(
     spacing: (1.6mm, 2.2mm),
     node-stroke: 1pt,
 

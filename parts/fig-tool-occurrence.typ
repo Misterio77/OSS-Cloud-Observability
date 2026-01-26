@@ -1,6 +1,16 @@
 #import "data.typ"
 #import "colors.typ": colors
 
+#show: it => context {
+  if "standalone" in sys.inputs {
+    set page(height: auto, width: auto, margin: 0cm)
+    set text(font: "Linux Libertine O", size: 9pt)
+    it
+  } else {
+    it
+  }
+}
+
 #{
   import "@preview/cetz:0.3.4": canvas, draw, palette
   import "@preview/cetz-plot:0.1.1": chart
@@ -12,7 +22,7 @@
     .sorted(key: it => it.at(1))
     .rev()
   let width = 5.8
-  let height = 7.6
+  let height = 8.2
   let x-max = 25
 
   canvas({
