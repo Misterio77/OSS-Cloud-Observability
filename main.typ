@@ -40,7 +40,7 @@
   if target() == "html" {
     set heading(numbering: "1.")
     show cite: it => html.elem("span", attrs: (role: "cite", data-bibkey: str(it.key)), it)
-    show figure: html.frame
+    show figure.where(kind: image): html.frame
     it
   } else {
     show: acmart.with(
@@ -287,4 +287,4 @@ This study was financed by São Paulo Research Foundation (FAPESP) (2023/00488-5
 
 = Selected Tools
 
-#include "parts/tools-table.typ"
+#figure(caption: [Selected tools], include "parts/tools-table.typ") <tools-table>
