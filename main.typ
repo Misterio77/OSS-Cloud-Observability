@@ -190,7 +190,7 @@ This section focuses on answering the two RQs defined in @introduction.
 
 #let percent_selected = calc.round(data.papers_selected.len() / data.scopus_results.len() * 100)
 
-We selected *#data.tools_selected.len()* tools, originating from *#data.papers_selected.len()* studies (*#percent_selected%* of *#data.scopus_results.len()* total studies). @tools-table, in the Appendix, contains the full set of selected tools, the amount of studies from which they were extracted, and our annotations on the main functions each of them provide in an observability stack. As it can be seen from the table, there is a long list of tools with singular presence in studies, while a few tools such as _Thingspeak_ and _Prometheus_ dominate the discourse.
+We selected *#data.tools_selected.len()* tools, originating from *#data.papers_selected.len()* studies (*#percent_selected%* of *#data.scopus_results.len()* total studies). @table-selected-tools, in the Appendix, contains the full set of selected tools, the amount of studies from which they were extracted, and our annotations on the main functions each of them provide in an observability stack. As it can be seen from the table, there is a long list of tools with singular presence in studies, while a few tools such as _Thingspeak_ and _Prometheus_ dominate the discourse.
 
 @fig-tool-occurrence visualizes how frequently each tool appears, in number of studies. Notoriously, _Prometheus_ and _Grafana_ are very frequently mentioned in the studies, which correspond to our expectations and industry experience, where the two are frequently combined for a basic metric+visualization stack. _Thingspeak_ being highly mentioned, while unexpected, is possibly an indicator that IoT research frequently intersects with cloud computing.
 
@@ -293,4 +293,4 @@ This study was financed by São Paulo Research Foundation (FAPESP) (2023/00488-5
 
 = Selected Tools
 
-#figure(caption: [Selected tools], include "parts/tools-table.typ") <tools-table>
+#figure(caption: [Selected tools], include "parts/tools-table.typ") <table-selected-tools>
