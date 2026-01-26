@@ -40,7 +40,7 @@
   if target() == "html" {
     set heading(numbering: "1.")
     show cite: it => html.elem("span", attrs: (role: "cite", data-bibkey: str(it.key)), it)
-    show figure.where(kind: image): html.frame
+    show math.equation: it => html.elem("span", attrs: (role: "equation"), html.frame(it))
     it
   } else {
     show: acmart.with(
@@ -98,7 +98,7 @@ The remainder of this paper is structured as follows: @research-method outlines 
 
 = Research Method <research-method>
 
-#figure(caption: [Overview of research method], include "parts/fig-research-method.typ") <fig-research-method>
+#figure(caption: [Overview of research method], html.frame(include "parts/fig-research-method.typ")) <fig-research-method>
 
 @fig-research-method provides an overview of the research method and the reproduction package files that correspond to each step. The reproduction package is made available#footnote[https://github.com/Misterio77/OSS-Cloud-Observability] to replicate the entirety of this research.
 
@@ -190,15 +190,15 @@ This section focuses on answering the two RQs defined in @introduction.
 
 We selected *#data.tools_selected.len()* tools, originating from *#data.papers_selected.len()* studies (*#percent_selected%* of *#data.scopus_results.len()* total studies). @tools-table, in the Appendix, contains the full set of selected tools, the amount of studies from which they were extracted, and our annotations on the main functions each of them provide in an observability stack. As it can be seen from the table, there is a long list of tools with singular presence in studies, while a few tools like _Thingspeak_ and _Prometheus_ dominate the discourse.
 
-#figure(caption: [Number of studies mentioning each tool \ (Tools appearing on a single study were omitted)], include "parts/fig-tool-occurrence.typ") <fig-tool-occurrence>
+#figure(caption: [Number of studies mentioning each tool \ (Tools appearing on a single study were omitted)], html.frame(include "parts/fig-tool-occurrence.typ")) <fig-tool-occurrence>
 
 @fig-tool-occurrence visualizes how frequently each tool appears, in number of studies. Notoriously, _Prometheus_ and _Grafana_ are very frequently mentioned in the studies, which correspond to our expectations and industry experience, where the two are frequently combined for a basic metric+visualization stack. _Thingspeak_ being highly mentioned, while unexpected, is possibly an indicator that IoT research frequently intersects with cloud computing.
 
-#figure(caption: [Number of tools per role \ (Some tools have multiple)], include "parts/fig-tool-role.typ") <fig-tool-role>
+#figure(caption: [Number of tools per role \ (Some tools have multiple)], html.frame(include "parts/fig-tool-role.typ")) <fig-tool-role>
 
 @fig-tool-role shows how frequent each role (as defined in @tool-selection) is. Some tools have multiple roles (e.g. _Grafana_ has both `visualization` and `alerting`). We can see a very high frequency in the collection role; besides dedicated collectors, most instrumentation and processing tools seem to have some sort of collection/aggregation mechanism built-in.
 
-#figure(caption: [Yearly study distribution], include "parts/fig-yearly-distribution.typ") <fig-yearly-distribution>
+#figure(caption: [Yearly study distribution], html.frame(include "parts/fig-yearly-distribution.typ")) <fig-yearly-distribution>
 
 @fig-yearly-distribution shows the yearly distribution of studies with at least one selected tool. We can see that there is a growing trend, possibly indicating the increased interest in the area. Our data contains studies from up until October 2025, thus 2024 studies are slightly more present than 2025 in the graph.
 
@@ -206,7 +206,7 @@ We selected *#data.tools_selected.len()* tools, originating from *#data.papers_s
   Answering RQ1: _Prometheus_ is ubiquitous in the cloud observability ecosystem. _Nagios_, _Grafana_ and _ElasticSearch_ are also frequent appearances. _Thingspeak_ is an interesting outlier, representing the IoT sub-ecosystem. Collection functionality is the most frequent, followed by instrumentation and visualization.
 ]
 
-#figure(caption: [Relations between tools, clustered and weighted by relative code occurrence], placement: auto, scope: "parent", data.clustering_results) <fig-relations>
+#figure(caption: [Relations between tools, clustered and weighted by relative code occurrence], placement: auto, scope: "parent", html.frame(data.clustering_results)) <fig-relations>
 
 == Combinations of OSS Tools in Cloud Observability Stacks <combination-of-oss-tools>
 
