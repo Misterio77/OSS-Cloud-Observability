@@ -166,7 +166,7 @@ We manually examined the #data.llm_extracted_tools.len() candidate tools and the
 - Exclusion Criterion (EC):
   - *EC1*: The tool is a piece of research software and not otherwise available as an actual FOSS project on the web or mentioned anywhere else on the web besides the studies that introduce it.
 
-By applying this criteria, we selected a total of *#data.tools_selected.len()* tools. Besides the tool name and studies it originates from, we also annotated each tool with:
+By applying this criteria, we selected a total of *#data.tools_selected.len()* tools, as shown in @table-selected-tools. Besides the tool name and studies it originates from, we also annotated each tool with:
 
 1. A list of its relevant software repositories (e.g., Git, SVN), located via web searches.
 2. Its main functions/roles, also located via web searches, and organized roughly based on @kosinska2023observability:
