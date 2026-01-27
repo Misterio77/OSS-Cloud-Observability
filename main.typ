@@ -265,7 +265,7 @@ As with any secondary studies, threats to validity must be considered as well as
 
 Based on the results of our investigation, we can suggest the following future work:
 
-- *A qualitative study of tool relations*. The relations we found include: code integrations (e.g., _Grafana_ having a _Prometheus_ data source), deployment code, examples where they are used together, and documentation comparing the two. Looking further into their nature could be an interesting direction.
+- *Qualitative analysis on the relations*. Our approach with the relations between tools was very quantitative, with no regard for the nature of the code nor any attempt to filter false positive matches. By conducting a more qualitative analysis of each individual relation identified, one could gain a better understanding of the relation between tools, and how good of a proxy the quantitative analysis is.
 
 - *Other datasources besides academic studies*. Although useful for casting a wide net, academic studies might not be enough to locate all tooling, specially emerging ones. Other methods such a multivocal literature reviews to find the set of tools might be interesting to explore.
 
@@ -274,8 +274,6 @@ Based on the results of our investigation, we can suggest the following future w
 - *A better definition of observability tooling is needed*. Some tools are used in observability but do not define themselves as observability tools. Some better heuristic to make this classification could be explored.
 
 - *Other heuristics for finding relations*. Research on more heuristics for the relations can be interesting. For example, by analyzing the common contributors between two projects, one could measure integration and/or cross-pollination between different software projects.
-
-- *Compare with qualitative analysis*. By comparing a more qualitative analysis of the relations, one could formally prove how correct our automated quantitative analysis is.
 
 = Conclusions <conclusions>
 
