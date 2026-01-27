@@ -175,7 +175,7 @@ By applying this criteria, we selected a total of *#data.tools_selected.len()* t
   3. `storage` (Data Backends): long-term storage, querying.
   4. `visualization`/`alerting`/`analysis` (Analysis/Visualization): understanding of the system, root cause analysis, discovering "unknowns".
 
-This data is available in the reproduction package as #raw(data.reprod_files.tool_selection_manual.file). This is part of RQ1 and further explored in @oss-tools-in-cloud-observability.
+This phase was conducted by the first author over the course of a few days, with web searches and consensus meetings with the second author to ensure correctedness. This data is available in the reproduction package as #raw(data.reprod_files.tool_selection_manual.file). This is part of RQ1 and further explored in @oss-tools-in-cloud-observability.
 
 == Analysis Phase <analysis-phase>
 
@@ -259,7 +259,7 @@ As with any secondary studies, threats to validity must be considered as well as
 
 - *Code matches can contain transitive relations*. Transitive dependencies/integrations are also frequently matched, which might be an issue if the intention is to only model direct ones. This can be partially mitigated by excluding lockfiles. We decided to not qualitatively differentiate the nature of each relation, so this is considered out of scope for this paper.
 
-- *Human error during selection*. As with any classification based on human decisions, our selection phase (@selection-phase) could contain errors or be biased. This was mitigated by consensus between the authors and by carefully researching each candidate tool.
+- *Human error during selection*. As with any classification based on human decisions, our selection phase (@selection-phase) could contain errors or be biased. This was mitigated by consensus between the authors and by carefully researching each candidate tool, as detailed in the section.
 
 == Future Work <future-work>
 
