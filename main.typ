@@ -92,7 +92,7 @@ While there is some non-academic effort to better understand subsets of this eco
 - *RQ1*: What are the most relevant OSS tools in cloud observability stacks?; and
 - *RQ2*: How are OSS tools combined to form cloud observability stacks?
 
-Following this, we searched the scientific literature and located #data.scopus_results.len() studies, from which, through an automated and manual selection of candidate tools, we selected #data.tools_selected.len() tools. As a main result, we observed the centrality of some tools, and tools that cluster together. We intend that the overview presented in this paper can bring implications for both practitioners and researchers.
+Following this, we searched the scientific literature and located #data.scopus_results.len() studies, from which, through an automated extraction followed by manual selection, we identified #data.tools_selected.len() OSS observability tools. As a main result, we observed the centrality of some tools, and tools that cluster together. We intend that the overview presented in this paper can bring implications for both practitioners and researchers.
 
 The remainder of this paper is structured as follows: @research-method outlines the research method; @results reports the main results; @discussion presents our main findings, threats to validity, and future work; @conclusions concludes our work.
 
@@ -105,11 +105,11 @@ The remainder of this paper is structured as follows: @research-method outlines 
 
 == Search Phase
 
-To build our initial set of tools, we decided to use a large population of research studies as basis. For that, we searched Scopus #footnote[https://scopus.com] with the following query:
+To build our initial set of tools, we used a large population of research studies as basis. For that, we searched Scopus #footnote[https://scopus.com] with the following query:
 
 #raw(block: false, lang: "sql", data.scopus_search_query)
 
-Our goal includes, but is not limited to, finding more niche tools and thus it benefits from a large and diverse sample size. To avoid missing relevant tools, this search query intentionally did not try to exclude research software nor proprietary software, thus leaving this filtering for manual selection, as described in @selection-phase.
+Our goal includes, but is not limited to, finding more niche tools and thus benefits from a large and diverse sample size. To avoid missing relevant tools, this search query intentionally did not try to exclude research software nor proprietary software, thus leaving this filtering for manual selection, as described in @selection-phase.
 
 The search resulted in a set of *#data.scopus_results.len()* studies, which were exported into a CSV file in the following format: ```csv "Title","Year","DOI","Link","Abstract" ```. This data is available in the reproduction package as #raw(data.reprod_files.scopus_search_results.file).
 

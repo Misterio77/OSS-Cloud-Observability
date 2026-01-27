@@ -201,10 +201,11 @@ and identify trends in this field, we defined two research questions
 \end{itemize}
 
 Following this, we searched the scientific literature and located 3068 studies,
-from which, through an automated and manual selection of candidate tools, we
-selected 45 tools. As a main result, we observed the centrality of some tools,
-and tools that cluster together. We intend that the overview presented in this
-paper can bring implications for both practitioners and researchers.
+from which, through an automated extraction followed by manual selection, we
+identified 45 OSS observability tools. As a main result, we observed the centrality
+of some tools, and tools that cluster together. We intend that the overview
+presented in this paper can bring implications for both practitioners and
+researchers.
 
 The remainder of this paper is structured as follows:
 Section~\ref{research-method} outlines the research method;
@@ -231,8 +232,8 @@ replicate the entirety of this research.
 
 \subsection{Search Phase}\label{search-phase}
 
-To build our initial set of tools, we decided to use a large
-population of research studies as basis. For that, we searched
+To build our initial set of tools, we used a large population
+of research studies as basis. For that, we searched
 Scopus\footnote{\url{https://scopus.com}} with the following query:
 
 \begin{snugshade}
@@ -246,9 +247,9 @@ Scopus\footnote{\url{https://scopus.com}} with the following query:
 \end{snugshade}
 
 Our goal includes, but is not limited to, finding more niche tools and thus
-it benefits from a large and diverse sample size. To avoid missing relevant
-tools, this search query intentionally did not try to exclude research software
-nor proprietary software, thus leaving this filtering for manual selection, as
+benefits from a large and diverse sample size. To avoid missing relevant tools,
+this search query intentionally did not try to exclude research software nor
+proprietary software, thus leaving this filtering for manual selection, as
 described in Section~\ref{selection-phase}.
 
 The search resulted in a set of \textbf{3068} studies, which were exported
@@ -310,10 +311,10 @@ are no relevant tools, reply with an empty string.} ''
 This prompt was the result of several rounds of evaluation and calibration.
 By using the LLM to extract tools from the validation set, we achieved recall
 \textbf{97\%}, precision \textbf{69\%}, and $F_1$ \textbf{80\%} (66 true
-positives, 30 false positives, and only 2 false negatives) on the validation
-set. The key metric here is the recall, as this LLM extraction is then used for
-a manual selection, so it is crucial that false negatives are minimized, even if
-this leads to more false positives.
+positives, 30 false positives, and only 2 false negatives). The key metric here
+is the recall, as this LLM extraction is then used for a manual selection, so
+it is crucial that false negatives are minimized, even if this leads to more
+false positives.
 
 From the full set, the LLM extracted a total of \textbf{768} candidate
 tools, originating from \textbf{774} studies (\textbf{25\%} of
