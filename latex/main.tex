@@ -562,15 +562,6 @@ cloud observability are:
   qualitative analysis. It should be interesting to apply these
   techniques to different Software Ecosystems.
 \item
-  \textbf{OSS ecosystems can challenge proprietary lock-in}. Our data
-  extraction step yielded some proprietary software (e.g.
-  \emph{CloudWatch}, \emph{AzureWatch}), many of them usually specific
-  to a single cloud. OSS tools appeared in abstracts together with
-  proprietary tools from different clouds, hinting that these
-  integrations happen even across proprietary ecosystems from public
-  clouds. Practitioners should consider interoperability when adopting
-  observability tooling, specially in multi-cloud scenarios.
-\item
   \textbf{Some tools are de-facto standards, bringing interoperability
   but risking over-reliance}. It is interesting to see how
   \emph{Prometheus} has become so ubiquitous that there are references
@@ -587,6 +578,16 @@ cloud observability are:
   which OSS tools are becoming critical, thus should be prioritized for
   standardization and/or alternative implementations by OSS communities
   and funding agencies.
+\item
+  \textbf{OSS and standardization can challenge proprietary lock-in}. Our data
+  extraction step yielded some proprietary software (e.g. \emph{CloudWatch},
+  \emph{AzureWatch}), most of them specific to a single cloud vendor.
+  These were, however, often accompanied by OSS tools, a reminder that some
+  of the OSS tools are so ubiquitous that vendors are effectively forced
+  to implement support for them, further showing the strength OSS has in
+  standardization and interoperability. Practitioners should consider
+  prioritizing OSS when adopting observability tooling that needs to
+  interoperate, for example, in multi-cloud scenarios.
 \item
   \textbf{The line between an \emph{observability tool} and a tool that
   \emph{can be used for observability} can be thin}. During our manual
