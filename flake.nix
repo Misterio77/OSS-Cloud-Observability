@@ -64,14 +64,25 @@
       camera-ready = pkgs.stdenv.mkDerivation {
         pname = "cloud-monitoring-oss-cr";
         version = self.lastModifiedDate;
-        src = ./latex;
-        buildInputs = [pkgs.texliveFull pkgs.inkscape];
+        src = ./.;
+        buildInputs = [pkgs.texliveFull pkgs.inkscape pkgs.zip];
         buildPhase = ''
+          pushd latex
+          # Replace symlinks
+          for f in $(find . -maxdepth 1 -type l); do
+            cp --remove-destination "$(readlink -e $f)" "$f"
+          done
+          zip paper.zip source supplements -r
+          popd
+
+          pushd latex/source
           latexmk
+          popd
         '';
         installPhase = ''
           mkdir -p $out
-          mv build/main.pdf $out/
+          mv latex/source/build/main.pdf $out/
+          mv latex/paper.zip $out/
         '';
       };
     });
