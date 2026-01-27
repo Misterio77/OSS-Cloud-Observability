@@ -27,6 +27,7 @@
           pkgs.tinymist
           pkgs.typstyle
           pkgs.harper
+          pkgs.entr
           # For reprod
           (pkgs.python3.withPackages (p: [
             p.pyyaml
