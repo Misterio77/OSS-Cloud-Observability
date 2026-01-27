@@ -68,14 +68,17 @@
         src = ./.;
         buildInputs = [pkgs.texliveFull pkgs.inkscape pkgs.zip];
         buildPhase = ''
-          pushd latex
           # Replace symlinks
           for f in $(find . -maxdepth 1 -type l); do
             cp --remove-destination "$(readlink -e $f)" "$f"
           done
+
+          # Zip up source
+          pushd latex
           zip paper.zip source supplements -r
           popd
 
+          # Build pdf
           pushd latex/source
           latexmk
           popd
