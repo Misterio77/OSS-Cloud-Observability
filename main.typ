@@ -259,7 +259,7 @@ As with any secondary studies, threats to validity must be considered as well as
 
 - *Code matches can contain transitive relations*. Transitive dependencies/integrations are also frequently matched, which might be an issue if the intention is to only model direct ones. This can be partially mitigated by excluding lockfiles. We decided to not qualitatively differentiate the nature of each relation, so this is considered out of scope for this paper.
 
-- *Human error during selection*. As with any classification based on human decisions, our selection process could contain errors or be biased. This was mitigated by consensus between the authors and by carefully researching each candidate tool.
+- *Human error during selection*. As with any classification based on human decisions, our selection phase (@selection-phase) could contain errors or be biased. This was mitigated by consensus between the authors and by carefully researching each candidate tool.
 
 == Future Work <future-work>
 
