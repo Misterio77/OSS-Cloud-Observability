@@ -543,23 +543,21 @@ cloud observability are:
 
 \begin{itemize}
 \item
-  \textbf{Quantitative code matching can be a good proxy to find
-  relations between codebases}. Our approach of matching the names of
-  each tool on other tools' codebases worked.
-  Figure~\ref{fig-relations} clearly shows clustering between
-  well-known combinations: ElasticSearch+Logstash+Kibana (ELK stack),
-  \emph{Telegraf}+\emph{InfluxDB}+\emph{Chronograf}+\emph{Kapacitor}
-  (TICK stack). We can also see library usage (e.g.,
-  \emph{OpenTelemetry}), the most ubiquitous tools (\emph{Prometheus})
-  being highly referenced to, as well as some disconnected clusters
-  (e.g., \emph{Powerjoular}+\emph{JoularJX}, \emph{Thingspeak}).
-  Notably, our approach is very accurate in modeling directed relations,
-  such as \emph{Grafana} integrating with \emph{Prometheus}
-  \cite{grafana-prometheus-docs}, but not the other way around.
-  Finally, our approach is heavily automated, and thus scales much
-  better than the alternatives that involve manual labeling or more
-  qualitative analysis. It should be interesting to apply these
-  techniques to different Software Ecosystems.
+  \textbf{Quantitative code matching can be a good proxy to find relations
+  between codebases}. Our approach of matching the names of each tool on other
+  tools' codebases worked. Figure~\ref{fig-relations} clearly shows clustering
+  between well-known combinations: ElasticSearch+Logstash+Kibana (ELK stack),
+  \emph{Telegraf}+\emph{InfluxDB}+\emph{Chronograf}+\emph{Kapacitor} (TICK
+  stack). We can also see library usage (e.g., \emph{OpenTelemetry}), the most
+  ubiquitous tools (\emph{Prometheus}) being highly referenced to, as well
+  as some disconnected clusters (e.g., \emph{Powerjoular}+\emph{JoularJX},
+  \emph{Thingspeak}). Notably, our approach is very accurate in modeling
+  directed relations, such as \emph{Grafana} integrating with \emph{Prometheus}
+  \cite{grafana-prometheus-docs}, but not the other way around. Finally,
+  our approach is heavily automated, and thus scales much better than the
+  alternatives that involve manual labeling or more qualitative analysis. It
+  should be interesting to apply the code matching technique to explore the
+  relations between projects in different Software Ecosystems.
 \item
   \textbf{Some tools are de-facto standards, bringing interoperability
   but risking over-reliance}. It is interesting to see how
