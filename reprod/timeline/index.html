@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="data:,">
+  <title>Observability ecosystem timeline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="identity">
+      <h1>Ecosystem drift</h1>
+      <span class="dataset-mark">CODE OCCURRENCES</span>
+    </div>
+    <div class="topbar-actions">
+      <label class="search-field" for="tool-search">
+        <span>Find tool</span>
+        <input id="tool-search" list="tool-options" type="search" autocomplete="off" placeholder="prometheus">
+      </label>
+      <datalist id="tool-options"></datalist>
+      <button class="text-button" id="clear-selection" type="button" disabled>Clear selection</button>
+    </div>
+  </header>
+
+  <main class="workspace" id="workspace">
+    <section class="map-panel" aria-labelledby="map-title">
+      <h2 id="map-title" class="sr-only">Tool relationship graph</h2>
+      <svg id="ecosystem-map" viewBox="0 0 1000 700" role="img" aria-labelledby="map-title map-description">
+        <desc id="map-description">Directed relationships between observability tools for the selected month.</desc>
+        <defs>
+          <marker id="arrow-current" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+            <path class="arrow-current" d="M0,0 L9,4.5 L0,9 Z"></path>
+          </marker>
+          <marker id="arrow-new" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+            <path class="arrow-new" d="M0,0 L9,4.5 L0,9 Z"></path>
+          </marker>
+          <marker id="arrow-decrease" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+            <path class="arrow-decrease" d="M0,0 L9,4.5 L0,9 Z"></path>
+          </marker>
+        </defs>
+        <g id="viewport-layer">
+          <g id="edge-layer"></g>
+          <g id="node-layer"></g>
+        </g>
+      </svg>
+
+      <div class="map-tools" aria-label="Map controls">
+        <button class="icon-button" id="zoom-out" type="button" aria-label="Zoom out">−</button>
+        <button class="icon-button" id="reset-view" type="button" aria-label="Reset map view">Reset</button>
+        <button class="icon-button" id="zoom-in" type="button" aria-label="Zoom in">+</button>
+      </div>
+
+      <div class="legend" aria-label="Relationship change legend">
+        <span><i class="legend-line current"></i>Present</span>
+        <span><i class="legend-line new"></i>New</span>
+        <span><i class="legend-line removed"></i>Removed</span>
+      </div>
+
+      <div class="load-state" id="load-state" role="status" aria-live="polite">
+        <span class="loader" aria-hidden="true"></span>
+        <span id="load-message">Loading timeline…</span>
+      </div>
+    </section>
+
+    <aside class="inspector" aria-labelledby="inspector-title">
+      <div class="inspector-head">
+        <p id="inspector-mode">MONTHLY CHANGE</p>
+        <h2 id="inspector-title">Largest shifts</h2>
+        <output id="comparison-label">—</output>
+      </div>
+      <div id="inspector-content" class="inspector-content"></div>
+    </aside>
+  </main>
+
+  <section class="timeline" aria-label="Timeline controls">
+    <div class="transport">
+      <button class="play-button" id="play-toggle" type="button" aria-label="Play timeline" aria-pressed="false">
+        <span aria-hidden="true">▶</span>
+      </button>
+      <output class="month-output" id="month-output" for="month-slider">—</output>
+    </div>
+
+    <div class="timeline-track">
+      <label for="month-slider">Month</label>
+      <input id="month-slider" type="range" min="0" max="0" value="0" disabled>
+      <div class="timeline-bounds" aria-hidden="true">
+        <span id="timeline-start">—</span>
+        <span id="timeline-end">—</span>
+      </div>
+    </div>
+
+    <div class="control-pair">
+      <label for="compare-mode">Compare</label>
+      <select id="compare-mode">
+        <option value="previous">Previous month</option>
+        <option value="start">January 2020</option>
+      </select>
+    </div>
+
+    <div class="control-pair threshold-control">
+      <label for="edge-threshold">Edge floor <output id="threshold-output" for="edge-threshold">5%</output></label>
+      <input id="edge-threshold" type="range" min="1" max="20" value="5">
+    </div>
+  </section>
+
+  <footer class="statusline">
+    <span id="status-summary">Waiting for longitudinal data</span>
+    <span>← → month · space play · wheel zoom</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
