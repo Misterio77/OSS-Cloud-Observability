@@ -17,7 +17,7 @@
 
   // Get tools, sort by number of appearances
   let data =  data.tools_selected
-    .map(((name, sources)) => ((name, sources.len())))
+    .map(((name, sources)) => ((name, sources.dedup().len())))
     .filter(((name, count)) => count > 1)
     .sorted(key: it => it.at(1))
     .rev()

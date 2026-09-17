@@ -5,8 +5,8 @@
 #table(columns: 3,
   [*Tool*], [*Studies*], [*Roles*],
   ..data.tools_selected
-    .sorted(key: it => -it.sources.len())
+    .sorted(key: it => -it.sources.dedup().len())
     .map(((name,sources,roles)) => (
-      name, str(sources.len()), roles.join(", ")
+      name, str(sources.dedup().len()), roles.join(", ")
     )).flatten(),
 )

@@ -168,7 +168,6 @@
     - processing
   sources:
     - 300
-    - 300
     - 343
     - 1183
     - 1633
@@ -474,7 +473,6 @@
   sources:
     - 234
     - 672
-    - 672
 - name: xdmod
   repositories:
     - rev: b5eee532c401d4d0530d8454d7fce126a67bb31d
@@ -489,7 +487,6 @@
     - analysis
   sources:
     - 396
-    - 1652
     - 1652
 - name: zabbix
   repositories:

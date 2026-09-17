@@ -59,4 +59,4 @@
 }
 
 // Papers that contain a tool from my final manual selection
-#let papers_selected = tools_selected.map(it => it.sources).flatten().dedup().map(it => scopus_results.at(it))
+#let papers_selected = tools_selected.map(it => it.sources).flatten().dedup().map(it => scopus_results.at(it - 1))
