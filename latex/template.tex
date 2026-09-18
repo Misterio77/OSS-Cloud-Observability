@@ -1,0 +1,71 @@
+\documentclass[sigconf]{acmart}
+
+\setcopyright{$latex-copyright$}
+$if(latex-cc-type)$
+\setcctype{$latex-cc-type$}
+$endif$
+\acmDOI{$latex-doi$}
+\acmISBN{$latex-isbn$}
+\acmConference[$latex-conference-short$]{$latex-conference-name$}{$latex-conference-date$, $latex-conference-year$}{$latex-conference-venue$}
+$if(latex-conference-booktitle)$
+\acmBooktitle{$latex-conference-booktitle$}
+$endif$
+\acmYear{$latex-conference-year$}
+\copyrightyear{$latex-conference-year$}
+
+\title{$latex-title$}
+$for(latex-authors)$
+\author{$latex-authors.name$}
+\email{$latex-authors.email$}
+\affiliation{%
+  \institution{$latex-authors.institute$}
+  \city{$latex-authors.city$}
+  \country{$latex-authors.country$}
+}
+$endfor$
+$if(latex-short-authors)$
+\renewcommand{\shortauthors}{$latex-short-authors$}
+$endif$
+
+\begin{abstract}
+$abstract$
+\end{abstract}
+
+$latex-ccsxml$
+
+$for(latex-ccs)$
+\ccsdesc[$latex-ccs.significance$]{$latex-ccs.generic$~$latex-ccs.specific$}
+$endfor$
+\keywords{$latex-keywords$}
+
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{tabularx}
+
+$highlighting-macros$
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\newcommand{\acmartcallout}[1]{%
+  \begin{center}%
+  \setlength{\fboxsep}{7pt}%
+  \fbox{\parbox{\dimexpr\columnwidth-2\fboxsep-2\fboxrule}{#1}}%
+  \end{center}}
+
+\begin{document}
+\maketitle
+
+$body$
+
+$if(latex-acknowledgments)$
+\begin{acks}
+$latex-acknowledgments$
+\end{acks}
+$endif$
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+$latex-appendix$
+
+\end{document}

@@ -151,37 +151,132 @@
 //   ),
 //   ...
 // )
-#let acmart-ccs(ccs-concepts) = [
-  #set par(first-line-indent: 0em)
-  = CCS Concepts
-  #ccs-concepts.map(concept => 
-    [ #sym.bullet #concept.generic #sym.arrow.r #concept.specific.join("; ") ]
-  ).join("; ").
-]
+#let acmart-ccs(ccs-concepts) = context {
+  if target() == "html" {
+    html.elem(
+      "div",
+      attrs: (class: "latex-ccs"),
+      ccs-concepts.map(concept => concept.specific.map(specific => {
+        // `specific` is either a name or a (name, id) pair. The id comes from
+        // ACM's CCS tool and is required for the CCSXML metadata block.
+        let (name, id) = if type(specific) == str {
+          (specific, "")
+        } else {
+          (specific.name, specific.at("id", default: ""))
+        }
+        html.elem(
+          "span",
+          attrs: (
+            class: "latex-ccs-concept",
+            data-generic: concept.generic,
+            data-specific: name,
+            data-id: id,
+            data-significance: str(concept.at("significance", default: 500)),
+          ),
+          concept.generic + ": " + name,
+        )
+      }).join()).join(),
+    )
+  } else [
+    #set par(first-line-indent: 0em)
+    = CCS Concepts
+    #ccs-concepts.map(concept => {
+      let names = concept.specific.map(specific =>
+        if type(specific) == str { specific } else { specific.name }
+      )
+      [#sym.bullet *#concept.generic* #sym.arrow.r #names.map(strong).join("; ")]
+    }).join("; ").
+  ]
+}
 
-#let acmart-keywords(keywords) = [
-  #set par(first-line-indent: 0em)
-  = Keywords 
-  #keywords.join(", ")
-]
-
-// Display the ACM reference format.
-#let acmart-ref(title, authors, conference, doi) = [
-  #set par(first-line-indent: 0em)
-  #set text(size: 0.9em)
-  *ACM Reference Format:*
-  #linebreak()
-  #let names = authors.map(author => author.name)
-  #if names.len() > 1 {
-    names.push(" and " + names.pop())
+// Semantic hints consumed by the generic HTML-to-acmart converter. They are
+// transparent in the Typst PDF and become data attributes in HTML.
+#let acmart-callout(body) = context {
+  if target() == "html" {
+    html.elem("div", attrs: (class: "latex-callout"), body)
+  } else {
+    block(above: 0.8em, stroke: luma(10), inset: 0.5em, body)
   }
-  #names.join(","). <anon>
-  #conference.year
-  #title.
-  In _ #conference.name (#conference.short), #conference.date, #conference.year, #conference.venue. _
-  ACM, New York, NY, USA, #context counter(page).final().at(0) pages.
-  #link(doi)
-]
+}
+
+// `description` is the accessibility text ACM requires. Typst's HTML export
+// drops figure `alt`, so it is declared here and applied to both targets.
+#let acmart-figure(body, width: "100%", span: false, description: none) = context {
+  if target() == "html" {
+    html.elem(
+      "div",
+      attrs: (
+        class: "latex-figure-layout",
+        data-width: width,
+        data-span: if span { "true" } else { "false" },
+        data-description: if description == none { "" } else { description },
+      ),
+      body,
+    )
+  } else {
+    set figure(alt: description)
+    body
+  }
+}
+
+#let acmart-table(body, columns: (), size: "small", width: "100%") = context {
+  if target() == "html" {
+    html.elem(
+      "div",
+      attrs: (
+        class: "latex-table-layout",
+        data-columns: columns.join(" "),
+        data-size: size,
+        data-width: width,
+      ),
+      body,
+    )
+  } else {
+    body
+  }
+}
+
+#let acmart-appendix(body) = context {
+  if target() == "html" {
+    html.elem("div", attrs: (class: "latex-appendix"), body)
+  } else {
+    body
+  }
+}
+
+#let acmart-keywords(keywords) = context {
+  if target() == "html" {
+    html.elem(
+      "div",
+      attrs: (class: "latex-keywords", data-keywords: keywords.join(", ")),
+      keywords.join(", "),
+    )
+  } else [
+    #set par(first-line-indent: 0em)
+    = Keywords
+    #keywords.join(", ")
+  ]
+}
+
+// Display the ACM reference format. LaTeX's acmart class creates its own.
+#let acmart-ref(title, authors, conference, doi) = context {
+  if target() != "html" [
+    #set par(first-line-indent: 0em)
+    #set text(size: 0.9em)
+    *ACM Reference Format:*
+    #linebreak()
+    #let names = authors.map(author => author.name)
+    #if names.len() > 1 {
+      names.push(" and " + names.pop())
+    }
+    #names.join(","). <anon>
+    #conference.year
+    #title.
+    In _ #conference.name (#conference.short), #conference.date, #conference.year, #conference.venue. _
+    ACM, New York, NY, USA, #context counter(page).final().at(0) pages.
+    #link(doi)
+  ]
+}
 
 // Display the authors list.
 #let acmart-authors(authors, ncols: 5) = {
@@ -230,18 +325,12 @@
 // This function gets your whole document as its `body`
 #let acmart(
   // The paper's title.
-  title: [Paper Title],
+  title: [],
 
   // An array of authors. For each author you can specify a name,
   // department, organization, location, and email. Everything but
   // but the name is optional.
-  authors: (
-    (
-      name: [Junliang Hu],
-      email: [jlhu\@cse.cuhk.edu.hk],
-      // mark: super[1],
-    ),
-  ),
+  authors: (),
 
   // An array of affiliations. To be used when you want to seperate affiliation information from authors.
   // affiliations: (
@@ -254,23 +343,23 @@
   // ),
   affiliations: (),
 
-  keywords: (
-    "Virtual machine",
-    "Virtual memory",
-    "Operating system"
-  ),
+  keywords: (),
 
   conference: (
-    name:  [ACM SIGOPS 31th Symposium on Operating Systems Principles],
-    short: [SOSP ’25],
-    year:  [2025],
-    date:  [October 13–16],
-    venue: [Seoul, Republic of Korea],
+    name: [],
+    short: [],
+    year: [],
+    date: [],
+    venue: [],
   ),
 
-  doi: "https://doi.org/10.1145/0000000000",
-  isbn: "979-8-0000-0000-0/00/00",
+  doi: "",
+  isbn: "",
   copyright: "cc",
+  // Creative Commons variant, used when `copyright` is "cc".
+  cc-type: "by",
+  // Running-head author list. LaTeX's acmart guesses one when unset.
+  short-authors: none,
 
   // Whether we are submitting as an anonymous version
   review: none,
@@ -288,9 +377,59 @@
 
   // The paper's content.
   body
-) = {
-  // Gabriel changes, later try to merge with the layout itself
-  // Shrink tables
+) = context {
+  if target() == "html" {
+    set document(
+      title: to-string(title),
+      author: if review == none { authors.map(a => to-string(a.name)) } else { () },
+      keywords: keywords,
+    )
+    set heading(numbering: "1.")
+    show cite: it => html.elem(
+      "span",
+      attrs: (role: "cite", data-bibkey: str(it.key)),
+      it,
+    )
+    show footnote: it => html.elem(
+      "span",
+      attrs: (role: "typst-footnote"),
+      it.body,
+    )
+    html.elem(
+      "div",
+      attrs: (
+        class: "latex-meta",
+        data-title: to-string(title),
+        data-doi: doi,
+        data-isbn: isbn,
+        data-conference-name: to-string(conference.name),
+        data-conference-short: to-string(conference.short),
+        data-conference-date: to-string(conference.date),
+        data-conference-year: to-string(conference.year),
+        data-conference-venue: to-string(conference.venue),
+        // ACM supplies an exact booktitle in the rights email; acmart derives a
+        // shorter one when it is absent.
+        data-conference-booktitle: to-string(conference.at("booktitle", default: "")),
+        data-copyright: copyright,
+        data-cc-type: cc-type,
+        data-short-authors: if short-authors == none { "" } else { short-authors },
+      ),
+      if review == none {
+        authors.map(author => html.elem(
+          "span",
+          attrs: (
+            class: "latex-author",
+            data-email: author.at("email", default: ""),
+            data-institute: author.at("institute", default: ""),
+            data-city: author.at("city", default: ""),
+          ),
+          author.name,
+        )).join()
+      },
+    )
+    body
+  } else {
+    // Compact tables for ACM's two-column layout.
   show table: it => {
     set text(size: 0.8em)
     set table.cell(inset: 2pt)
@@ -416,7 +555,7 @@
 
   place(top + center, scope: "parent", float: true, {
     // Display the paper's title.
-    align(center, text(font: "Linux Biolinum", size: 1.9em, [* #title *]))
+    align(center, text(font: "Linux Biolinum O", size: 1.9em, [* #title *]))
     if review != none {
       // Display submission id if specified via review
       v(.5em) + text(size: 1.2em, [Submission: #review])
@@ -449,6 +588,7 @@
     it
   }
   
-  // Display the paper's contents.
-  body
+    // Display the paper's contents.
+    body
+  }
 }

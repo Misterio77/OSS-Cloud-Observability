@@ -1,22 +1,22 @@
 #import "parts/data.typ"
 
-#let title = [Open Source Software Ecosystem for Cloud Observability: An Overview and Trends]
+#let title = "Open Source Software Ecosystem for Cloud Observability: An Overview and Trends"
 
 #let authors = (
   (
-    name: [Gabriel Silva Fontes],
+    name: "Gabriel Silva Fontes",
     email: "g.fontes@usp.br",
     institute: "University of São Paulo",
     city: "São Carlos, Brazil",
   ),
   (
-    name: [ Vasilios Andrikopoulos],
+    name: "Vasilios Andrikopoulos",
     email: "v.andrikopoulos@rug.nl",
     institute: "University of Groningen",
     city: "Groningen, The Netherlands",
   ),
   (
-    name: [Elisa Yumi Nakagawa],
+    name: "Elisa Yumi Nakagawa",
     email: "elisa@icmc.usp.br",
     institute: "University of São Paulo",
     city: "São Carlos, Brazil",
@@ -27,33 +27,26 @@
 #let isbn = "979-8-4007-2395-7/2026/04"
 
 #let conference = (
-  name: [14th IEEE/ACM International Workshop on Software Engineering for Systems-of-Systems and Software Ecosystems],
-  short: [SESoS '26],
-  date: [April 12--18],
-  year: [2026],
-  venue: [Rio de Janeiro, Brazil],
+  name: "14th IEEE/ACM International Workshop on Software Engineering for Systems-of-Systems and Software Ecosystems",
+  short: "SESoS ’26",
+  date: "April 12–18",
+  year: "2026",
+  venue: "Rio de Janeiro, Brazil",
+  booktitle: "14th IEEE/ACM International Workshop on Software Engineering for Systems-of-Systems and Software Ecosystems (SESoS ’26), April 12–18, 2026, Rio de Janeiro, Brazil",
 )
 
-#import "parts/layout.typ": acmart, acmart-ref, acmart-keywords, acmart-ccs
+#import "parts/layout.typ": acmart, acmart-ref, acmart-keywords, acmart-ccs, acmart-callout, acmart-figure, acmart-table, acmart-appendix
 
-#show: it => context {
-  if target() == "html" {
-    set heading(numbering: "1.")
-    show cite: it => html.elem("span", attrs: (role: "cite", data-bibkey: str(it.key)), it)
-    show math.equation: it => html.elem("span", attrs: (role: "equation"), html.frame(it))
-    it
-  } else {
-    show: acmart.with(
-      title: title,
-      authors: authors,
-      conference: conference,
-      copyright: "cc",
-      doi: doi,
-      isbn: isbn,
-    )
-    it
-  }
-}
+#show: acmart.with(
+  title: title,
+  authors: authors,
+  short-authors: "Fontes et al.",
+  conference: conference,
+  copyright: "cc",
+  cc-type: "by",
+  doi: doi,
+  isbn: isbn,
+)
 
 = Abstract
 
@@ -71,8 +64,20 @@ We present an overview of different tools, how frequently they appear, their fun
 #acmart-ccs(
 (
   (
-    generic: [*Software and its engineering*], 
-    specific: ([*Cloud computing*],),
+    generic: "Software and its engineering",
+    specific: ((name: "Cloud computing", id: "10011007.10010940.10010971.10011120.10003100"),),
+  ),
+  (
+    generic: "Information systems",
+    specific: ((name: "Open source software", id: "10002951.10003227.10003233.10003597"),),
+  ),
+  (
+    generic: "General and reference",
+    specific: (
+      (name: "Reliability", id: "10002944.10011123.10010577"),
+      (name: "Metrics", id: "10002944.10011123.10011124"),
+    ),
+    significance: 300,
   ),
 )
 )
@@ -100,14 +105,19 @@ The remainder of this paper is structured as follows: @research-method outlines 
 
 @fig-research-method provides an overview of the research method and the reproduction package files that correspond to each step. The reproduction package is made available both in the supplementary material and online#footnote[https://github.com/Misterio77/OSS-Cloud-Observability] to replicate the entirety of this research.
 
-#figure(caption: [Overview of research method], alt: "A flowchart for visualizing the phases and steps for the research method, which are textually explained in the subsections.", html.frame(include "parts/fig-research-method.typ")) <fig-research-method>
+#acmart-figure(
+  width: "98%",
+  description: "A flowchart for visualizing the phases and steps for the research method, which are textually explained in the subsections.",
+)[
+  #figure(caption: [Overview of research method], html.frame(include "parts/fig-research-method.typ")) <fig-research-method>
+]
 
 
 == Search Phase
 
-To build our initial set of tools, we used a large population of research studies as basis. For that, we searched Scopus #footnote[https://scopus.com] with the following query:
+To build our initial set of tools, we used a large population of research studies as basis. For that, we searched Scopus#footnote[https://scopus.com] with the following query:
 
-#raw(block: false, lang: "sql", data.scopus_search_query)
+#raw(block: true, lang: "sql", data.scopus_search_query)
 
 Our goal includes, but is not limited to, finding more niche tools and thus benefits from a large and diverse sample size. To avoid missing relevant tools, this search query intentionally did not try to exclude research software nor proprietary software, thus leaving this filtering for manual selection, as described in @selection-phase.
 
@@ -195,17 +205,32 @@ We selected *#data.tools_selected.len()* tools, which can be tracked back to the
 
 @fig-tool-occurrence visualizes how frequently each tool appears, in number of studies. Notoriously, _Prometheus_ and _Grafana_ are very frequently mentioned in the studies, which correspond to our expectations and industry experience, where the two are frequently combined for a basic metric+visualization stack. _Thingspeak_ being highly mentioned, while unexpected, is possibly an indicator that IoT research frequently intersects with cloud computing.
 
-#figure(caption: [Number of studies mentioning each tool \ (Tools appearing on a single study were omitted)], alt: "A bar chart showing how frequently each tool appears. Thingspeak appears first with 21 studies mentioning it; followed by prometheus with 18; grafana with 15; nagios with 10; elasticsearch with 7; zabbix with 6; kafka with 5; thingsboard, snort, kibana, kepler, ganglia, ceilometer with 4; influxdb with 3; xdmod, wazuh, skydive, scaphandre, opentelemetry, fluentd with 2. All other tools that appear only on one study are omitted.", html.frame(include "parts/fig-tool-occurrence.typ")) <fig-tool-occurrence>
+#acmart-figure(
+  width: "98%",
+  description: "A bar chart showing how frequently each tool appears. Thingspeak appears first with 21 studies mentioning it; followed by prometheus with 18; grafana with 15; nagios with 10; elasticsearch with 7; zabbix with 6; kafka with 5; thingsboard, snort, kibana, kepler, ganglia, ceilometer with 4; influxdb with 3; xdmod, wazuh, skydive, scaphandre, opentelemetry, fluentd with 2. All other tools that appear only on one study are omitted.",
+)[
+  #figure(caption: [Number of studies mentioning each tool \ (Tools appearing on a single study were omitted)], html.frame(include "parts/fig-tool-occurrence.typ")) <fig-tool-occurrence>
+]
 
 @fig-tool-role shows how frequent each role (as defined in @selection-phase) is. Some tools have multiple roles (e.g. _Grafana_ has both `visualization` and `alerting`). We can see a very high frequency in the collection role; besides dedicated collectors, most instrumentation and processing tools seem to have some sort of collection/aggregation mechanism built-in.
 
-#figure(caption: [Number of tools per role \ (Some tools have multiple)], alt: "A bar chart showing which tool roles are more common. 30 tools have collection role, 12 instrumentation, 12 visualization, 9 processing, 7 alerting, 6 analysis, and 6 storage.", html.frame(include "parts/fig-tool-role.typ")) <fig-tool-role>
+#acmart-figure(
+  width: "98%",
+  description: "A bar chart showing which tool roles are more common. 30 tools have collection role, 12 instrumentation, 12 visualization, 9 processing, 7 alerting, 6 analysis, and 6 storage.",
+)[
+  #figure(caption: [Number of tools per role \ (Some tools have multiple)], html.frame(include "parts/fig-tool-role.typ")) <fig-tool-role>
+]
 
 @fig-yearly-distribution shows the yearly distribution of studies with at least one selected tool. We can see that there is a growing trend, possibly indicating the increased interest in the area. Our data contains studies from up until October 2025, thus 2024 studies are slightly more present than 2025 in the graph.
 
-#figure(caption: [Yearly study distribution], alt: "A column chart showing how many studies per year were selected. 2010-2015 has few studies (1-4 per year), with the pace increasing in 2016-2023 (6-11), peaking in 2024-2025 with 22 and 18. The data collection was conducted in october 2025, explaining why 2025 is slightly lower than 2024.", html.frame(include "parts/fig-yearly-distribution.typ")) <fig-yearly-distribution>
+#acmart-figure(
+  width: "98%",
+  description: "A column chart showing how many studies per year were selected. 2010-2015 has few studies (1-4 per year), with the pace increasing in 2016-2023 (6-11), peaking in 2024-2025 with 22 and 18. The data collection was conducted in october 2025, explaining why 2025 is slightly lower than 2024.",
+)[
+  #figure(caption: [Yearly study distribution], html.frame(include "parts/fig-yearly-distribution.typ")) <fig-yearly-distribution>
+]
 
-#block(above: 0.8em, stroke:luma(10), inset: 0.5em)[
+#acmart-callout[
   Answering RQ1: _Prometheus_ is ubiquitous in the cloud observability ecosystem. _Nagios_, _Grafana_ and _ElasticSearch_ are also frequent appearances. _Thingspeak_ is an interesting outlier, representing the intersection with IoT. Collection functionality is the most frequent, followed by instrumentation and visualization.
 ]
 
@@ -217,11 +242,19 @@ The graph edges are directed and weighted, serving as visualization of how much 
 
 The node size is derived from the sum of the weights of connections with that node as destination, interpreted as how important the tool is to the ecosystem. The node colors are a visualization of community clustering, that groups tightly connected nodes together.
 
-#figure(caption: [Relations between tools, clustered and weighted by relative code occurrence], alt: "A directed graph of tools, their relations, centrality (visualized by size), and color coded based on community clustering. Some tools such as prometheus, elasticsearch, opentelemetry, and kafka are very well connected destinations (i.e. many other tools have mentions to it in their source code). Some common stacks are visible in the community clustering (e.g. influxdb, kapacitor, telegraf, have the same color, the same applies for elasticsearch, kibana, logstash, elastic beats.)", placement: auto, scope: "parent", html.frame(data.clustering_results)) <fig-relations>
+#acmart-figure(
+  width: "95%",
+  span: true,
+  description: "A directed graph of tools, their relations, centrality (visualized by size), and color coded based on community clustering. Some tools such as prometheus, elasticsearch, opentelemetry, and kafka are very well connected destinations (i.e. many other tools have mentions to it in their source code). Some common stacks are visible in the community clustering (e.g. influxdb, kapacitor, telegraf, have the same color, the same applies for elasticsearch, kibana, logstash, elastic beats.)",
+)[
+  // Not wrapped in `html.frame`: that rasterizes the file, while passing the
+  // image through keeps the original vector SVG (and its text) in the export.
+  #figure(caption: [Relations between tools, clustered and weighted by relative code occurrence], placement: auto, scope: "parent", data.clustering_results) <fig-relations>
+]
 
 We can see in the figure how many tools relate to _Prometheus_; due to its format being the dominant one for metrics, most other tools export metrics that are compatible with _Prometheus_.  _Thingspeak_ is very disconnected from the other tools, which hints that IoT tooling tends to be more standalone. _JoularJX_ and _Powerjoular_, a pair of tools built together to, respectively, collect and aggregate power consumption data, also appear isolated yet tightly coupled together. Some stacks can be clearly seen being formed in the figure: the _ElasticSearch_+_Logstash_+_Kibana_ ELK stack, and the _Telegraf_+_InfluxDB_+_Chronograf_+_Kapacitor_ TICK stack being some obvious ones. The directionality of the relations is also representative of how the tools behave, with _Grafana_ heavily relating to _Prometheus_ (it has a _Prometheus_ datasource built-in @grafana-prometheus-docs), but not the other way around (i.e.  _Prometheus_ knows almost nothing about _Grafana_).
 
-#block(above: 0.8em, stroke:luma(10), inset: 0.5em)[
+#acmart-callout[
   Answering RQ2: some common stacks appear in this research, such as ELK and TICK. Some tools are highly integrated in the ecosystem, with _Prometheus_ being a central piece. _Thingspeak_ is an outlier and shows that IoT tends toward standalone solutions.
 ]
 
@@ -290,6 +323,14 @@ This study was financed by São Paulo Research Foundation (FAPESP) (2023/00488-5
 #counter(heading).update(0)
 #colbreak(weak: true)
 
-= Selected Tools
+#acmart-appendix[
+  #acmart-table(columns: ("l", "r", "X"))[
+    = Selected Tools
 
-#figure(caption: [Selected tools], include "parts/tools-table.typ") <table-selected-tools>
+    #figure(caption: [Selected Tools], include "parts/tools-table.typ") <table-selected-tools>
+  ]
+
+  #heading(numbering: none)[Self-archived version note]
+
+  This self-archived author version fixes a counting mistake in kafka/wazuh/xdmod study counts, and improves Figure 5 for readability. The Version of Record was published by ACM and is available at https://doi.org/10.1145/3786163.3788453.
+]
